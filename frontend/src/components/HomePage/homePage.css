@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homePage-container {
+    background-color: #FFDE59;
+}
+
 .header-container {
     display: flex;
     flex-direction: row;
@@ -12,13 +22,12 @@
     flex-direction: row;
     align-items: center;
     gap: 15px;
-    padding-right: 20px;
 }
 
 .logo h1 {
     color: #FFF;
     font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'VT323', monospace;
 }
 
 .logo .icon {
@@ -26,22 +35,74 @@
     height: 50px;
 }
 
-.actions{
+.actions {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 15px;
-    padding-left: 20px;
 }
 
-.actions p{
+.actions p {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-family: 'VT323', monospace;
 }
 
-.actions .entrar {
+.actions .enter {
     background-color: #FF0000;
     padding: 6px;
+}
+
+.actions .enter:hover {
+    background-color: #FFF;
+    color: #FF0000;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100vw;
+    height: 70vh;
+}
+
+.main-container h1 {
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 80px;
+}
+
+.snacks-img {
+    width: 300px;
+}
+
+.see-menu {
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+}
+
+.see-menu .link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-family: 'VT323', monospace;
+    color: #FFF;
+
+    background-color: #FF0000;
+    border: none;
+    text-decoration: none;
+
+    width: 10vw;
+    height: 8vh;
+}
+
+.see-menu .link-button:hover {
+    background-color: #FFF;
+    color: #FF0000;
 }
