@@ -25,7 +25,7 @@ function homePage() {
             </div>
 
             <div className="main-container">
-                <h1>Burguer Week</h1>
+                <h1 className='main-container-title'>Burguer Week</h1>
                 <img src={snacks} className='snacks-img' alt="snacks" />
             </div>
 

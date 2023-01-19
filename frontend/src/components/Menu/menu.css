@@ -6,6 +6,48 @@
 
 .menu-container{
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     background-color: #FFDE59;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 10vh;
+
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.title h1{
+    color: #FFF;
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+
+.chef-img{
+    width: 250px;
+    position: absolute;
+    animation: chef-appearing-from-left 3s;
+}
+
+@keyframes chef-appearing-from-left{
+    from {
+        transform: translateX(-500px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+} 
+
+.main-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 15px;
 }
