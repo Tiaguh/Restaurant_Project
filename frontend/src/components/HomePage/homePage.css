@@ -17,6 +17,10 @@
     height: 15vh;
 }
 
+.header-container .link{
+    text-decoration: none;
+}
+
 .logo {
     display: flex;
     flex-direction: row;
@@ -47,6 +51,10 @@
     text-decoration: none;
     font-size: 20px;
     font-family: 'VT323', monospace;
+}
+
+.actions .create-account:hover{
+    text-decoration: underline;
 }
 
 .actions .enter {

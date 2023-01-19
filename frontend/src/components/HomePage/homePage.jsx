@@ -14,8 +14,13 @@ function homePage() {
                 </div>
 
                 <div className='actions'>
-                    <p>Create an Account</p>
-                    <p className='enter'>To Enter</p>
+                    <Link className='link' to="/create-account">
+                        <p className='create-account'>Create an Account</p>
+                    </Link>
+
+                    <Link className='link' to="/login">
+                        <p className='enter'>To Enter</p>
+                    </Link>
                 </div>
             </div>
 
