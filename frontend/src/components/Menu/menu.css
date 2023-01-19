@@ -1,16 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.menu-container{
+.menu-container {
     width: 100vw;
     height: fit-content;
     background-color: #FFDE59;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -20,20 +20,20 @@
     margin-bottom: 20px;
 }
 
-.title h1{
+.title h1 {
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
     font-size: 50px;
 }
 
-.chef-img{
+.chef-img {
     width: 250px;
     position: absolute;
     animation: chef-appearing-from-left 3s;
 }
 
-@keyframes chef-appearing-from-left{
+@keyframes chef-appearing-from-left {
     from {
         transform: translateX(-500px);
     }
@@ -41,9 +41,9 @@
     to {
         transform: translateX(0);
     }
-} 
+}
 
-.main-menu{
+.main-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

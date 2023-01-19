@@ -6,6 +6,9 @@
 
 .homePage-container {
     background-color: #FFDE59;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .header-container {
