@@ -1,5 +1,5 @@
 import React from 'react'
-// import chef from './pictures/chef-picture.png'
+import chef from './pictures/chef-picture.png'
 
 import burguer1 from './pictures/burguer.png'
 import burguer2 from './pictures/burguer2.png'
@@ -24,6 +24,10 @@ function menu() {
         <h1>Menu</h1>
       </div>
 
+      <div className="chef-container">
+        <img className='chef-img' src={chef} alt='chef' />
+      </div>
+      
       <div className="main-menu">
         <MenuItems img={burguer2} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" />
         <MenuItems img={burguer1} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" />
@@ -38,7 +42,6 @@ function menu() {
         <MenuItems img={acai} nameItem='AcaiTeste' descriptionItem="Description Acai Teste" />
         <MenuItems img={cake} nameItem='CakeTeste' descriptionItem="Description Cake Teste" />
 
-        {/* <img className='chef-img' src={chef} alt='chef' /> */}
       </div>
     </div>
   )
