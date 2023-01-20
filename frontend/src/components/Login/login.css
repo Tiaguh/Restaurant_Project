@@ -1,7 +1,10 @@
-.login-container{
+.login-container {
     background-color: #FFDE59;
     width: 100vw;
     height: 100vh;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .login-title {
@@ -11,6 +14,18 @@
     height: 10vh;
 
     padding-top: 30px;
+
+    animation: title-appearing-from-up 2s;
+}
+
+@keyframes title-appearing-from-up {
+    from {
+        transform: translateY(-200px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 .login-title h1 {
@@ -20,7 +35,7 @@
     font-size: 50px;
 }
 
-.login-main{
+.login-main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -31,11 +46,24 @@
     height: 90vh;
 }
 
-.login-main-img img{
-    width: 280px;
+.login-main-img img {
+    max-width: 450px;
+    min-width: 200px;
+    
+    animation: img-appearing-from-left 2s;
 }
 
-form{
+@keyframes img-appearing-from-left {
+    from {
+        transform: translateX(-400px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +71,7 @@ form{
     gap: 30px;
 }
 
-form input{
+form input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,35 +79,36 @@ form input{
     font-family: 'VT323', monospace;
     font-size: 25px;
     text-align: center;
-    color: #FFF;    
-    
-    border: none;
+    color: #FFF;
+
+    border-top: none;
+    border-bottom: 2px solid #FFF;
+    border-left: none;
+    border-right: none;
+
+
     background-color: transparent;
     width: 500px;
     height: 40px;
 }
 
-form input::placeholder{
+form input::placeholder {
     color: #FFF;
 }
 
-form button{
-    width: 300px;
+form button {
+    width: 250px;
     height: 50px;
-    border-radius: 15px;
 
     font-family: 'VT323', monospace;
-    font-weight: bold;
     font-size: 25px;
     color: #FFF;
 
+    border: none;
     background-color: #FF0000;
-    border: #FFF 2px solid;
 }
 
-form button:hover{
+form button:hover {
     color: #FF0000;
-
     background-color: #FFF;
-    border: #FFF 2px solid;
 }
