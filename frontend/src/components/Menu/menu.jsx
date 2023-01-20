@@ -1,5 +1,5 @@
 import React from 'react'
-import chef from './pictures/chef-picture.png'
+// import chef from './pictures/chef-picture.png'
 
 import burguer1 from './pictures/burguer.png'
 import burguer2 from './pictures/burguer2.png'
@@ -24,23 +24,23 @@ function menu() {
         <h1>Menu</h1>
       </div>
 
-      <div className="chef-container">
+      {/* <div className="chef-container">
         <img className='chef-img' src={chef} alt='chef' />
-      </div>
-      
+      </div> */}
+
       <div className="main-menu">
-        <MenuItems img={burguer2} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" />
-        <MenuItems img={burguer1} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" />
-        <MenuItems img={combo1} nameItem='ComboTeste' descriptionItem="Description Combo Teste" />
-        <MenuItems img={combo2} nameItem='BurguerTeste' descriptionItem="Description Combo Teste" />
-        <MenuItems img={milkshake} nameItem='MilkShakeTeste' descriptionItem="Description Milk Teste" />
-        <MenuItems img={pizza1} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" />
-        <MenuItems img={pizza2} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" />
-        <MenuItems img={pizza3} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" />
-        <MenuItems img={potato} nameItem='PotatoTeste' descriptionItem="Description Potato Teste" />
-        <MenuItems img={soda} nameItem='SodaTeste' descriptionItem="Description Soda Teste" />
-        <MenuItems img={acai} nameItem='AcaiTeste' descriptionItem="Description Acai Teste" />
-        <MenuItems img={cake} nameItem='CakeTeste' descriptionItem="Description Cake Teste" />
+        <MenuItems img={combo2} nameItem='BurguerTeste' descriptionItem="Description Combo Teste" price="R$ 9,99" />
+        <MenuItems img={burguer1} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" price="R$ 9,99" />
+        <MenuItems img={combo1} nameItem='ComboTeste' descriptionItem="Description Combo Teste" price="R$ 9,99" />
+        <MenuItems img={burguer2} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" price="R$ 9,99" />
+        <MenuItems img={milkshake} nameItem='MilkShakeTeste' descriptionItem="Description Milk Teste" price="R$ 9,99" />
+        <MenuItems img={potato} nameItem='PotatoTeste' descriptionItem="Description Potato Teste" price="R$ 9,99" />
+        <MenuItems img={pizza1} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" price="R$ 9,99" />
+        <MenuItems img={pizza2} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" price="R$ 9,99" />
+        <MenuItems img={pizza3} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" price="R$ 9,99" />
+        <MenuItems img={soda} nameItem='SodaTeste' descriptionItem="Description Soda Teste" price="R$ 9,99" />
+        <MenuItems img={acai} nameItem='AcaiTeste' descriptionItem="Description Acai Teste" price="R$ 9,99" />
+        <MenuItems img={cake} nameItem='CakeTeste' descriptionItem="Description Cake Teste" price="R$ 9,99" />
 
       </div>
     </div>

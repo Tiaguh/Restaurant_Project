@@ -9,6 +9,7 @@ export default function menuItems(props) {
                     <img src={props.img} alt='burguer' />
                     <h2>{props.nameItem}</h2>
                     <p>{props.descriptionItem}</p>
+                    <h3>{props.price}</h3>
                     <button>Comprar</button>
                 </div>
             </div>

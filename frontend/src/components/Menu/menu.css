@@ -26,29 +26,6 @@
     font-family: 'VT323', monospace;
     font-size: 50px;
 }
-.chef-container{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.chef-img {
-    width: 250px;
-    position: absolute;
-    animation: chef-appearing-from-left 5s;
-}
-
-
-@keyframes chef-appearing-from-left {
-    from {
-        transform: translateX(-500px);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
 
 .main-menu {
     display: flex;
