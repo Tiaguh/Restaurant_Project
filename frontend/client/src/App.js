@@ -2,7 +2,6 @@ import HomePage from './components/HomePage/homePage';
 import Menu from './components/Menu/menu';
 import Login from './components/Login/login'
 import CreateAccount from './components/CreateAccount/createAccount'
-import AddItem from './components/AddItem/addItem';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -15,7 +14,6 @@ function App() {
           <Route path="/create-account" element={<CreateAccount />} />
           <Route path='/login' element={<Login />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path='/add-item' element={<AddItem />} />
         </Routes>
       </Router>
     </div>
