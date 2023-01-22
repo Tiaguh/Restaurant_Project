@@ -28,21 +28,31 @@ function menu() {
         <img className='chef-img' src={chef} alt='chef' />
       </div> */}
 
-      <div className="main-menu">
+      <div className="main-menu-1">
         <MenuItems img={combo2} nameItem='BurguerTeste' descriptionItem="Description Combo Teste" price="R$ 9,99" />
         <MenuItems img={burguer1} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" price="R$ 9,99" />
         <MenuItems img={combo1} nameItem='ComboTeste' descriptionItem="Description Combo Teste" price="R$ 9,99" />
+
+      </div>
+
+      <div className="main-menu-2">
         <MenuItems img={burguer2} nameItem='BurguerTeste' descriptionItem="Description Burguer Teste" price="R$ 9,99" />
         <MenuItems img={milkshake} nameItem='MilkShakeTeste' descriptionItem="Description Milk Teste" price="R$ 9,99" />
         <MenuItems img={potato} nameItem='PotatoTeste' descriptionItem="Description Potato Teste" price="R$ 9,99" />
+      </div>
+
+      <div className="main-menu-1">
         <MenuItems img={pizza1} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" price="R$ 9,99" />
         <MenuItems img={pizza2} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" price="R$ 9,99" />
         <MenuItems img={pizza3} nameItem='PizzaTeste' descriptionItem="Description Pizza Teste" price="R$ 9,99" />
+      </div>
+
+      <div className="main-menu-2">
         <MenuItems img={soda} nameItem='SodaTeste' descriptionItem="Description Soda Teste" price="R$ 9,99" />
         <MenuItems img={acai} nameItem='AcaiTeste' descriptionItem="Description Acai Teste" price="R$ 9,99" />
         <MenuItems img={cake} nameItem='CakeTeste' descriptionItem="Description Cake Teste" price="R$ 9,99" />
-
       </div>
+
     </div>
   )
 }

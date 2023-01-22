@@ -27,11 +27,44 @@
     font-size: 50px;
 }
 
-.main-menu {
+.main-menu-1 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 30px;
     padding-bottom: 15px;
+    animation: main-menu-1-appearing-left 2s;
+}
+
+@keyframes main-menu-1-appearing-left {
+    from{
+        transform: translateX(-400px);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+    
+}
+
+.main-menu-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 15px;
+    animation: main-menu-1-appearing-right 2s;
+}
+
+@keyframes main-menu-1-appearing-right {
+    from{
+        transform: translateX(400px);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+    
 }
