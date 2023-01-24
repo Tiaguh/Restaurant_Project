@@ -1,7 +1,7 @@
 import React from 'react'
 import './menuItems.css'
 
-export default function menuItems(props) {
+function menuItems(props) {
     return (
         <div className="menu-items-container">
             <div className="card">
@@ -16,3 +16,5 @@ export default function menuItems(props) {
         </div>
     )
 }
+
+export default menuItems

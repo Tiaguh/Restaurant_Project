@@ -1,0 +1,16 @@
+.requests-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.requests-main {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    width: 83vw;
+    height: fit-content;
+
+    margin-left: 17vw;
+}

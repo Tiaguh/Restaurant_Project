@@ -15,7 +15,7 @@
 
     padding-top: 30px;
 
-    animation: title-appearing-from-up 2s;
+    animation: title-appearing-from-up 1s;
 }
 
 @keyframes title-appearing-from-up {
@@ -49,7 +49,7 @@
 .add-item-main-img img{
     max-width: 250px;
     min-width: 200px;
-    animation: img-appearing-from-left 2s;
+    animation: img-appearing-from-left 1s;
 }
 
 @keyframes img-appearing-from-left {
@@ -90,7 +90,7 @@ form input{
     width: 400px;
     height: 40px;
 
-    animation: form-appearing-from-right 2s;
+    animation: form-appearing-from-right 1s;
 }
 
 @keyframes form-appearing-from-right {
@@ -124,7 +124,7 @@ form button{
     border: none;
     background-color: #FF0000;
 
-    animation: button-form-appearing-from-down 2s;
+    animation: button-form-appearing-from-down 1s;
 }
 
 @keyframes button-form-appearing-from-down {

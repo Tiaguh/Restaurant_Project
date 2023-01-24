@@ -1,0 +1,20 @@
+.requestsList-container{
+    padding-top: 30px;
+}
+
+.requestsList-cards{
+    width: 250px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #DCDCDC;
+    padding: 15px;
+
+    font-family: 'VT323', monospace;
+    font-size: x-large;
+    text-align: justify;
+}

@@ -4,6 +4,8 @@
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: hidden;
+
+    position: fixed;
 }
 
 .header-container .header-side-bar {
