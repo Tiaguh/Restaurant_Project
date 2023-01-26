@@ -1,5 +1,6 @@
 import express from 'express'
 import mysql2 from 'mysql2'
+import cors from 'cors'
 
 const app = express();
 
@@ -12,8 +13,9 @@ const connection = mysql2.createConnection({
 })
 
 app.use(express.json())
+app.use(cors())
 
-app.get("/items", (req, res)=>{
+app.get("/select-itens", (req, res)=>{
     const q = "SELECT * FROM menu"
     
     connection.query(q, (error, data)=>{
@@ -22,13 +24,14 @@ app.get("/items", (req, res)=>{
     })
 })
 
-app.post("/items", (req, res)=>{
-    const q = "INSERT INTO Menu (`item_name`, `item_description`, `item_price`) VALUES (?)"
+app.post("/add-item", (req, res)=>{
+    const q = "INSERT INTO Menu ( `item_name`, `item_description`, `item_price`) VALUES (?)"
     const values = [
         req.body.item_name,
         req.body.item_description,
 		req.body.item_price
-    ]
+    ];
+
     connection.query(q, [values], (error, data)=>{
         if(error) return res.json(error)
         return res.json("successfully added item")

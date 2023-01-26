@@ -15,4 +15,4 @@ CREATE TABLE Menu(
 
 SELECT * FROM Menu;
 
-INSERT INTO Menu VALUES (DEFAULT, 'x-burguer', 'a delicious burguer', 12);
+-- INSERT INTO Menu VALUES (DEFAULT, 'item_image', 'x-burguer', 'a delicious burguer', 12);
