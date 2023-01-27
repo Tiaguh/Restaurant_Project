@@ -4,6 +4,7 @@ import Requests from "./components/Requests/requests";
 import Chat from "./components/Chat/chat";
 import AddItem from './components/AddItem/addItem';
 import Menu from './components/Menu/menu'
+import Update from "./components/Update/update";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/update" element={<Update />} />
         </Routes>
       </Router>
     </div>

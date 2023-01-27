@@ -27,17 +27,17 @@ export default function Menu() {
         <h1>Menu</h1>
       </div>
 
-      <div className="main-menu">
+      <div className="card">
         {items.map(item => (
-          <div className="main-menu" key={item.id_item}>
-            {item.item_image && <img src={item.item_image} alt=""/>}
+          <div className="cards" key={item.id_item}>
+            {item.item_image && <img src={item.item_image} alt="snack" />}
             <h2>{item.item_name}</h2>
             <p>{item.item_description}</p>
-            <h3>{item.item_price}</h3>
+            <h3>R$ {item.item_price}</h3>
+            <button>Buy</button>
           </div>
         ))}
       </div>
-
     </div>
   )
 }

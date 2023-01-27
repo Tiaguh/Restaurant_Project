@@ -1,4 +1,4 @@
-.add-all-item-container{
+.update-all-container{
     background-color: #FFDE59;
     width: 100vw;
     height: 100vh;
@@ -10,7 +10,7 @@
     flex-direction: row;
 }
 
-.add-item-container{
+.update-container{
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -22,7 +22,7 @@
     margin-left: 17vw;
 }
 
-.add-item-title {
+.update-title {
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -43,14 +43,14 @@
     }
 }
 
-.add-item-title h1 {
+.update-title h1 {
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
     font-size: 50px;
 }
 
-.add-item-main{
+.update-main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -61,7 +61,7 @@
     height: 90vh;
 }
 
-.add-item-main-img img{
+.update-main-img img{
     max-width: 250px;
     min-width: 200px;
     animation: img-appearing-from-left 1s;

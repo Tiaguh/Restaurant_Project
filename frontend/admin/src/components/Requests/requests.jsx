@@ -9,6 +9,11 @@ function requests() {
       <Header />
 
       <div className="requests-main">
+
+        <div className="requests-title">
+          <h1>Requests</h1>
+        </div>
+
         <RequestsList
           RequestsList="Pizza"
           orderId="1"

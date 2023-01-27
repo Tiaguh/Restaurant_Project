@@ -6,6 +6,7 @@ USE Restaurant_Project;
 
 CREATE TABLE Menu(
 	id_item INT NOT NULL AUTO_INCREMENT,
+    item_img VARCHAR(60),
     item_name VARCHAR(45) NOT NULL,
     item_description VARCHAR(120) NOT NULL,
     item_price INT NOT NULL,
@@ -15,4 +16,4 @@ CREATE TABLE Menu(
 
 SELECT * FROM Menu;
 
--- INSERT INTO Menu VALUES (DEFAULT, 'item_image', 'x-burguer', 'a delicious burguer', 12);
+INSERT INTO Menu VALUES (DEFAULT, 'teste-img', 'x-burguer', 'a delicious burguer', 12);

@@ -1,12 +1,12 @@
 import React from 'react'
 import Menu from './img/menu.png'
 import Header from '../Header/header'
-import './addItem.css'
+import './update.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-export default function AddItem() {
+export default function Update() {
 
   const [item, setItem] = useState({
     item_name: "",
@@ -34,18 +34,18 @@ export default function AddItem() {
   }
 
   return (
-    <div className='add-all-item-container'>
+    <div className='update-all-container'>
 
       <Header />
 
-      <div className="add-item-container">
+      <div className="update-container">
 
-        <div className="add-item-title">
-          <h1>Add a New Item To The Menu</h1>
+        <div className="update-title">
+          <h1>Update a Item To The Menu</h1>
         </div>
 
-        <div className="add-item-main">
-          <div className="add-item-main-img">
+        <div className="update-main">
+          <div className="update-main-img">
             <img src={Menu} alt='Menu' />
           </div>
 

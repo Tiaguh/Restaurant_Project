@@ -38,6 +38,10 @@ app.post("/add-item", (req, res)=>{
     })
 })
 
+app.get("/", (req, res) =>{
+    res.json("Hello This a Backend")
+})
+
 app.listen(3333, () => {
     console.log("Server is Running");
 })
