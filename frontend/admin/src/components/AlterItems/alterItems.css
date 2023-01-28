@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 
-.menu-container-all {
+.alter-items-container-all {
     display: flex;
     flex-direction: column;
 }
 
-.menu-container {
+.alter-items-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

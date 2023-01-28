@@ -119,6 +119,8 @@ form button{
     background-color: #FF0000;
 
     animation: button-form-appearing-from-down 1s;
+
+    cursor: pointer;
 }
 
 @keyframes button-form-appearing-from-down {
@@ -136,4 +138,6 @@ form button:hover{
     background-color: #FFF;
 
     border: solid 2px #FF0000;
+
+    cursor: pointer;
 }

@@ -38,9 +38,19 @@ app.post("/add-item", (req, res)=>{
     })
 })
 
+app.delete("/delete-item/:id", (req, res)=>{
+    const item_id = req.params.id
+    const q = "DELETE FROM Menu WHERE id_item = ?"
+
+    connection.query(q, [item_id], (error, data)=>{
+        if(error) return res.json(error)
+        return res.json("successfully deleted item")
+    })
+})
 app.get("/", (req, res) =>{
     res.json("Hello This a Backend")
 })
+
 
 app.listen(3333, () => {
     console.log("Server is Running");

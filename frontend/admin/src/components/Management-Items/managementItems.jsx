@@ -9,7 +9,7 @@ export default function managementItems() {
         <div className="managament-items-all-container">
             <Header />
 
-            <Title title="Management Items" />
+            <Title title="List Items" />
             <div className="management-items-container">
 
                 <div className='management-items'>
@@ -19,17 +19,10 @@ export default function managementItems() {
                 </div>
 
                 <div className='management-items'>
-                    <Link className='link' to="/update-item">
-                        <button>Update Item</button>
+                    <Link className='link' to="/alter-items">
+                        <button>Alter Items</button>
                     </Link>
                 </div>
-
-                <div className='management-items'>
-                    <Link className='link' to="/delete-item">
-                        <button>Delete Item</button>
-                    </Link>
-                </div>
-
             </div>
 
         </div>

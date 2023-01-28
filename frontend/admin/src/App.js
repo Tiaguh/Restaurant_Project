@@ -4,9 +4,8 @@ import Requests from "./components/Requests/requests";
 import Chat from "./components/Chat/chat";
 import Menu from './components/Menu/menu'
 import AddItem from './components/AddItem/addItem';
-import Update from "./components/Update/update";
-import DeleteItem from "./components/DeleteItem/deleteItem";
 import ManagementItems from "./components/Management-Items/managementItems";
+import AlterItems from "./components/AlterItems/alterItems";
 
 
 function App() {
@@ -19,9 +18,8 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/update-item" element={<Update />} />
           <Route path="/management-items" element={<ManagementItems />} />
-          <Route path="/delete-item" element={<DeleteItem />} />
+          <Route path="/alter-items" element={<AlterItems />} />
         </Routes>
       </Router>
     </div>

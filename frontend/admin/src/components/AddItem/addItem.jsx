@@ -15,7 +15,7 @@ export default function AddItem() {
     item_price: null
   })
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const handleChange = (e) => {
     setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -28,6 +28,7 @@ export default function AddItem() {
 
     try {
       await axios.post("http://localhost:3333/add-item", item)
+      window.location.reload()
       // navigate("/")
     } catch (error) {
       console.log(error);

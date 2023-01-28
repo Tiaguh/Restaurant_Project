@@ -6,9 +6,9 @@ import axios from 'axios'
 
 // import chef from './pictures/chef-picture.png'
 
-import './menu.css'
+import './alterItems.css'
 
-export default function Menu() {
+export default function AlterItems() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -23,13 +23,22 @@ export default function Menu() {
     fetchAllItems()
   }, [])
 
+  const handleDelete = async (item_id) =>{
+    try{
+        await axios.delete("http://localhost:3333/delete-item/" + item_id)
+        window.location.reload()
+    }catch(error){
+        console.log(error);
+    }
+  }
+
   return (
-    <div className='menu-container-all'>
+    <div className='alter-items-container-all'>
       <Header />
 
-      <Title title="Menu" />
+      <Title title="List Items" />
 
-      <div className="menu-container">
+      <div className="alter-items-container">
 
         {items.map(item => (
           <div className="cards" key={item.id_item}>
@@ -37,6 +46,8 @@ export default function Menu() {
             <h2>{item.item_name}</h2>
             <p>{item.item_description}</p>
             <h3>R$ {item.item_price}</h3>
+            <button>Update</button>
+            <button onClick={()=> handleDelete(item.id_item)}>Delete</button>
           </div>
         ))}
       </div>
