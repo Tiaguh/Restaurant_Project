@@ -19,8 +19,8 @@ function header() {
                 </Link>
 
                 <div className="isolate">
-                    <Link className='link' to="/add-item">
-                        <p>Add Item</p>
+                    <Link className='link' to="/management-items">
+                        <p>Management Items</p>
                     </Link>
                 </div>
 

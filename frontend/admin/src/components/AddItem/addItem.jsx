@@ -1,6 +1,7 @@
 import React from 'react'
 import Menu from './img/menu.png'
 import Header from '../Header/header'
+import Title from '../Title/title'
 import './addItem.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -38,21 +39,17 @@ export default function AddItem() {
 
       <Header />
 
+      <Title title="Add a New Item To The Menu" />
       <div className="add-item-container">
-
-        <div className="add-item-title">
-          <h1>Add a New Item To The Menu</h1>
-        </div>
-
         <div className="add-item-main">
           <div className="add-item-main-img">
             <img src={Menu} alt='Menu' />
           </div>
 
           <form>
-            <input type="text" placeholder='Provide Item Name' onChange={handleChange} name='item_name' />
-            <input type="text" placeholder='Provide Item Description' onChange={handleChange} name='item_description' />
-            <input type="number" placeholder='Inform Item Price' onChange={handleChange} name='item_price' />
+            <input type="text" placeholder='Item Name' onChange={handleChange} name='item_name' />
+            <input type="text" placeholder='Item Description' onChange={handleChange} name='item_description' />
+            <input type="number" placeholder='Item Price' onChange={handleChange} name='item_price' />
             <button onClick={handleClick}>Add</button>
           </form>
         </div>

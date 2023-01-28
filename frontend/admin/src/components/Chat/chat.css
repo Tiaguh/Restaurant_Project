@@ -1,0 +1,17 @@
+.chat-container-all{
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    width: 83vw;
+    height: 100vh;
+
+    margin-left: 17vw;
+}

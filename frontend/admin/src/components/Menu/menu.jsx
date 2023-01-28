@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Header/header'
+import Title from '../Title/title'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -23,13 +24,13 @@ export default function Menu() {
   }, [])
 
   return (
-    <div className='menu-container'>
+    <div className='menu-container-all'>
       <Header />
-      
-      <div className="card">
-        <div className="title">
-          <h1>Menu</h1>
-        </div>
+
+      <Title title="Menu" />
+
+      <div className="menu-container">
+
         {items.map(item => (
           <div className="cards" key={item.id_item}>
             {item.item_image && <img src={item.item_image} alt="snack" />}

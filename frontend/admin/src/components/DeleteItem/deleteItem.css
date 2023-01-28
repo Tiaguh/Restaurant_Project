@@ -1,4 +1,4 @@
-.update-all-container{
+.update-all-item-container{
     background-color: #FFF;
     width: 100vw;
     height: 100vh;
@@ -10,7 +10,7 @@
     flex-direction: column;
 }
 
-.update-container{
+.update-item-container{
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -22,35 +22,14 @@
     margin-left: 17vw;
 }
 
-.update-title {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    height: 10vh;
-
-    padding-top: 30px;
-
-    animation: title-appearing-from-up 1s;
-}
-
-@keyframes title-appearing-from-up {
-    from {
-        transform: translateY(-200px);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
-.update-title h1 {
+.update-item-title h1 {
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
     font-size: 50px;
 }
 
-.update-main{
+.update-item-main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -61,7 +40,7 @@
     height: 90vh;
 }
 
-.update-main-img img{
+.update-item-main-img img{
     max-width: 250px;
     min-width: 200px;
     animation: img-appearing-from-left 1s;
@@ -108,6 +87,10 @@ form input{
     animation: form-appearing-from-right 1s;
 }
 
+form input::placeholder {
+    color: #000;
+}
+
 @keyframes form-appearing-from-right {
     from {
         transform: translateX(400px);
@@ -116,10 +99,6 @@ form input{
     to {
         transform: translateX(0);
     }
-}
-
-form input::placeholder{
-    color: #000;
 }
 
 input[type=number]::-webkit-inner-spin-button, 

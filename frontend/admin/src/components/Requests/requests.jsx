@@ -1,6 +1,7 @@
 import React from 'react'
 import RequestsList from '../Requests-List/requestsList'
 import Header from '../Header/header'
+import Title from '../Title/title'
 import './requests.css'
 
 function requests() {
@@ -8,12 +9,9 @@ function requests() {
     <div className='requests-container'>
       <Header />
 
+      <Title title="Requests" />
+
       <div className="requests-main">
-
-        <div className="requests-title">
-          <h1>Requests</h1>
-        </div>
-
         <RequestsList
           RequestsList="Pizza"
           orderId="1"

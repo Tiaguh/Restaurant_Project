@@ -1,8 +1,8 @@
 import React from 'react'
 import Header from '../Header/header'
-import './management.css'
+import './home.css'
 
-function management() {
+export default function Home() {
   return (
     <div className='management-container'>
         <Header />
@@ -12,5 +12,3 @@ function management() {
     </div>
   )
 }
-
-export default management

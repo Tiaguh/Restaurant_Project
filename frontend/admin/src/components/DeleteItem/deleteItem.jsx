@@ -1,13 +1,13 @@
 import React from 'react'
 import Menu from './img/menu.png'
 import Header from '../Header/header'
-import './update.css'
+import Title from '../Title/title'
+import './deleteItem.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Title from '../Title/title'
 
-export default function Update() {
+export default function DeleteItem() {
 
   const [item, setItem] = useState({
     item_name: "",
@@ -35,16 +35,14 @@ export default function Update() {
   }
 
   return (
-    <div className='update-all-container'>
+    <div className='update-all-item-container'>
 
       <Header />
 
-      <Title title="Update a Item To The Menu" />
-      <div className="update-container">
-
-
-        <div className="update-main">
-          <div className="update-main-img">
+      <Title title="Delete a Item To The Menu" />
+      <div className="update-item-container">
+        <div className="update-item-main">
+          <div className="update-item-main-img">
             <img src={Menu} alt='Menu' />
           </div>
 
@@ -52,7 +50,7 @@ export default function Update() {
             <input type="text" placeholder='Item Name' onChange={handleChange} name='item_name' />
             <input type="text" placeholder='Item Description' onChange={handleChange} name='item_description' />
             <input type="number" placeholder='Item Price' onChange={handleChange} name='item_price' />
-            <button onClick={handleClick}>Update</button>
+            <button onClick={handleClick}>Delete</button>
           </form>
         </div>
 
