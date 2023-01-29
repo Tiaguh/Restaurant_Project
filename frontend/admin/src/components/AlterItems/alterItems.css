@@ -62,7 +62,6 @@
     font-size: x-large;
 }
 
-
 .cards img {
     width: 130px;
 }
@@ -87,4 +86,14 @@
     color: #FF0000;
 
     cursor: pointer;
+}
+
+.cards .link {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.cards .link:hover {
+    text-decoration: none;
+    color: #FF0000;
 }

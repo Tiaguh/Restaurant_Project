@@ -1,10 +1,27 @@
 import React from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
+import './requests.css'
 import RequestsList from '../Requests-List/requestsList'
 import Header from '../Header/header'
 import Title from '../Title/title'
-import './requests.css'
 
-function requests() {
+export default function Requests() {
+
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const fetchAllItems = async () => {
+      try {
+        const res = await axios.get("http://localhost:3333/select-itens")
+        setItems(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchAllItems()
+  }, [])
+
   return (
     <div className='requests-container'>
       <Header />
@@ -21,5 +38,3 @@ function requests() {
     </div>
   )
 }
-
-export default requests

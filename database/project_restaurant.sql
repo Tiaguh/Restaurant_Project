@@ -11,9 +11,21 @@ CREATE TABLE Menu(
     item_description VARCHAR(120) NOT NULL,
     item_price INT NOT NULL,
 	
-	PRIMARY KEY(id_item)
+	PRIMARY KEY(id_item)   
+);
+
+CREATE TABLE Requests(
+	id_request INT NOT NULL AUTO_INCREMENT,
+    name_item_request VARCHAR(45),
+    address VARCHAR(200),
+    pay_method VARCHAR(20),
+    
+    PRIMARY KEY(id_request),
+    
+    FOREIGN KEY (FK_id_item) REFERENCES Menu (id_item)
 );
 
 SELECT * FROM Menu;
+SELECT * FROM Requests;
 
-INSERT INTO Menu VALUES (DEFAULT, 'teste-img', 'x-burguer', 'a delicious burguer', 12);
+-- INSERT INTO Menu VALUES (DEFAULT, 'teste-img', 'x-burguer', 'a delicious burguer', 12);

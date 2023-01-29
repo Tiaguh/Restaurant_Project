@@ -6,6 +6,7 @@ import Menu from './components/Menu/menu'
 import AddItem from './components/AddItem/addItem';
 import ManagementItems from "./components/Management-Items/managementItems";
 import AlterItems from "./components/AlterItems/alterItems";
+import UpdateItem from "./components/UpdateItem/updateItem";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/management-items" element={<ManagementItems />} />
           <Route path="/alter-items" element={<AlterItems />} />
+          <Route path="/update-item/:item_id" element={<UpdateItem />} />
         </Routes>
       </Router>
     </div>
