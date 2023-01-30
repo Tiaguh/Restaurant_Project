@@ -8,8 +8,7 @@ import ManagementItems from "./components/Management-Items/managementItems";
 import AlterItems from "./components/AlterItems/alterItems";
 import UpdateItem from "./components/UpdateItem/updateItem";
 
-
-function App() {
+export default function App() {
   return (
     <div className="app">
       <Router>
@@ -27,5 +26,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

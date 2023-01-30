@@ -4,41 +4,31 @@
     box-sizing: border-box;
 }
 
-.menu-container {
+.cart-container {
     width: 100vw;
     height: 100vh;
 
     background-color: #FFDE59;
 }
 
-.menu-title-container{
-    padding-left: 47vw;
-}
-
-.menu-title {
+.cart-title {
     display: flex;
-    justify-content: space-between;
-    width: 50vw;
+    justify-content: center;
+    width: 100vw;
     height: 10vh;
 
     padding-top: 20px;
     margin-bottom: 20px;
 }
 
-.menu-title h1 {
+.cart-title h1 {
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
     font-size: 50px;
 }
 
-.menu-title img{
-    width: 50px;
-    filter: invert(1);
-    cursor: pointer;
-}
-
-.card {
+.cart-item {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -50,22 +40,21 @@
     padding-bottom: 80px;
 }
 
-.cards {
-    width: 350px;
-    height: 450px;
+.cart-items {
+    width: 80vw;
+    height: 20vh;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    gap: 15px;
 
     border: #A9A9A9 solid 3px;
 
     background-color: #FF0000;
 }
 
-.cards h2 {
+.cart-items h2 {
     color: #F7F9F9;
     text-align: center;
     font-weight: bold;
@@ -73,7 +62,7 @@
     font-size: xx-large;
 }
 
-.cards p {
+.cart-items p {
     color: #000;
     text-align: justify;
     font-weight: bold;
@@ -81,7 +70,7 @@
     font-size: large;
 }
 
-.cards h3 {
+.cart-items h3 {
     color: yellow;
     text-align: center;
     font-weight: bold;
@@ -90,11 +79,11 @@
 }
 
 
-.cards img {
+.cart-items img {
     width: 130px;
 }
 
-.cards button {
+.cart-items button {
     width: 200px;
     height: 35px;
     border-radius: 15px;
@@ -107,7 +96,7 @@
     border: #FFF 2px solid;
 }
 
-.cards button:hover {
+.cart-items button:hover {
     background-color: #FFF;
     color: #FF0000;
 }

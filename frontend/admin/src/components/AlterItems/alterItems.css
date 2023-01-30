@@ -73,7 +73,7 @@
 
     font-family: 'VT323', monospace;
     font-size: 25px;
-    color: #FFF;
+    color: #008000;
 
     background-color: transparent;
     border: #FFF 2px solid;
@@ -81,19 +81,12 @@
     cursor: pointer;
 }
 
-.cards button:hover {
+.cards button:hover{
     background-color: #FFF;
-    color: #FF0000;
-
-    cursor: pointer;
+    color: #008000;
 }
 
 .cards .link {
     text-decoration: none;
-    color: #FFF;
-}
-
-.cards .link:hover {
-    text-decoration: none;
-    color: #FF0000;
+    color: #008000;
 }
