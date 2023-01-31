@@ -14,6 +14,17 @@ CREATE TABLE Menu(
 	PRIMARY KEY(id_item)
 );
 
-SELECT * FROM Request_e_Menu;
+CREATE TABLE Requests(
+    id_request INT NOT NULL AUTO_INCREMENT,
+    item_request VARCHAR (45) NOT NULL,
+    methodo_pay VARCHAR (20) NOT NULL,
+    address VARCHAR (250) NOT NULL,
+
+    PRIMARY KEY (id_request)
+);
+
+INSERT INTO Requests VALUES (DEFAULT, 'teste item pedido', 'dinheiro', 'rua 12');
+
+DESC Requests;
 
 -- INSERT INTO Menu VALUES (DEFAULT, 'teste-img', 'x-burguer', 'a delicious burguer', 12);

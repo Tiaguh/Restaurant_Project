@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { json } from 'express'
 import mysql2 from 'mysql2'
 import cors from 'cors'
 
@@ -24,6 +24,15 @@ app.get("/select-itens", (req, res) => {
     })
 })
 
+app.get("/select-requests", (req, res)=>{
+    const q = "SELECT * FROM Requests"
+
+    connection.query(q, (error, data)=>{
+        if(error) return res.json(error)
+        return res.json(data)
+    })
+})
+
 app.post("/add-item", (req, res) => {
     const q = "INSERT INTO Menu ( `item_name`, `item_description`, `item_price`) VALUES (?)"
     const values = [
@@ -41,6 +50,16 @@ app.post("/add-item", (req, res) => {
 app.delete("/delete-item/:id", (req, res) => {
     const item_id = req.params.id
     const q = "DELETE FROM Menu WHERE id_item = ?"
+
+    connection.query(q, [item_id], (error, data) => {
+        if (error) return res.json(error)
+        return res.json("successfully deleted item")
+    })
+})
+
+app.delete("/delete-request/:id", (req, res)=>{
+    const item_id = req.params.id
+    const q = "DELETE FROM Requests WHERE id_request = ?"
 
     connection.query(q, [item_id], (error, data) => {
         if (error) return res.json(error)
