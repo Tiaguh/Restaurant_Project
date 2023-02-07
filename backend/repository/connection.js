@@ -9,7 +9,7 @@ const connect = async () => {
         database: 'Restaurant_Project'
     })
 
-    return connection;
+    return connection
 }
 
 export default { connect };

@@ -6,6 +6,10 @@ function header() {
     return (
         <div className='header-container'>
             <div className="header-side-bar">
+                <Link className='link' to="/">
+                    <p>Home</p>
+                </Link>
+
                 <Link className='link' to="/chat">
                     <p>Chat</p>
                 </Link>
