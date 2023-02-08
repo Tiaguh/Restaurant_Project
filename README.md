@@ -1,4 +1,4 @@
-<h1Restaurant_Project</h1>
+<h1>Restaurant_Project</h1>
 
 <p>Esse projeto foi desenvolvido com o intuito de pela primeira vez em uma aplicação de minha autoria conectar frontend e banco de dados via API.</p>
 
