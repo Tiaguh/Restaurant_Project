@@ -11,7 +11,7 @@ via inputs e botões.</p>
 <ul>
   <li>React para o Frontend</li>
   <li>Express para construir a API</li>
-  <li>MySQL como banco de dados para salvar</li>
+  <li>MySQL como banco de dados.</li>
 </ul>
   
 <div align=center>
