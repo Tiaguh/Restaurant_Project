@@ -1,15 +1,15 @@
 import mysql2 from 'mysql2/promise'
 
 const connect = async () => {
-    const connection = await mysql2.createConnection({
-        host: 'localhost',
-        port: 3306,
-        user: 'root',
-        password: '',
-        database: 'Restaurant_Project'
-    })
+  const connection = await mysql2.createConnection({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '',
+    database: 'Restaurant_Project'
+  })
 
-    return connection
+  return connection
 }
 
 export default { connect };

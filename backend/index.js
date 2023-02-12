@@ -1,93 +1,12 @@
-import express, { json } from 'express'
-import mysql2 from 'mysql2'
-import cors from 'cors'
+import express from 'express';
+import routes from './routes.js';
 
 const app = express();
 
-const connection = mysql2.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '',
-    database: 'Restaurant_Project'
-})
+app.use(express.json());
 
-app.use(express.json())
-app.use(cors())
-
-app.get("/select-itens", (req, res) => {
-    const q = "SELECT * FROM menu"
-
-    connection.query(q, (error, data) => {
-        if (error) return res.json(error)
-        return res.json(data)
-    })
-})
-
-app.get("/select-requests", (req, res)=>{
-    const q = "SELECT * FROM Requests"
-
-    connection.query(q, (error, data)=>{
-        if(error) return res.json(error)
-        return res.json(data)
-    })
-})
-
-app.post("/add-item", (req, res) => {
-    const q = "INSERT INTO Menu ( `item_name`, `item_description`, `item_price`) VALUES (?)"
-    const values = [
-        req.body.item_name,
-        req.body.item_description,
-        req.body.item_price
-    ];
-
-    connection.query(q, [values], (error, data) => {
-        if (error) return res.json(error)
-        return res.json("successfully added item")
-    })
-})
-
-app.delete("/delete-item/:id", (req, res) => {
-    const item_id = req.params.id
-    const q = "DELETE FROM Menu WHERE id_item = ?"
-
-    connection.query(q, [item_id], (error, data) => {
-        if (error) return res.json(error)
-        return res.json("successfully deleted item")
-    })
-})
-
-app.delete("/delete-request/:id", (req, res)=>{
-    const item_id = req.params.id
-    const q = "DELETE FROM Requests WHERE id_request = ?"
-
-    connection.query(q, [item_id], (error, data) => {
-        if (error) return res.json(error)
-        return res.json("successfully deleted item")
-    })
-})
-
-app.put("/update-item/:id", (req, res) => {
-    const item_id = req.params.id
-    const q = "UPDATE Menu SET `item_name` = ?, `item_description` = ?, `item_price` = ? WHERE id_item = ?"
-
-    const values = [
-        req.body.item_name,
-        req.body.item_description,
-        req.body.item_price
-    ];
-
-    connection.query(q, [...values, item_id], (error, data) => {
-        if (error) return res.json(error)
-        return res.json("successfully update item")
-    })
-})
-
-app.get("/", (req, res) => {
-    res.json("Hello This a Backend")
-})
-
+app.use('/', routes);
 
 app.listen(3333, () => {
-    console.log("Server is Running");
-})
+  console.log('Server is Running...');
+});
