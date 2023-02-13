@@ -13,3 +13,5 @@ const connect = async () => {
 }
 
 export default { connect };
+
+// No arquivo connection.js ficam todas as configurações de conexão entre a API e o banco de dados.
