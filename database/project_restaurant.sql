@@ -14,6 +14,8 @@ CREATE TABLE Menu(
 	PRIMARY KEY(id_item)
 );
 
+SELECT * FROM Menu;
+
 CREATE TABLE Requests(
     id_request INT NOT NULL AUTO_INCREMENT,
     item_request VARCHAR (45) NOT NULL,

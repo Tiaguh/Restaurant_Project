@@ -9,16 +9,7 @@ async function createItem(item_img, item_name, item_description, item_price) {
   conn.end();
 }
 
-async function updateItem(item_name, item_description, item_price, id_item) {
-  const sql = "UPDATE Menu SET item_name = ?, item_description = ?, item_price = ? WHERE id_item = ?"
-  const data = [item_name, item_description, item_price, id_item];
-
-  const conn = await database.connect();
-  conn.query(sql, data);
-  conn.end();
-}
-
-export default { createItem, updateItem };
+export default { createItem };
 
 /*
   O arquivo userService.js é o arquivo que conterá as ações que serão executadas no banco de dados,

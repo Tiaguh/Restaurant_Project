@@ -1,6 +1,5 @@
 import express from 'express'
 import createItem from './controllers/userController.js'
-import selectItems from './controllers/userController.js'
 
 const route = express();
 

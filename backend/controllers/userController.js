@@ -3,7 +3,7 @@ import db from '../services/userServices.js';
 
 const routes = express.Router();
 
-routes.post('/', async (req, res) => {
+routes.post('/create-item', async (req, res) => {
   const { item_img, item_name, item_description, item_price} = req.body;
 
   await db.createItem(item_img, item_name, item_description, item_price);
