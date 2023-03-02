@@ -1,8 +1,8 @@
 import database from '../repository/connection.js';
 
-async function createItem(item_img, item_name, item_description, item_price) {
-  const sql = "INSERT INTO Menu (item_img, item_name, item_description, item_price) VALUES (?, ?, ?, ?)"
-  const data = [item_img, item_name, item_description, item_price];
+async function createItem(item_name, item_description, item_price) {
+  const sql = "INSERT INTO Menu (item_name, item_description, item_price) VALUES (?, ?, ?)"
+  const data = [item_name, item_description, item_price];
 
   const conn = await database.connect();
   conn.query(sql, data);

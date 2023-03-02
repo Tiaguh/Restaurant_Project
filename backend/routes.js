@@ -1,9 +1,9 @@
 import express from 'express'
-import createItem from './controllers/userController.js'
+import items from './controllers/userController.js'
 
 const route = express();
 
-route.use("/create-item", createItem)
+route.use("/", items)
 
 export default route;
 
