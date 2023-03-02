@@ -1,35 +1,36 @@
-import { useState } from 'react'
 import React from 'react'
 import Menu from './img/menu.png'
 import Header from '../Header/header'
 import Title from '../Title/title'
 import './addItem.css'
-
-import api from '../../api'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function AddItem() {
 
-  const [itemName, setItemName] = useState('')
-  const [itemDescription, setItemDescription] = useState('')
-  const [itemPrice, setItemPrice] = useState('')
+  const [item, setItem] = useState({
+    item_name: "",
+    item_description: "",
+    item_price: null
+  })
 
-  console.log(itemName, itemDescription, itemPrice);
+  const navigate = useNavigate()
 
-  async function handleRegister(e) {
+  const handleChange = (e) => {
+    setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
 
-    e.preventDefault()
+  console.log(item);
+
+  const handleClick = async e => {
+    e.preventDefault() // impedir que a página recarregue
 
     try {
-      const data = {
-        itemName, itemDescription, itemPrice
-      };
-
-      const response = await api.post('/create-item', data);
-
-      alert(`Item cadastrado com sucesso.`);
-
-    } catch (err) {
-      alert(`Erro no cadastro. Tente novamente. \n Erro: ${err}`)
+      await axios.post("http://localhost:3333/add-item", item)
+      navigate("/menu")
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -46,28 +47,13 @@ export default function AddItem() {
           </div>
 
           <form>
-
-            <input
-              type="text"
-              placeholder='Item Name'
-              value={itemName}
-              onChange={e => setItemName(e.target.value)} />
-
-            <input
-              type="text"
-              placeholder='Item Description'
-              value={itemDescription}
-              onChange={e => setItemDescription(e.target.value)} />
-
-            <input
-              type="number"
-              placeholder='Item Price'
-              value={itemPrice}
-              onChange={e => setItemPrice(e.target.value)} />
-
-            <button onClick={handleRegister}>Add</button>
+            <input type="text" placeholder='Item Name' onChange={handleChange} name='item_name' />
+            <input type="text" placeholder='Item Description' onChange={handleChange} name='item_description' />
+            <input type="number" placeholder='Item Price' onChange={handleChange} name='item_price' />
+            <button onClick={handleClick}>Add</button>
           </form>
         </div>
+
       </div>
     </div>
   )
