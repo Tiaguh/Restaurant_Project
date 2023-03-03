@@ -2,13 +2,18 @@ import React from 'react'
 import Menu from './img/menu.png'
 import Header from '../Header/header'
 import Title from '../Title/title'
+
 import './addItem.css'
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const navigate = useNavigate()
+import api from '../../api.js'
+import { toast } from 'react-toastify';
+
 
 export default function AddItem() {
+  const navigate = useNavigate()
 
   const [itemName, setItemName] = useState('')
   const [itemDescription, setItemDescription] = useState('')
@@ -23,7 +28,7 @@ export default function AddItem() {
         itemName, itemDescription, itemPrice
       }
 
-      const response = await api.get('/management-item/add-item', data)
+      const response = await api.post('/management-item/add-item', data)
 
       if (response.status === 200) {
         toast.success('Successful Add!', {

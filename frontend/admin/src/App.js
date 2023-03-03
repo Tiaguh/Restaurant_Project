@@ -8,6 +8,9 @@ import ManagementItems from "./components/Management-Items/managementItems";
 import AlterItems from "./components/AlterItems/alterItems";
 import UpdateItem from "./components/UpdateItem/updateItem";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function App() {
   return (
     <div className="app">
@@ -23,6 +26,9 @@ export default function App() {
           <Route path="/update-item/:item_id" element={<UpdateItem />} />
         </Routes>
       </Router>
+
+      <ToastContainer />
+
     </div>
   );
 }
