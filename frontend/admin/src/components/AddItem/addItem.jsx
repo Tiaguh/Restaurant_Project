@@ -5,32 +5,42 @@ import Title from '../Title/title'
 import './addItem.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+
+const navigate = useNavigate()
 
 export default function AddItem() {
 
-  const [item, setItem] = useState({
-    item_name: "",
-    item_description: "",
-    item_price: null
-  })
+  const [itemName, setItemName] = useState('')
+  const [itemDescription, setItemDescription] = useState('')
+  const [itemPrice, setItemPrice] = useState('')
 
-  const navigate = useNavigate()
+  async function handleAddItem(e) {
 
-  const handleChange = (e) => {
-    setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  console.log(item);
-
-  const handleClick = async e => {
-    e.preventDefault() // impedir que a página recarregue
+    e.preventDefault()
 
     try {
-      await axios.post("http://localhost:3333/add-item", item)
-      navigate("/menu")
+      const data = {
+        itemName, itemDescription, itemPrice
+      }
+
+      const response = await api.get('/management-item/add-item', data)
+
+      if (response.status === 200) {
+        toast.success('Successful Add!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        navigate("/menu")
+      }
     } catch (error) {
-      console.log(error);
+      alert(`Erro ao adicionar. Tente novamente. \n Erro: ${error}`);
     }
   }
 
@@ -47,10 +57,28 @@ export default function AddItem() {
           </div>
 
           <form>
-            <input type="text" placeholder='Item Name' onChange={handleChange} name='item_name' />
-            <input type="text" placeholder='Item Description' onChange={handleChange} name='item_description' />
-            <input type="number" placeholder='Item Price' onChange={handleChange} name='item_price' />
-            <button onClick={handleClick}>Add</button>
+            <input
+              type="text"
+              placeholder='Item Name'
+              value={itemName}
+              onChange={e => setItemName(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder='Item Description'
+              value={itemDescription}
+              onChange={e => setItemDescription(e.target.value)}
+            />
+
+            <input
+              type="number"
+              placeholder='Item Price'
+              value={itemPrice}
+              onChange={e => setItemPrice(e.target.value)}
+            />
+
+            <button onClick={handleAddItem}>Add</button>
           </form>
         </div>
 
