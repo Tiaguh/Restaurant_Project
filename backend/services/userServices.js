@@ -1,6 +1,6 @@
 import database from '../repository/connection.js';
 
-async function createUser(itemName, itemDescription, itemPrice) {
+async function createItem(itemName, itemDescription, itemPrice) {
   const sql = "INSERT INTO Menu (item_name, item_description, item_price) VALUES (?, ?, ?)"
   const dados = [itemName, itemDescription, itemPrice];
 
@@ -9,4 +9,14 @@ async function createUser(itemName, itemDescription, itemPrice) {
   conn.end();
 }
 
-export default { createUser };
+async function getItems(){
+  const sql = "SELECT * FROM Menu"
+
+  const conn = await database.connect();
+  const results = conn.query(sql)
+  conn.end()
+
+  return results
+}
+
+export default { createItem, getItems };
