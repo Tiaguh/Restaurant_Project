@@ -15,7 +15,7 @@ export default function AlterItems() {
     useEffect(() => {
         const fetchAllItems = async () => {
             try {
-                const res = await axios.get("http://localhost:3333/select-itens")
+                const res = await axios.get("https://taupe-ladybug-gear.cyclic.app/management-item/get-items")
                 setItems(res.data)
             } catch (error) {
                 console.log(error);
