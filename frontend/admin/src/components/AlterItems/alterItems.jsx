@@ -9,21 +9,24 @@ import './alterItems.css'
 export default function AlterItems() {
     const [items, setItems] = useState([])
 
-    useEffect(() => {
-        const fetchAllItems = async () => {
-            try {
-                const res = await axios.get("https://taupe-ladybug-gear.cyclic.app/management-item/get-items")
-                setItems(res.data)
-            } catch (error) {
-                console.log(error);
-            }
+    const fetchAllItems = async () => {
+        try {
+            const res = await axios.get("https://taupe-ladybug-gear.cyclic.app/management-item/get-items")
+            setItems(res.data)
+        } catch (error) {
+            console.log(error);
         }
+    }
+    useEffect(() => {
         fetchAllItems()
     }, [])
 
     const handleDelete = async (item_id) => {
         try {
             await axios.delete(`https://taupe-ladybug-gear.cyclic.app/management-item/delete-item/${item_id}`)
+                .then(async () => {
+                    await fetchAllItems()
+                })
             // window.location.reload()
 
             console.log(item_id);
