@@ -4,9 +4,6 @@ import Title from '../Title/title'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
-// import chef from './pictures/chef-picture.png'
-
 import './alterItems.css'
 
 export default function AlterItems() {
@@ -26,8 +23,10 @@ export default function AlterItems() {
 
     const handleDelete = async (item_id) => {
         try {
-            await axios.delete("http://localhost:3333/delete-item/" + item_id)
-            window.location.reload()
+            await axios.delete(`https://taupe-ladybug-gear.cyclic.app/management-item/delete-item/${item_id}`)
+            // window.location.reload()
+
+            console.log(item_id);
         } catch (error) {
             console.log(error);
         }
@@ -43,14 +42,16 @@ export default function AlterItems() {
 
                 {items.map(item => (
                     <div className="cards" key={item.id_item}>
-                        {item.item_image && <img src={item.item_image} alt="snack" />}
                         <h2>{item.item_name}</h2>
                         <p>{item.item_description}</p>
                         <h3>R$ {item.item_price}</h3>
+
                         <button>
                             <Link className='link' to={`/update-item/${item.id_item}`}>Update</Link>
                         </button>
+
                         <button onClick={() => handleDelete(item.id_item)}>Delete</button>
+
                     </div>
                 ))}
             </div>
