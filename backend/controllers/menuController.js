@@ -20,9 +20,7 @@ routes.post('/add-item', async (req, res) => {
 });
 
 routes.put('/update-item/:id', async (req, res) => {
-  const itemId = req.params.id
-
-  const { itemName, itemDescription, itemPrice } = req.body;
+  const { itemName, itemDescription, itemPrice, itemId } = req.body;
 
   if (!itemName || !itemDescription || !itemPrice) res.status(400).json({ message: "Insira todos os dados" })
 
