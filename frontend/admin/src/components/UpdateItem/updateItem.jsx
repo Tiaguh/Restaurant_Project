@@ -10,9 +10,9 @@ import axios from 'axios'
 export default function UpdateItem() {
 
   const [item, setItem] = useState({
-    item_name: "",
-    item_description: "",
-    item_price: null
+    itemName: "",
+    itemDescription: "",
+    itemPrice: null
   })
 
   const navigate = useNavigate()
@@ -26,11 +26,14 @@ export default function UpdateItem() {
 
   console.log(item);
 
-  const handleClick = async e => {
+  const handleClick = async (e) => {
     e.preventDefault() // impedir que a página recarregue
 
     try {
-      await axios.put("http://localhost:3333/update-item/" + itemId, item)
+      await axios.post(`https://taupe-ladybug-gear.cyclic.app/management-item/update-item/${itemId}`, item)
+      .then((res) => {
+        console.log(res)
+      })
       navigate("/alter-items")
     } catch (error) {
       console.log(error);
@@ -51,10 +54,11 @@ export default function UpdateItem() {
           </div>
 
           <form>
-            <input type="text" placeholder='Item Name' onChange={handleChange} name='item_name' />
-            <input type="text" placeholder='Item Description' onChange={handleChange} name='item_description' />
-            <input type="number" placeholder='Item Price' onChange={handleChange} name='item_price' />
-            <button onClick={handleClick}>Update</button>
+            <input type="text" placeholder='Item Name' onChange={handleChange} 
+            name='itemName' />
+            <input type="text" placeholder='Item Description' onChange={handleChange} name='itemDescription' />
+            <input type="number" placeholder='Item Price' onChange={handleChange} name='itemPrice' />
+            <button onClick={(e) => handleClick(e)}>Update</button>
           </form>
         </div>
 
