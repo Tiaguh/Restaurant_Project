@@ -9,11 +9,7 @@ function header() {
                 <Link className='link' to="/">
                     <p>Home</p>
                 </Link>
-
-                <Link className='link' to="/chat">
-                    <p>Chat</p>
-                </Link>
-
+                
                 <Link className='link' to="/requests">
                     <p>Requests</p>
                 </Link>
