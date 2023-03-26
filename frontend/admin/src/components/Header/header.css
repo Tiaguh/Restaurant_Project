@@ -1,0 +1,88 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    position: fixed;
+
+    z-index: 1;  
+    /*Funciona por ordem de empilhamento, em que um elemento superior será exibido à frente e o com número inferior atrás. */
+}
+
+.header-container .header-side-bar {
+    width: 17vw;
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 15px;
+
+    background-color: #FFDE59;
+}
+
+.header-container .link {
+    text-decoration: none;
+}
+
+.header-container .header-side-bar p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 40px;
+
+    background-color: #FF0000;
+
+    font-size: 30px;
+    color: #FFF;
+    font-family: 'VT323', monospace;
+    text-decoration: none;
+
+}
+
+.header-container .header-side-bar p:hover {
+    background-color: #FFF;
+    color: #FF0000;
+}
+
+.header-container .logout {
+    width: 17vw;
+    height: 20vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #FFDE59;
+}
+
+.header-container .logout button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 40px;
+
+    background-color: #FFF;
+
+    font-size: 30px;
+    color: #FF0000;
+    font-family: 'VT323', monospace;
+    text-decoration: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.header-container .logout button:hover {
+    background-color: #FF0000;
+    color: #FFF;
+}

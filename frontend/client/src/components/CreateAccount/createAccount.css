@@ -1,0 +1,143 @@
+.createAccount-container{
+    background-color: #FFDE59;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.createAccount-title {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 10vh;
+
+    padding-top: 30px;
+
+    animation: title-appearing-from-up 2s;
+}
+
+@keyframes title-appearing-from-up {
+    from {
+        transform: translateY(-200px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.createAccount-title h1 {
+    color: #FFF;
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+
+.createAccount-main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    width: 100vw;
+    height: 90vh;
+}
+
+.createAccount-main-img img{
+    max-width: 450px;
+    min-width: 200px;
+    animation: img-appearing-from-left 2s;
+}
+
+@keyframes img-appearing-from-left {
+    from {
+        transform: translateX(-400px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+form input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    text-align: center;
+    color: #FFF;    
+    
+    border-top: none;
+    border-bottom: 2px solid #FFF;
+    border-left: none;
+    border-right: none;
+
+
+    background-color: transparent;
+    width: 400px;
+    height: 40px;
+
+    animation: form-appearing-from-right 2s;
+}
+
+@keyframes form-appearing-from-right {
+    from {
+        transform: translateX(400px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+form input::placeholder{
+    color: #FFF;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+form button{
+    width: 250px;
+    height: 50px;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    color: #FFF;
+
+    border: none;
+    background-color: #FF0000;
+
+    animation: button-form-appearing-from-down 2s;
+}
+
+@keyframes button-form-appearing-from-down {
+    from {
+        transform: translateY(200px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+form button:hover{
+    color: #FF0000;
+    background-color: #FFF;
+}

@@ -1,0 +1,143 @@
+.add-all-item-container{
+    background-color: #FFF;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    width: 83vw;
+    height: fit-content;
+
+    margin-left: 17vw;
+}
+
+.add-item-title h1 {
+    color: #FFF;
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+
+.add-item-main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    width: 100vw;
+    height: 90vh;
+}
+
+.add-item-main-img img{
+    max-width: 250px;
+    min-width: 200px;
+    animation: img-appearing-from-left 1s;
+}
+
+@keyframes img-appearing-from-left {
+    from {
+        transform: translateX(-400px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+form input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    text-align: center;
+    color: #000;    
+    
+    border-top: none;
+    border-bottom: 2px solid #000;
+    border-left: none;
+    border-right: none;
+
+
+    background-color: transparent;
+    width: 400px;
+    height: 40px;
+
+    animation: form-appearing-from-right 1s;
+}
+
+form input::placeholder {
+    color: #000;
+}
+
+@keyframes form-appearing-from-right {
+    from {
+        transform: translateX(400px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+form button{
+    width: 250px;
+    height: 50px;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    color: #FFF;
+
+    border: none;
+    background-color: #FF0000;
+
+    animation: button-form-appearing-from-down 1s;
+
+    cursor: pointer;
+}
+
+@keyframes button-form-appearing-from-down {
+    from {
+        transform: translateY(200px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+form button:hover{
+    color: #FF0000;
+    background-color: #FFF;
+
+    border: solid 2px #FF0000;
+
+    cursor: pointer;
+}

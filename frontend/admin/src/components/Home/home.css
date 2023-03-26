@@ -1,0 +1,28 @@
+.management-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.management-main{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+
+    width: 83vw;
+    height: 95vh;
+
+    margin-left: 17vw;
+    margin-top: 5vh;
+}
+
+.management-main h1{
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+
+.management-main button{
+    width: 200px;
+    height: 50px;
+}
