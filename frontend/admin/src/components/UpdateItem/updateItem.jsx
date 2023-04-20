@@ -30,7 +30,7 @@ export default function UpdateItem() {
     e.preventDefault() // impedir que a página recarregue
 
     try {
-      await axios.post(`https://taupe-ladybug-gear.cyclic.app/management-item/update-item/${itemId}`, item)
+      await axios.post(`http://localhost:3333/management-item/update-item/${itemId}`, item)
       .then((res) => {
         console.log(res)
       })

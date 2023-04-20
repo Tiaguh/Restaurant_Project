@@ -11,7 +11,7 @@ export default function AlterItems() {
 
     const fetchAllItems = async () => {
         try {
-            const res = await axios.get("https://taupe-ladybug-gear.cyclic.app/management-item/get-items")
+            const res = await axios.get("http://localhost:3333/management-item/get-items")
             setItems(res.data)
         } catch (error) {
             console.log(error);
@@ -23,7 +23,7 @@ export default function AlterItems() {
 
     const handleDelete = async (item_id) => {
         try {
-            await axios.delete(`https://taupe-ladybug-gear.cyclic.app/management-item/delete-item/${item_id}`)
+            await axios.delete(`http://localhost:3333/management-item/delete-item/${item_id}`)
                 .then(async () => {
                     await fetchAllItems()
                 })

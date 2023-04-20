@@ -19,6 +19,8 @@ export default function AddItem() {
   const [itemDescription, setItemDescription] = useState('')
   const [itemPrice, setItemPrice] = useState('')
 
+  console.log(itemName, itemDescription, itemPrice);
+
   async function handleAddItem(e) {
 
     e.preventDefault()
@@ -27,6 +29,8 @@ export default function AddItem() {
       const data = {
         itemName, itemDescription, itemPrice
       }
+
+      console.log(data);
 
       const response = await api.post('/management-item/add-item', data)
 
