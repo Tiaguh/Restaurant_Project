@@ -14,7 +14,7 @@ export default function Menu() {
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
-        const res = await axios.get("http://localhost:3333/select-itens")
+        const res = await axios.get("http://localhost:3333/management-item/get-items")
         setItems(res.data)
       } catch (error) {
         console.log(error);
@@ -37,9 +37,9 @@ export default function Menu() {
       <div className="menu-title-container">
         <div className="menu-title">
           <h1>Menu</h1>
-          <Link to="/cart">
+          {/* <Link to="/cart">
             <img src={Cart} alt="" />
-          </Link>
+          </Link> */}
         </div>
       </div>
 
