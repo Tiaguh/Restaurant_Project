@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom'
 import api from '../../api.js'
 import { toast } from 'react-toastify';
 
+// import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
+// import { storage } from '../../Firebase'
 
 export default function AddItem() {
   const navigate = useNavigate()
@@ -20,6 +22,41 @@ export default function AddItem() {
   const [itemPrice, setItemPrice] = useState('')
 
   console.log(itemName, itemDescription, itemPrice);
+
+  // const [imgURL, setImgURL] = useState('')
+  // const [progress, setProgress] = useState(0)
+
+
+  // const handleUpload = (e) => {
+  //   e.preventDefault()
+
+  //   const file = e.target[0]?.files[0]
+
+  //   if (!file) return;
+
+  //   const storageRef = ref(storage, `img/${file.name}`)
+  //   const uploadTask = uploadBytesResumable(storageRef, file)
+
+  //   uploadTask.on(
+  //     "state_changed",
+
+  //     snapshot => {
+  //       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+  //       setProgress(progress)
+  //     },
+
+  //     error => {
+  //       alert(error)
+  //     },
+
+  //     () => {
+  //       getDownloadURL(uploadTask.snapshot.ref).then(url => {
+  //         setImgURL(url)
+  //       })
+  //     }
+
+  //   )
+  // }
 
   async function handleAddItem(e) {
 
@@ -53,6 +90,11 @@ export default function AddItem() {
     }
   }
 
+  // function handleClick() {
+  //   handleAddItem();
+  //   handleUpload()
+  // }
+
   return (
     <div className='add-all-item-container'>
 
@@ -67,6 +109,7 @@ export default function AddItem() {
 
           <form>
             <input
+              className='input'
               type="text"
               placeholder='Item Name'
               value={itemName}
@@ -74,6 +117,7 @@ export default function AddItem() {
             />
 
             <input
+              className='input'
               type="text"
               placeholder='Item Description'
               value={itemDescription}
@@ -81,11 +125,17 @@ export default function AddItem() {
             />
 
             <input
+              className='input'
               type="number"
               placeholder='Item Price'
               value={itemPrice}
               onChange={e => setItemPrice(e.target.value)}
             />
+
+            {/* <input type="file" />
+
+            {!imgURL && <progress value={progress} max="100" />}
+            {imgURL && <img src={imgURL} alt="Imagem" />} */}
 
             <button onClick={handleAddItem}>Add</button>
           </form>
