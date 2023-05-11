@@ -1,12 +1,12 @@
-import HomePage from './components/HomePage/homePage';
-import Menu from './components/Menu/menu';
-import Login from './components/Login/login'
-import CreateAccount from './components/CreateAccount/createAccount'
-import Cart from './components/Cart/cart';
+import HomePage from './Pages/HomePage/HomePage';
+import Menu from './Pages/Menu/menu';
+import Login from './Pages/Login/login'
+import CreateAccount from './Pages/CreateAccount/createAccount'
+import Cart from './Pages/Cart/cart';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <div>
       <Router>
@@ -21,5 +21,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

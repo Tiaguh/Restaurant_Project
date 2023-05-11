@@ -5,10 +5,13 @@
 }
 
 .homePage-container {
-    background-color: #FFDE59;
+    width: 100vw;
+    height: 100vh;
 
     overflow-x: hidden;
     overflow-y: hidden;
+    
+    background-color: #FFDE59;
 }
 
 .header-container {
@@ -47,11 +50,12 @@
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
+    font-size: 35px;
 }
 
 .logo .icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .actions {
@@ -62,9 +66,9 @@
 }
 
 .actions p {
-    color: white;
+    color: #FFF;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 28px;
     font-family: 'VT323', monospace;
 }
 
@@ -94,7 +98,7 @@
 }
 
 .main-container-title {
-    color: white;
+    color: #FFF;
     font-family: 'VT323', monospace;
     font-size: 80px;
     animation: title-appearing-from-left 2s;
@@ -113,6 +117,8 @@
 .snacks-img {
     width: 300px;
     animation: snacks-appearing-from-right 2s;
+
+    margin-bottom: 15px;
 }
 
 @keyframes snacks-appearing-from-right {
@@ -136,7 +142,7 @@
     align-items: center;
     justify-content: center;
 
-    font-size: 25px;
+    font-size: 35px;
     font-family: 'VT323', monospace;
     color: #FFF;
 
@@ -164,5 +170,84 @@
 
     to {
         transform: translateY(0px);
+    }
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+    
+        width: 100vw;
+        height: 20vh;
+    
+        animation: header-appearing-from-up 2s;
+    }
+
+    .see-menu .link-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        font-size: 40px;
+        font-family: 'VT323', monospace;
+        color: #FFF;
+    
+        background-color: #FF0000;
+        border: none;
+        text-decoration: none;
+    
+        width: 250px;
+        height: 80px;
+    }
+
+    .logo h1 {
+        color: #FFF;
+        font-weight: bold;
+        font-family: 'VT323', monospace;
+        font-size: 45px;
+    }
+    
+    .logo .icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .actions {
+        width: 100vw;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; 
+        align-items: center;
+    }
+    
+    .actions p {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 35px;
+        font-family: 'VT323', monospace;
+    }
+    
+    .actions .enter {
+        background-color: #FF0000;
+        padding: 6px;
+    }
+
+    .main-container-title {
+        color: #FFF;
+        font-family: 'VT323', monospace;
+        font-size: 70px;
+        animation: title-appearing-from-left 2s;
+    }
+
+    .snacks-img {
+        width: 350px;
+        animation: snacks-appearing-from-right 2s;
+    
+        margin-bottom: 15px;
     }
 }

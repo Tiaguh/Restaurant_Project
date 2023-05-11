@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import headerIcon from './img/icon-header.png'
 import snacks from './img/snacks.png'
-import './homePage.css'
+import './HomePage.css'
 
-function homePage() {
+export default function HomePage() {
     return (
         <div className="homePage-container">
             <div className="header-container">
@@ -38,5 +38,3 @@ function homePage() {
         </div>
     )
 }
-
-export default homePage
