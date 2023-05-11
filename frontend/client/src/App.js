@@ -1,7 +1,7 @@
 import HomePage from './Pages/HomePage/HomePage';
+import CreateAccount from './Pages/CreateAccount/CreateAccount'
+import Login from './Pages/Login/Login'
 import Menu from './Pages/Menu/menu';
-import Login from './Pages/Login/login'
-import CreateAccount from './Pages/CreateAccount/createAccount'
 import Cart from './Pages/Cart/cart';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

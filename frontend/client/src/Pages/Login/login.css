@@ -32,7 +32,7 @@
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
-    font-size: 50px;
+    font-size: 80px;
 }
 
 .login-main {
@@ -47,9 +47,8 @@
 }
 
 .login-main-img img {
-    max-width: 450px;
-    min-width: 200px;
-    
+    width: 300px;
+
     animation: img-appearing-from-left 2s;
 }
 
@@ -77,7 +76,7 @@ form input {
     align-items: center;
 
     font-family: 'VT323', monospace;
-    font-size: 25px;
+    font-size: 35px;
     text-align: center;
     color: #FFF;
 
@@ -89,7 +88,7 @@ form input {
 
     background-color: transparent;
     width: 500px;
-    height: 40px;
+    height: 60px;
 }
 
 form input::placeholder {
@@ -98,7 +97,7 @@ form input::placeholder {
 
 form button {
     width: 250px;
-    height: 50px;
+    height: 60px;
 
     font-family: 'VT323', monospace;
     font-size: 25px;
@@ -111,4 +110,82 @@ form button {
 form button:hover {
     color: #FF0000;
     background-color: #FFF;
+}
+
+@media (max-width: 600px) {
+    .login-title h1 {
+        color: #FFF;
+        font-weight: bold;
+        font-family: 'VT323', monospace;
+        font-size: 90px;
+    }
+
+    .login-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 100vw;
+        height: 80vh;
+    }
+
+    .login-main-img img {
+        width: 350px;
+
+        animation: img-appearing-from-left 2s;
+    }
+
+    form input {
+        font-size: 50px;
+
+        border-bottom: 4px solid #FFF;
+
+        height: 60px;
+    }
+
+    form button {
+        width: 350px;
+        height: 80px;
+
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .login-title h1 {
+        color: #FFF;
+        font-weight: bold;
+        font-family: 'VT323', monospace;
+        font-size: 90px;
+    }
+
+    .login-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 100vw;
+        height: 80vh;
+    }
+
+    .login-main-img img {
+        width: 350px;
+
+        animation: img-appearing-from-left 2s;
+    }
+
+    form input {
+        font-size: 50px;
+
+        border-bottom: 4px solid #FFF;
+
+        height: 60px;
+    }
+
+    form button {
+        width: 350px;
+        height: 80px;
+
+        font-size: 45px;
+    }
 }

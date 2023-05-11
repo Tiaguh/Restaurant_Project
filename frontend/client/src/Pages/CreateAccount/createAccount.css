@@ -1,4 +1,4 @@
-.createAccount-container{
+.createAccount-container {
     background-color: #FFDE59;
     width: 100vw;
     height: 100vh;
@@ -35,7 +35,7 @@
     font-size: 50px;
 }
 
-.createAccount-main{
+.createAccount-main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -46,9 +46,8 @@
     height: 90vh;
 }
 
-.createAccount-main-img img{
-    max-width: 450px;
-    min-width: 200px;
+.createAccount-main-img img {
+    width: 600px;
     animation: img-appearing-from-left 2s;
 }
 
@@ -62,7 +61,7 @@
     }
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,7 +69,7 @@ form{
     gap: 30px;
 }
 
-form input{
+form input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,8 +77,8 @@ form input{
     font-family: 'VT323', monospace;
     font-size: 25px;
     text-align: center;
-    color: #FFF;    
-    
+    color: #FFF;
+
     border-top: none;
     border-bottom: 2px solid #FFF;
     border-left: none;
@@ -103,17 +102,17 @@ form input{
     }
 }
 
-form input::placeholder{
+form input::placeholder {
     color: #FFF;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-form button{
+form button {
     width: 250px;
     height: 50px;
 
@@ -137,7 +136,35 @@ form button{
     }
 }
 
-form button:hover{
+form button:hover {
     color: #FF0000;
     background-color: #FFF;
+}
+
+@media (max-width: 1000px) {
+    .createAccount-title h1 {
+        font-size: 80px;
+    }
+
+    form input {
+        font-size: 35px;
+
+        width: 400px;
+        height: 50px;
+    }
+
+    .createAccount-main-img img {
+        width: 500px;
+        animation: img-appearing-from-left 2s;
+    }
+
+    form button {
+        width: 300px;
+        height: 80px;
+
+        font-size: 40px;
+        color: #FFF;
+
+        animation: button-form-appearing-from-down 2s;
+    }
 }

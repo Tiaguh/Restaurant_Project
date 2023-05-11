@@ -1,8 +1,8 @@
 import React from 'react'
 import Sushi from './img/sushi.png'
-import './createAccount.css'
+import './CreateAccount.css'
 
-function createAccount() {
+export default function CreateAccount() {
   return (
     <div className='createAccount-container'>
       <div className="createAccount-title">
@@ -27,5 +27,3 @@ function createAccount() {
     </div>
   )
 }
-
-export default createAccount

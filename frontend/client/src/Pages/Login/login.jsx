@@ -1,8 +1,8 @@
 import React from 'react'
 import Taco from './img/taco.png'
-import './login.css'
+import './Login.css'
 
-function login() {
+export default function Login() {
   return (
     <div className='login-container'>
       <div className="login-title">
@@ -24,5 +24,3 @@ function login() {
     </div>
   )
 }
-
-export default login
