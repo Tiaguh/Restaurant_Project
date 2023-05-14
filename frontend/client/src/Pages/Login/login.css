@@ -39,6 +39,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: row;
 
     flex-wrap: wrap;
 
@@ -62,15 +63,33 @@
     }
 }
 
-form {
+.form-login{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 30px;
+
 }
 
-form input {
+.form-login input{
+    animation: form-appearing-from-right 2s;
+    
+}
+
+
+@keyframes form-appearing-from-right {
+    from {
+        transform: translateX(400px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.form-login input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,11 +110,11 @@ form input {
     height: 60px;
 }
 
-form input::placeholder {
+.form-login input::placeholder {
     color: #FFF;
 }
 
-form button {
+.form-login button {
     width: 250px;
     height: 60px;
 
@@ -105,14 +124,30 @@ form button {
 
     border: none;
     background-color: #FF0000;
+
+    animation: button-form-appearing-from-down 2s;
 }
 
-form button:hover {
+.form-login button:hover {
     color: #FF0000;
     background-color: #FFF;
 }
 
+@keyframes button-form-appearing-from-down {
+    from {
+        transform: translateY(200px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 600px) {
+    .login-main {
+        flex-direction: row;
+    }
+
     .login-title h1 {
         color: #FFF;
         font-weight: bold;
@@ -135,17 +170,22 @@ form button:hover {
         animation: img-appearing-from-left 2s;
     }
 
-    form input {
-        font-size: 50px;
+    .form-login input {
+        font-size: 40px;
 
         border-bottom: 4px solid #FFF;
 
+        width: 450px;
         height: 60px;
     }
 
-    form button {
+    .form-login input::placeholder {
+        font-size: 40px;
+    }
+
+    .form-login button {
         width: 350px;
-        height: 80px;
+        height: 75px;
 
         font-size: 45px;
     }
@@ -174,7 +214,7 @@ form button:hover {
         animation: img-appearing-from-left 2s;
     }
 
-    form input {
+    .form-login input {
         font-size: 50px;
 
         border-bottom: 4px solid #FFF;
@@ -182,7 +222,7 @@ form button:hover {
         height: 60px;
     }
 
-    form button {
+    .form-login button {
         width: 350px;
         height: 80px;
 

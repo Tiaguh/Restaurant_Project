@@ -10,10 +10,10 @@
 .createAccount-title {
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 10vh;
+    align-items: center;
 
-    padding-top: 30px;
+    width: 100vw;
+    height: 15vh;
 
     animation: title-appearing-from-up 2s;
 }
@@ -37,17 +37,19 @@
 
 .createAccount-main {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
 
-    flex-wrap: wrap;
-
     width: 100vw;
-    height: 90vh;
+    height: 85vh;
+
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .createAccount-main-img img {
-    width: 600px;
+    width: 500px;
     animation: img-appearing-from-left 2s;
 }
 
@@ -61,7 +63,7 @@
     }
 }
 
-form {
+.form-cadastro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +71,7 @@ form {
     gap: 30px;
 }
 
-form input {
+.form-cadastro input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,7 +104,7 @@ form input {
     }
 }
 
-form input::placeholder {
+.form-cadastro input::placeholder {
     color: #FFF;
 }
 
@@ -112,7 +114,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-form button {
+.form-cadastro button {
     width: 250px;
     height: 50px;
 
@@ -136,30 +138,74 @@ form button {
     }
 }
 
-form button:hover {
+.form-cadastro button:hover {
     color: #FF0000;
     background-color: #FFF;
 }
 
 @media (max-width: 1000px) {
-    .createAccount-title h1 {
-        font-size: 80px;
+    .createAccount-main {
+        flex-direction: column;
     }
 
-    form input {
-        font-size: 35px;
+    .createAccount-title h1 {
+        font-size: 85px;
+    }
 
-        width: 400px;
-        height: 50px;
+    .form-cadastro input {
+        font-size: 38px;
+
+        width: 600px;
+        height: 60px;
+    }
+
+    .form-cadastro input::placeholder {
+        font-size: 38px;
     }
 
     .createAccount-main-img img {
-        width: 500px;
+        width: 550px;
         animation: img-appearing-from-left 2s;
     }
 
-    form button {
-        width: 300px;
+    .form-cadastro button {
+        width: 350px;
+        height: 75px;
+
+        font-size: 40px;
+        color: #FFF;
+
+        animation: button-form-appearing-from-down 2s;
+    }
+}
+
+@media (max-width: 600px) {
+    .createAccount-main {
+        flex-direction: column;
+    }
+
+    .createAccount-title h1 {
+        font-size: 65px;
+    }
+
+    .form-cadastro input {
+        font-size: 38px;
+
+        width: 450px;
+        height: 45px;
+    }
+
+    .form-cadastro input::placeholder {
+        font-size: 38px;
+    }
+
+    .createAccount-main-img img {
+        width: 450px;
+        animation: img-appearing-from-left 2s;
+    }
+
+    .form-cadastro button {
+        width: 350px;
         height: 80px;
 
         font-size: 40px;

@@ -14,14 +14,13 @@ export default function CreateAccount() {
           <img src={Sushi} alt='Sushi' />
         </div>
 
-        <form>
+        <div className='form-cadastro'>
           <input type="text" placeholder='Inform Your Name' />
           <input type="email" placeholder='Inform Your Email' />
-          <input type="number" placeholder='Inform Your Phone' />
           <input type="password" placeholder='Inform Your Password' />
-          <input type="password" placeholder='Confirm Your Password' />
           <button>Submit</button>
-        </form>
+        </div>
+
       </div>
 
     </div>

@@ -11,14 +11,14 @@ export default function Login() {
 
       <div className="login-main">
         <div className="login-main-img">
-          <img src={Taco} alt='Taco'/>
+          <img src={Taco} alt='Taco' />
         </div>
 
-        <form>
+        <div className='form-login' >
           <input type="email" placeholder='Inform Your Email' />
           <input type="password" placeholder='Inform Your Password' />
           <button>Submit</button>
-        </form>
+        </div>
       </div>
 
     </div>
