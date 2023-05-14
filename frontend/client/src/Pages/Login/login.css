@@ -229,3 +229,39 @@
         font-size: 45px;
     }
 }
+
+@media (max-width: 600px) {
+    .login-main {
+        flex-direction: column;
+    }
+
+    .login-title h1 {
+        font-size: 65px;
+    }
+
+    .form-login input {
+        font-size: 38px;
+
+        width: 450px;
+        height: 45px;
+    }
+
+    .form-login input::placeholder {
+        font-size: 38px;
+    }
+
+    .createAccount-main-img img {
+        width: 450px;
+        animation: img-appearing-from-left 2s;
+    }
+
+    .form-login button {
+        width: 350px;
+        height: 80px;
+
+        font-size: 40px;
+        color: #FFF;
+
+        animation: button-form-appearing-from-down 2s;
+    }
+}
