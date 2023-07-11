@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/Home/home'
+import Login from './components/Login/login'
 import Requests from "./components/Requests/requests";
 import Menu from './components/Menu/menu'
 import AddItem from './components/AddItem/addItem';
@@ -16,6 +17,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/requests" element={<Requests />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/menu" element={<Menu />} />
