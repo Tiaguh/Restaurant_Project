@@ -1,6 +1,6 @@
 import React from 'react'
 import Chef from './img/chef-picture.png'
-import './login.css'
+import './Login.css'
 
 export default function Login() {
   return (

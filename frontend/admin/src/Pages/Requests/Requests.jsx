@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Header from '../Header/header'
-import Title from '../Title/title'
-import './requests.css'
+import Header from '../../components/Header/Header'
+import Title from '../../components/Title/Title'
+import './Requests.css'
 
 export default function Requests() {
 

@@ -1,10 +1,9 @@
-import React from 'react'
-import Header from '../Header/header'
-import Title from '../Title/title'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import Header from '../../components/Header/Header'
+import Title from '../../components/Title/Title'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import './alterItems.css'
+import './AlterItems.css'
 
 export default function AlterItems() {
     const [items, setItems] = useState([])

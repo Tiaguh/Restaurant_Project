@@ -1,88 +1,175 @@
-.header-container {
+header {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
     overflow-x: hidden;
     overflow-y: hidden;
 
-    position: fixed;
-
-    z-index: 1;  
-    /*Funciona por ordem de empilhamento, em que um elemento superior será exibido à frente e o com número inferior atrás. */
+    position: absolute;
 }
 
-.header-container .header-side-bar {
-    width: 17vw;
-    height: 80vh;
+/* open header code */
+
+.close-header {
+    width: 20vw;
+    height: 12vh;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background-color: #FFDE59;
+}
+
+.close-header button {
+    border: none;
+    background-color: transparent;
+}
+
+.close-header button img {
+    width: 35px;
+}
+
+.side-bar {
+    width: 20vw;
+    height: 68vh;
 
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+
+    padding-left: 20px;
+    padding-right: 20px;
 
     gap: 15px;
 
     background-color: #FFDE59;
 }
 
-.header-container .link {
-    text-decoration: none;
-}
-
-.header-container .header-side-bar p {
+.side-bar .link {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
-    width: 200px;
-    height: 40px;
+    gap: 10px;
+
+    width: 100%;
+    height: 50px;
 
     background-color: #FF0000;
 
-    font-size: 30px;
-    color: #FFF;
-    font-family: 'VT323', monospace;
     text-decoration: none;
 
+    padding: 10px;
 }
 
-.header-container .header-side-bar p:hover {
-    background-color: #FFF;
-    color: #FF0000;
+.side-bar .link:hover {
+    cursor: pointer;
 }
 
-.header-container .logout {
-    width: 17vw;
+.side-bar .link p {
+    font-size: 28px;
+    color: #FFF;
+    font-family: 'VT323', monospace;
+}
+
+.side-bar .link img {
+    width: 23px;
+}
+
+.logout {
+    width: 20vw;
     height: 20vh;
 
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+
+    padding-left: 20px;
+    padding-right: 20px;
 
     background-color: #FFDE59;
 }
 
-.header-container .logout button {
+.logout .link {
+    text-decoration: none;
+}
+
+.logout button {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 200px;
+    width: 100%;
     height: 40px;
 
     background-color: #FFF;
 
-    font-size: 30px;
+    font-size: 28px;
     color: #FF0000;
     font-family: 'VT323', monospace;
-    text-decoration: none;
     border: none;
 
     cursor: pointer;
 }
 
-.header-container .logout button:hover {
-    background-color: #FF0000;
-    color: #FFF;
+/* closed header code */
+
+.header-not-active {
+    width: 7vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.open-header {
+    width: 6vw;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background-color: #FFDE59;
+}
+
+.open-header button {
+    border: none;
+    background-color: transparent;
+}
+
+.open-header button img {
+    width: 38px;
+}
+
+.side-bar-not-active {
+    width: 6vw;
+    height: 68vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    gap: 35px;
+
+    background-color: #FFDE59;
+}
+
+.side-bar-not-active .link img {
+    width: 35px;
+}
+
+.logout-not-activite {
+    width: 6vw;
+    height: 22vh;
+
+    background-color: #FFDE59;
 }

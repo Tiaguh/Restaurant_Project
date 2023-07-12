@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Header from '../Header/header'
-import Title from '../Title/title'
+import Header from '../../components/Header/Header'
+import Title from '../../components/Title/Title'
 import axios from 'axios'
 
 // import chef from './pictures/chef-picture.png'
 
-import './menu.css'
+import './Menu.css'
 
 export default function Menu() {
   const [items, setItems] = useState([])

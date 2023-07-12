@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './components/Home/home'
-import Login from './components/Login/login'
-import Requests from "./components/Requests/requests";
-import Menu from './components/Menu/menu'
-import AddItem from './components/AddItem/addItem';
-import ManagementItems from "./components/Management-Items/managementItems";
-import AlterItems from "./components/AlterItems/alterItems";
-import UpdateItem from "./components/UpdateItem/updateItem";
+import Home from './Pages/Home/Home'
+import Login from './Pages/Login/Login'
+import Requests from './Pages/Requests/Requests'
+import Menu from './Pages/Menu/Menu'
+import AddItem from './Pages/AddItem/AddItem'
+import ManagementItems from './Pages/Management-Items/ManagementItems'
+import AlterItems from './Pages/AlterItems/AlterItems'
+import UpdateItem from './Pages/UpdateItem/UpdateItem'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

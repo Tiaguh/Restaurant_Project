@@ -1,9 +1,9 @@
 import React from 'react'
 import Menu from './img/menu.png'
-import Header from '../Header/header'
-import Title from '../Title/title'
+import Header from '../../components/Header/Header'
+import Title from '../../components/Title/Title'
 
-import './addItem.css'
+import './AddItem.css'
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
