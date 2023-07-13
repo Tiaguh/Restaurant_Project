@@ -16,10 +16,8 @@
     gap: 25px;
     flex-wrap: wrap;
 
-    width: 83vw;
+    width: 100vw;
     height: fit-content;
-
-    margin-left: 17vw;
 }
 
 .update-item-title h1 {

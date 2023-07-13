@@ -8,13 +8,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
     gap: 25px;
+    
     flex-wrap: wrap;
 
-    width: 83vw;
+    width: 100vw;
     height: 85vh;  
-
-    margin-left: 17vw;
 }
 
 .management-items button{
