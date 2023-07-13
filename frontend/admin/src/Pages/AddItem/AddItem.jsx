@@ -100,14 +100,18 @@ export default function AddItem() {
 
       <Header />
 
-      <Title title="Add a New Item To The Menu" />
       <div className="add-item-container">
+        
+      <Title title="Add a New Item To The Menu" />
+
         <div className="add-item-main">
+
           <div className="add-item-main-img">
             <img src={Menu} alt='Menu' />
           </div>
 
           <form>
+            
             <input
               className='input'
               type="text"

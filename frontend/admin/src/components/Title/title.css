@@ -1,19 +1,18 @@
 .title-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    width: 100vw;
-    height: 15vh;
-
-    padding-top: 20px;
-    padding-bottom: 30px;
+    width: 94vw;
+    height: 12vh;
 
     border-bottom: solid 3px #A9A9A9;
 }
 
 .title-container h1 {
-    color: #000;
+    font-size: 50px;
     font-weight: bold;
     font-family: 'VT323', monospace;
-    font-size: 50px;
+    
+    color: #000;
 }

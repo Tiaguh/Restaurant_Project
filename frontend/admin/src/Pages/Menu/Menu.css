@@ -1,12 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .menu-container-all {
+    width: 100vw;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .menu-container {
@@ -16,10 +12,7 @@
     gap: 35px;
 
     background-color: #FFF;
-    width: 83vw;
-    height: fit-content;
 
-    margin-left: 17vw;
     padding-top: 30px;
 }
 

@@ -23,15 +23,20 @@ export default function Home() {
 
     return () => {
       clearInterval(interval);
-    };
-  }, []);
+    }
+  }, [])
 
   return (
     <div className='management-container'>
+
       <Header />
+
       <div className='management-main'>
+
         <h1>{hour} : {minutes} : {seconds}</h1>
+
       </div>
+
     </div>
   );
 }

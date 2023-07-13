@@ -4,17 +4,15 @@
 }
 
 .management-main{
+    width: 94vw;
+    height: 100vh;
+
+    padding-top: 30px;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-
-
-    width: 83vw;
-    height: 95vh;
-
-    margin-left: 17vw;
-    margin-top: 5vh;
 }
 
 .management-main h1{

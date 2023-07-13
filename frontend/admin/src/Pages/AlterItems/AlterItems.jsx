@@ -38,9 +38,9 @@ export default function AlterItems() {
         <div className='alter-items-container-all'>
             <Header />
 
-            <Title title="List Items" />
-
             <div className="alter-items-container">
+                
+            <Title title="List Items" />
 
                 {items.map(item => (
                     <div className="cards" key={item.id_item}>
