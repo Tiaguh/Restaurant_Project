@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
+import Title from '../../components/Title/Title';
+
 import './Home.css';
 
 export default function Home() {
@@ -33,7 +35,11 @@ export default function Home() {
 
       <div className='management-main'>
 
-        <h1>{hour} : {minutes} : {seconds}</h1>
+        <Title title="Home" />
+
+        <div className="clock-container">
+          <h1>{hour} : {minutes} : {seconds}</h1>
+        </div>
 
       </div>
 

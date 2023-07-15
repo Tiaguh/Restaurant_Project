@@ -7,17 +7,19 @@
     width: 94vw;
     height: 100vh;
 
-    padding-top: 30px;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
 
-.management-main h1{
+.clock-container {
+    margin-top: 15px;
+}
+
+.clock-container h1{
     font-family: 'VT323', monospace;
-    font-size: 50px;
+    font-size: 55px;
 }
 
 .management-main button{

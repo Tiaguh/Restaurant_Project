@@ -40,7 +40,7 @@ export default function AlterItems() {
 
             <div className="alter-items-container">
                 
-            <Title title="List Items" />
+            <Title title="Alter Items" />
 
                 {items.map(item => (
                     <div className="cards" key={item.id_item}>

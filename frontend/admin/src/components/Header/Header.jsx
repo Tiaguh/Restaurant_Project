@@ -35,18 +35,18 @@ export default function Header() {
                     </Link>
 
                     <Link className="link" to="/requests">
-                        <img src={SolicitationIcon} alt="Requests" />
+                        <img src={RequestIcon} alt="Requests" />
                         <p>Requests</p>
-                    </Link>
-
-                    <Link className="link" to="/menu">
-                        <img src={RequestIcon} alt="See Menu" />
-                        <p>See Menu</p>
                     </Link>
 
                     <Link className="link" to="/management-items">
                         <img src={SettingsIcon} alt="Management Items" />
                         <p>Management Items</p>
+                    </Link>
+
+                    <Link className="link" to="/menu">
+                        <img src={RequestIcon} alt="See Menu" />
+                        <p>See Menu</p>
                     </Link>
 
                 </div>
