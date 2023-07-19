@@ -46,8 +46,8 @@
     justify-content: center;
     flex-direction: column;
 
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     gap: 15px;
 }

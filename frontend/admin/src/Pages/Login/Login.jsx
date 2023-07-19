@@ -1,8 +1,13 @@
-import React from 'react'
-import Chef from './img/chef-picture.png'
+import React, {useState} from 'react'
+import { Link, useNavigate } from "react-router-dom"
 import './Login.css'
 
+import Chef from './img/chef-picture.png'
+
 export default function Login() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
   return (
     <div className='login-container'>
 
