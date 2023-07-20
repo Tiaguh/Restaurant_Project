@@ -27,18 +27,22 @@ export default function Menu() {
     <div className='menu-container-all'>
       <Header />
 
-      <Title title="Menu" />
-
       <div className="menu-container">
+        <Title title="Menu" />
 
-        {items.map(item => (
-          <div className="cards" key={item.id_item}>
-            {item.item_image && <img src={item.item_image} alt="snack" />}
-            <h2>{item.item_name}</h2>
-            <p>{item.item_description}</p>
-            <h3>R$ {item.item_price}</h3>
-          </div>
-        ))}
+        <div className="cards-container">
+
+          {items.map(item => (
+            <div className="cards" key={item.id_item}>
+              {item.item_image && <img src={item.item_image} alt="snack" />}
+              <h2>{item.item_name}</h2>
+              <p>{item.item_description}</p>
+              <h3>R$ {item.item_price}</h3>
+            </div>
+          ))}
+
+        </div>
+
       </div>
     </div>
   )

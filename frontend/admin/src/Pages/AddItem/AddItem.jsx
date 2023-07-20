@@ -11,9 +11,6 @@ import { useNavigate } from 'react-router-dom'
 import api from '../../api.js'
 import { toast } from 'react-toastify';
 
-// import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-// import { storage } from '../../Firebase'
-
 export default function AddItem() {
   const navigate = useNavigate()
 
@@ -21,46 +18,14 @@ export default function AddItem() {
   const [itemDescription, setItemDescription] = useState('')
   const [itemPrice, setItemPrice] = useState('')
 
-  console.log(itemName, itemDescription, itemPrice);
-
-  // const [imgURL, setImgURL] = useState('')
-  // const [progress, setProgress] = useState(0)
-
-
-  // const handleUpload = (e) => {
-  //   e.preventDefault()
-
-  //   const file = e.target[0]?.files[0]
-
-  //   if (!file) return;
-
-  //   const storageRef = ref(storage, `img/${file.name}`)
-  //   const uploadTask = uploadBytesResumable(storageRef, file)
-
-  //   uploadTask.on(
-  //     "state_changed",
-
-  //     snapshot => {
-  //       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-  //       setProgress(progress)
-  //     },
-
-  //     error => {
-  //       alert(error)
-  //     },
-
-  //     () => {
-  //       getDownloadURL(uploadTask.snapshot.ref).then(url => {
-  //         setImgURL(url)
-  //       })
-  //     }
-
-  //   )
-  // }
-
   async function handleAddItem(e) {
 
     e.preventDefault()
+
+    if (!itemName || !itemDescription || !itemPrice) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
 
     try {
       const data = {
@@ -90,19 +55,14 @@ export default function AddItem() {
     }
   }
 
-  // function handleClick() {
-  //   handleAddItem();
-  //   handleUpload()
-  // }
-
   return (
     <div className='add-all-item-container'>
 
       <Header />
 
       <div className="add-item-container">
-        
-      <Title title="Add a New Item To The Menu" />
+
+        <Title title="Add a New Item To The Menu" />
 
         <div className="add-item-main">
 
@@ -111,7 +71,7 @@ export default function AddItem() {
           </div>
 
           <form>
-            
+
             <input
               className='input'
               type="text"
@@ -136,12 +96,8 @@ export default function AddItem() {
               onChange={e => setItemPrice(e.target.value)}
             />
 
-            {/* <input type="file" />
-
-            {!imgURL && <progress value={progress} max="100" />}
-            {imgURL && <img src={imgURL} alt="Imagem" />} */}
-
             <button onClick={handleAddItem}>Add</button>
+
           </form>
         </div>
 

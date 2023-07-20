@@ -12,21 +12,6 @@
     flex-wrap: wrap;
 }
 
-.cards {
-    width: 400px;
-    height: 450px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-
-    border: #A9A9A9 solid 3px;
-
-    background-color: #FF0000;
-}
-
 .cards h2 {
     color: #F7F9F9;
     text-align: center;
