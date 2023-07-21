@@ -7,6 +7,8 @@
     height: 12vh;
 
     border-bottom: solid 3px #A9A9A9;
+
+    overflow-y: hidden;
 }
 
 .title-container h1 {

@@ -11,13 +11,6 @@
     flex-direction: column;
 }
 
-.add-item-title h1 {
-    color: #FFF;
-    font-weight: bold;
-    font-family: 'VT323', monospace;
-    font-size: 50px;
-}
-
 .add-item-main {
     display: flex;
     flex-direction: row;
@@ -36,7 +29,7 @@
 }
 
 .add-item-main-img img {
-    max-width: 220px;
+    width: 250px;
 
     animation: img-appearing-from-left 1s;
 }
@@ -109,8 +102,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 form button {
-    width: 250px;
-    height: 50px;
+    width: 280px;
+    height: 60px;
 
     font-family: 'VT323', monospace;
     font-size: 25px;

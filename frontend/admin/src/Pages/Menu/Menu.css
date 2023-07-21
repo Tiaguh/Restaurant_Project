@@ -1,5 +1,6 @@
 .menu-container-all {
     width: 100vw;
+    height: auto;
 
     display: flex;
     flex-direction: row;
@@ -9,21 +10,17 @@
     width: 94vw;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    gap: 35px;
-
-    background-color: #FFF;
+    flex-direction: column;   
 }
 
 .cards-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     flex-wrap: wrap;
 
-    padding: 25px;
+    padding: 15px;
 
     gap: 40px;
 }
@@ -36,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 15px;
 
     border: #A9A9A9 solid 3px;
@@ -60,13 +58,12 @@
 }
 
 .cards h3 {
-    color: yellow;
+    color: #FFFF00;
     text-align: center;
     font-weight: bold;
     font-family: 'VT323', monospace;
     font-size: x-large;
 }
-
 
 .cards img {
     width: 130px;
@@ -75,6 +72,7 @@
 .cards button {
     width: 200px;
     height: 35px;
+
     border-radius: 15px;
 
     font-family: 'VT323', monospace;

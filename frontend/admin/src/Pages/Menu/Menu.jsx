@@ -25,9 +25,11 @@ export default function Menu() {
 
   return (
     <div className='menu-container-all'>
+
       <Header />
 
       <div className="menu-container">
+        
         <Title title="Menu" />
 
         <div className="cards-container">

@@ -31,9 +31,9 @@ export default function UpdateItem() {
 
     try {
       await axios.post(`http://localhost:3333/management-item/update-item/${itemId}`, item)
-      .then((res) => {
-        console.log(res)
-      })
+        .then((res) => {
+          console.log(res)
+        })
       navigate("/alter-items")
     } catch (error) {
       console.log(error);
@@ -45,20 +45,44 @@ export default function UpdateItem() {
 
       <Header />
 
-      <Title title="Update a Item To The Menu" />
-      
       <div className="update-item-container">
+
+        <Title title="Update a Item To The Menu" />
+
         <div className="update-item-main">
+
           <div className="update-item-main-img">
             <img src={Menu} alt='Menu' />
           </div>
 
           <form>
-            <input type="text" placeholder='Item Name' onChange={handleChange} 
-            name='itemName' />
-            <input type="text" placeholder='Item Description' onChange={handleChange} name='itemDescription' />
-            <input type="number" placeholder='Item Price' onChange={handleChange} name='itemPrice' />
+
+            <input
+              className='input'
+              type="text"
+              placeholder='Item Name'
+              onChange={handleChange}
+              name='itemName'
+            />
+
+            <input
+              className='input'
+              type="text"
+              placeholder='Item Description'
+              onChange={handleChange}
+              name='itemDescription'
+            />
+
+            <input
+              className='input'
+              type="number"
+              placeholder='Item Price'
+              onChange={handleChange}
+              name='itemPrice'
+            />
+
             <button onClick={(e) => handleClick(e)}>Update</button>
+
           </form>
         </div>
 
