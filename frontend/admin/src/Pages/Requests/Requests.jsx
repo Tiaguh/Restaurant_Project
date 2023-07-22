@@ -32,7 +32,7 @@ export default function Requests() {
 
   return (
     <div className='requests-all-container'>
-      <Header />
+      <Header height="100vh" />
 
       <Title title="Requests" />
 

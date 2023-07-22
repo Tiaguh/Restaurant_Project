@@ -38,10 +38,12 @@ export default function AlterItems() {
         }
     }
 
+    const headerHeight = items.length < 4 ? "100vh" : "100%";
+
     return (
         <div className='alter-items-container-all'>
 
-            <Header />
+            <Header height={headerHeight} />
 
             <div className="alter-items-container">
 

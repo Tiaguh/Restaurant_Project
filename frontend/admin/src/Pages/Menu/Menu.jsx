@@ -1,35 +1,35 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import Header from '../../components/Header/Header'
-import Title from '../../components/Title/Title'
-import axios from 'axios'
-
-// import chef from './pictures/chef-picture.png'
-
-import './Menu.css'
+import React, { useState, useEffect } from 'react';
+import Header from '../../components/Header/Header';
+import Title from '../../components/Title/Title';
+import axios from 'axios';
+import './Menu.css';
 
 export default function Menu() {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
-        const res = await axios.get("http://localhost:3333/management-item/get-items")
-        setItems(res.data)
+        const res = await axios.get("http://localhost:3333/management-item/get-items");
+        setItems(res.data);
       } catch (error) {
         console.log(error);
       }
-    }
-    fetchAllItems()
-  }, [])
+    };
+    fetchAllItems();
+  }, []);
+
+  const headerHeight = items.length < 4 ? "100vh" : "100%";
+
+  console.log(headerHeight);
 
   return (
     <div className='menu-container-all'>
 
-      <Header />
+      <Header height={headerHeight} />
 
       <div className="menu-container">
-        
+
         <Title title="Menu" />
 
         <div className="cards-container">
@@ -46,6 +46,7 @@ export default function Menu() {
         </div>
 
       </div>
+
     </div>
-  )
+  );
 }

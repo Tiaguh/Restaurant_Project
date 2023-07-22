@@ -11,7 +11,7 @@ import CloseIcon from './img/close.png';
 
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header(props) {
     const [activated, setActivated] = useState(false);
 
     return (
@@ -61,7 +61,10 @@ export default function Header() {
 
             </div>
 
-            <div className="open-header-container">
+            <div
+                className="open-header-container"
+                style={{ height: props.height }}
+            >
 
                 <div className="open-header">
 
