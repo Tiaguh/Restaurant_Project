@@ -125,7 +125,7 @@
     color: #FFF;
 }
 
-.form-login button {
+.form-login .login-button {
     width: 250px;
     height: 60px;
 
@@ -141,7 +141,7 @@
     animation: button-form-appearing-from-down 2s;
 }
 
-.form-login button:hover {
+.form-login .login-button:hover {
     color: #FF0000;
     background-color: #FFF;
 }

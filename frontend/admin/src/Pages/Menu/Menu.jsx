@@ -21,8 +21,6 @@ export default function Menu() {
 
   const headerHeight = items.length < 4 ? "100vh" : "100%";
 
-  console.log(headerHeight);
-
   return (
     <div className='menu-container-all'>
 
