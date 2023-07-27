@@ -1,4 +1,4 @@
-<h1>Restaurant_Project</h1>
+<h2>Restaurant_Project</h2>
 
 <p>Esse projeto foi desenvolvido com o intuito de pela primeira vez em uma aplicação de minha autoria conectar frontend e banco de dados via API.</p>
 
@@ -13,3 +13,9 @@ via inputs e botões.</p>
   <li>Express para construir a API</li>
   <li>MySQL como banco de dados.</li>
 </ul>
+
+<div>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" />
+</div>
