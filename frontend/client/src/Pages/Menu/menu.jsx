@@ -34,13 +34,15 @@ export default function Menu() {
 
   return (
     <div className='menu-container'>
-      <div className="menu-title-container">
+      
         <div className="menu-title">
+
           <h1>Menu</h1>
-          {/* <Link to="/cart">
+
+          <Link className='cart' to="/cart">
             <img src={Cart} alt="" />
-          </Link> */}
-        </div>
+          </Link>
+
       </div>
 
       <div className="card">

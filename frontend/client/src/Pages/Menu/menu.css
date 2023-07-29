@@ -11,15 +11,13 @@
     background-color: #FFDE59;
 }
 
-/* .menu-title-container{
-
-} */
-
 .menu-title {
-    display: flex;
-    justify-content: center;
     width: 100vw;
     height: 10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     padding-top: 20px;
     margin-bottom: 20px;
@@ -36,6 +34,11 @@
     width: 50px;
     filter: invert(1);
     cursor: pointer;
+}
+
+.cart {
+    position: absolute;
+    right: 10px; 
 }
 
 .card {
