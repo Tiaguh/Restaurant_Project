@@ -1,12 +1,11 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import './Menu.css'
 import Cart from './pictures/cart.png'
 
-// import chef from './pictures/chef-picture.png'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-import './menu.css'
+// import chef from './pictures/chef-picture.png'
 
 export default function Menu() {
   const [items, setItems] = useState([])
@@ -34,14 +33,14 @@ export default function Menu() {
 
   return (
     <div className='menu-container'>
-      
-        <div className="menu-title">
 
-          <h1>Menu</h1>
+      <div className="menu-title">
 
-          <Link className='cart' to="/cart">
-            <img src={Cart} alt="" />
-          </Link>
+        <h1>Menu</h1>
+
+        <Link className='cart' to="/cart">
+          <img src={Cart} alt="" />
+        </Link>
 
       </div>
 

@@ -1,14 +1,13 @@
 import HomePage from './Pages/HomePage/HomePage';
 import CreateAccount from './Pages/CreateAccount/CreateAccount'
 import Login from './Pages/Login/Login'
-import Menu from './Pages/Menu/menu';
+import Menu from './Pages/Menu/Menu';
 import Cart from './Pages/Cart/cart';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -18,6 +17,5 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
-    </div>
   );
 }
