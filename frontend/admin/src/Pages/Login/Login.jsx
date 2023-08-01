@@ -41,7 +41,7 @@ export default function Login() {
       const response = await api.post("/login", data);
       console.log(response);
 
-      if (response.status === 200) {
+      if (response.data.message === 'Login bem-sucedido') {
         navigate("/");
         toast.success('Logado com sucesso!', {
           position: "top-right",
@@ -54,35 +54,6 @@ export default function Login() {
           theme: "dark",
         });
       }
-
-      else if (response.status === 401) {
-        alert("passou aqui 401")
-
-        toast.error('Email ou senha incorretos!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
-
-      else {
-        toast.error('Erro no login. Tente novamente.', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
-
     } catch (error) {
       toast.error('Erro no login. Tente novamente.', {
         position: "top-right",
