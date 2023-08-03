@@ -41,7 +41,7 @@ export default function Login() {
       const response = await api.post("/login", data);
       console.log(response);
 
-      if (response.data.message === 'Login bem-sucedido') {
+      if (response.status === 200) {
         navigate("/");
         toast.success('Logado com sucesso!', {
           position: "top-right",
@@ -54,6 +54,9 @@ export default function Login() {
           theme: "dark",
         });
       }
+
+      sessionStorage.setItem("login", true)
+
     } catch (error) {
       toast.error('Erro no login. Tente novamente.', {
         position: "top-right",

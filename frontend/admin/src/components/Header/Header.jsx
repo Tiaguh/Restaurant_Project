@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import './Header.css';
+import React, { useState } from "react";
+import "./Header.css";
 
-import HomeIcon from './img/icons/home.png';
-import RequestIcon from './img/icons/menu.png';
-import SettingsIcon from './img/icons/settings.png';
-import SolicitationIcon from './img/icons/solicitation.png';
+import HomeIcon from "./img/icons/home.png";
+import RequestIcon from "./img/icons/menu.png";
+import SettingsIcon from "./img/icons/settings.png";
 
-import MenuIcon from './img/menu.png';
-import CloseIcon from './img/close.png';
+import MenuIcon from "./img/menu.png";
+import CloseIcon from "./img/close.png";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
+import { toast } from 'react-toastify';
 
 export default function Header(props) {
     const [activated, setActivated] = useState(false);
@@ -17,7 +18,7 @@ export default function Header(props) {
     return (
         <header>
 
-            <div className={`side-bar-container${activated ? ' active' : ''}`}>
+            <div className={`side-bar-container${activated ? " active" : ""}`}>
 
                 <div className="close-header">
 
@@ -54,7 +55,24 @@ export default function Header(props) {
                 <div className="logout">
 
                     <Link className="link" to="/login">
-                        <button>Logout</button>
+                        
+                        <button onClick={() => {
+                            sessionStorage.removeItem("login")
+                            sessionStorage.clear();
+
+                            toast.success('Deslogado com sucesso!', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "dark",
+                            });
+                        }}>
+                            Logout
+                        </button>
                     </Link>
 
                 </div>
