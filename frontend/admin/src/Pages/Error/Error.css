@@ -1,0 +1,50 @@
+.container-error {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #FFDE59;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.container-error img {
+    width: 300px;
+
+    animation: img-appearing-from-top 0.8s;
+}
+
+@keyframes img-appearing-from-top {
+    from {
+        transform: translateY(-450px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.container-error h1 {
+    font-size: 60px;
+
+    font-family: 'VT323', monospace;
+
+    animation: text-appearing-from-bottom 0.8s;
+}
+
+@keyframes text-appearing-from-bottom {
+    from {
+        transform: translateY(400px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
