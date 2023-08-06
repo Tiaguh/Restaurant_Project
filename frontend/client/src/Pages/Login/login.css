@@ -126,6 +126,8 @@
     background-color: #FF0000;
 
     animation: button-form-appearing-from-down 2s;
+
+    cursor: pointer;
 }
 
 .form-login button:hover {

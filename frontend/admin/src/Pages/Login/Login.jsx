@@ -38,7 +38,7 @@ export default function Login() {
         password
       };
 
-      const response = await api.post("/login", data);
+      const response = await api.post("/login/admin", data);
       console.log(response);
 
       if (response.status === 200) {
