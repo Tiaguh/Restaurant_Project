@@ -104,8 +104,8 @@
     border-left: none;
     border-right: none;
 
-
     background-color: transparent;
+    
     width: 500px;
     height: 60px;
 }
@@ -173,7 +173,7 @@
     }
 
     .form-login input {
-        font-size: 40px;
+        font-size: 38px;
 
         border-bottom: 4px solid #FFF;
 
@@ -182,7 +182,7 @@
     }
 
     .form-login input::placeholder {
-        font-size: 40px;
+        font-size: 38px;
     }
 
     .form-login button {

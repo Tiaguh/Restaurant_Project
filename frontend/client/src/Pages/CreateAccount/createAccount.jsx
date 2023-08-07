@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
-import './CreateAccount.css'
-import { toast } from 'react-toastify';
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
+import "./CreateAccount.css"
 
-import Sushi from './img/sushi.png'
+import { toast } from "react-toastify";
+import api from "../../api";
+
+import Sushi from "./img/sushi.png"
 
 export default function CreateAccount() {
-  
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const navigate = useNavigate();
 
   async function handleRegister(e) {
     e.preventDefault();
 
     if (!name || !email || !password) {
-      toast.warn('Insira todos os dados!', {
+      toast.warn("Insira todos os dados!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -27,39 +31,79 @@ export default function CreateAccount() {
 
       return;
     }
+
+    try {
+      const data = {
+        name,
+        email,
+        password
+      }
+
+      const response = await api.post("/user/create-user", data);
+      console.log(response);
+
+      if (response.status === 200) {
+        navigate("/menu");
+        toast.success('Conta criada com sucesso!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        sessionStorage.setItem("login", true)
+
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Erro no cadastro. Tente novamente.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   }
 
   return (
-    <div className='createAccount-container'>
+    <div className="createAccount-container">
       <div className="createAccount-title">
         <h1>Create an Account</h1>
       </div>
 
       <div className="createAccount-main">
         <div className="createAccount-main-img">
-          <img src={Sushi} alt='Sushi' />
+          <img src={Sushi} alt="Sushi" />
         </div>
 
         <form
           onSubmit={handleRegister}
-          className='form-cadastro'
+          className="form-cadastro"
         >
 
           <input
             type="text"
-            placeholder='Inform Your Name'
+            placeholder="Inform Your Name"
             onChange={(e) => setName(e.target.value)}
           />
 
           <input
             type="email"
-            placeholder='Inform Your Email'
+            placeholder="Inform Your Email"
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
             type="password"
-            placeholder='Inform Your Password'
+            placeholder="Inform Your Password"
             onChange={(e) => setPassword(e.target.value)}
           />
 
