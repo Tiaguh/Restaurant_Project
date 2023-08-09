@@ -5,9 +5,13 @@ import Cart from './pictures/cart.png'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+// import { useUser } from '../../context/UserContext'
+
 // import chef from './pictures/chef-picture.png'
 
 export default function Menu() {
+  // const { user } = useUser();
+
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -41,6 +45,10 @@ export default function Menu() {
         <Link className='cart' to="/cart">
           <img src={Cart} alt="" />
         </Link>
+
+        <h1>
+          {/* {user} */}
+        </h1>
 
       </div>
 

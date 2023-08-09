@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
+import { useUser } from '../../context/UserContext'
+
 import Taco from './img/taco.png'
 import api from '../../api.js'
 
 import { toast } from 'react-toastify';
 
 export default function Login() {
+  const { updateUser } = useUser();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -44,8 +48,7 @@ export default function Login() {
       const response = await api.post("/login/client", data);
       console.log(response);
 
-      if (response.status === 200) {
-        navigate("/menu");
+      if (response.status === 200) {        
         toast.success('Logado com sucesso!', {
           position: "top-right",
           autoClose: 5000,
@@ -56,6 +59,11 @@ export default function Login() {
           progress: undefined,
           theme: "dark",
         });
+        
+        const userId = response.data.id;
+        updateUser(userId);
+        
+        navigate("/menu");
       }
 
       sessionStorage.setItem("login", true)
@@ -103,7 +111,7 @@ export default function Login() {
           />
 
           <button>Submit</button>
-          
+
         </div>
       </form>
 
