@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useUser } from '../../context/UserContext'
+
+import api from '../../api'
 import './Menu.css'
+
 import Cart from './pictures/cart.png'
 
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-
-// import { useUser } from '../../context/UserContext'
-
-// import chef from './pictures/chef-picture.png'
-
 export default function Menu() {
-  // const { user } = useUser();
+  const { user } = useUser();
 
   const [items, setItems] = useState([])
 
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
-        const res = await axios.get("http://localhost:3333/management-item/get-items")
+        const res = await api.get("/management-item/get-items")
         setItems(res.data)
       } catch (error) {
         console.log(error);
@@ -28,7 +26,7 @@ export default function Menu() {
 
   const handleBuy = async (item_id) => {
     try {
-      await axios.post("http://localhost:3333/add-item-cart/" + item_id)
+      await api.post("add-item-cart/" + item_id)
       window.location.reload()
     } catch (error) {
       console.log(error);
@@ -42,13 +40,17 @@ export default function Menu() {
 
         <h1>Menu</h1>
 
-        <Link className='cart' to="/cart">
-          <img src={Cart} alt="" />
-        </Link>
+        <div className="menu-icon">
 
-        <h1>
-          {/* {user} */}
-        </h1>
+          <h2>
+           {user}
+          </h2>
+
+          <Link className='cart' to="/cart">
+            <img src={Cart} alt="" />
+          </Link>
+
+        </div>
 
       </div>
 

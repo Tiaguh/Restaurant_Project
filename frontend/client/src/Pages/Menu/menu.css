@@ -30,15 +30,26 @@
     font-size: 50px;
 }
 
-.menu-title img{
+.menu-title img {
     width: 50px;
     filter: invert(1);
     cursor: pointer;
 }
 
-.cart {
+.menu-icon {
+    display: flex;
+    flex-direction: row;   
+    align-items: center; 
+
     position: absolute;
-    right: 10px; 
+    right: 10px;
+}
+
+.menu-icon h2 {
+    color: #FFF;
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+    font-size: 35px;
 }
 
 .card {
