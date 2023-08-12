@@ -8,7 +8,9 @@ import './Menu.css'
 import Cart from './pictures/cart.png'
 
 export default function Menu() {
-  const { user } = useUser();
+  const { userData } = useUser();
+
+  console.log(userData);
 
   const [items, setItems] = useState([])
 
@@ -24,10 +26,13 @@ export default function Menu() {
     fetchAllItems()
   }, [])
 
-  const handleBuy = async (item_id) => {
+  const handleBuy = async (item_id, e) => {
+    e.preventDefault();
+
+    alert("Item adicionado ao carrinho")
+    
     try {
-      await api.post("add-item-cart/" + item_id)
-      window.location.reload()
+      await api.post(`/cart/add-item-cart/${userData.id}/${item_id}`);
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +48,7 @@ export default function Menu() {
         <div className="menu-icon">
 
           <h2>
-           {user}
+            {userData ? userData.name : ' '}
           </h2>
 
           <Link className='cart' to="/cart">
@@ -55,16 +60,18 @@ export default function Menu() {
       </div>
 
       <div className="card">
+
         {items.map(item => (
-          <div className="cards" key={item.id_item}>
+          <div className="cards" key={item.item_id}>
             {item.item_image && <img src={item.item_image} alt="snack" />}
             <h2>{item.item_name}</h2>
             <p>{item.item_description}</p>
             <h3>R$ {item.item_price}</h3>
-            <button onClick={() => handleBuy(item.id_item)}>Buy</button>
+            <button onClick={(e) => handleBuy(item.item_id, e)}>Buy</button>
           </div>
         ))}
       </div>
+
     </div>
   )
 }

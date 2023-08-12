@@ -29,6 +29,10 @@
 }
 
 .cart-item {
+    width: 100%;
+
+    padding: 50px;
+
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -41,7 +45,7 @@
 }
 
 .cart-items {
-    width: 80vw;
+    width: 100vw;
     height: 20vh;
 
     display: flex;
@@ -50,8 +54,16 @@
     align-items: center;
 
     border: #A9A9A9 solid 3px;
+    border-radius: 10px;
 
     background-color: #FF0000;
+}
+
+.cart-items-description {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 5px;
 }
 
 .cart-items h2 {

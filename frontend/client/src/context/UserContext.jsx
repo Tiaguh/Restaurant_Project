@@ -4,22 +4,19 @@ import api from '../api';
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
 
-  console.log(user);
-
-  // Função para atualizar os dados do usuário
   async function updateUser(id) {
     try {
       const response = await api.get(`/user/get-user/${id}`);
-      setUser(response.data.name);
+      setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
   }
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserContext.Provider value={{ userData, updateUser }}>
       {children}
     </UserContext.Provider>
   );
