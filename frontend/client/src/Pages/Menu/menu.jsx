@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useUser } from '../../context/UserContext'
-
-import api from '../../api'
 import './Menu.css'
 
 import Cart from './pictures/cart.png'
+import api from '../../api'
+import { toast } from 'react-toastify';
 
 export default function Menu() {
   const { userData } = useUser();
@@ -26,15 +26,40 @@ export default function Menu() {
     fetchAllItems()
   }, [])
 
-  const handleBuy = async (item_id, e) => {
+  const addItemToCart = async (item_id, e) => {
     e.preventDefault();
 
-    alert("Item adicionado ao carrinho")
-    
     try {
-      await api.post(`/cart/add-item-cart/${userData.id}/${item_id}`);
+      const response = await api.post(`/cart/add-item-cart/${userData.id}/${item_id}`);
+
+      if (response.status === 200) {
+        toast.success('Adicionado ao carrinho com sucesso!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.status === 409) {
+        toast.warn("Este item já está no seu carrinho.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else {
+        console.log(error);
+      }
     }
   }
 
@@ -67,7 +92,7 @@ export default function Menu() {
             <h2>{item.item_name}</h2>
             <p>{item.item_description}</p>
             <h3>R$ {item.item_price}</h3>
-            <button onClick={(e) => handleBuy(item.item_id, e)}>Buy</button>
+            <button onClick={(e) => addItemToCart(item.item_id, e)}>Buy</button>
           </div>
         ))}
       </div>

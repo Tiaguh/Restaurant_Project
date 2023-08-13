@@ -62,8 +62,35 @@
 .cart-items-description {
     display: flex;
     flex-direction: column;
-    
+
     gap: 5px;
+}
+
+.qntd {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.qntd h1 {
+    font-family: 'VT323', monospace;
+    font-size: 35px;
+}
+
+.qntd-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+    color: #FFF;
+
+    background-color: transparent;
+    border: #FFF 2px solid;
+
+    cursor: pointer;
 }
 
 .cart-items h2 {
@@ -87,7 +114,7 @@
     text-align: center;
     font-weight: bold;
     font-family: 'VT323', monospace;
-    font-size: x-large;
+    font-size: 30px;
 }
 
 
@@ -95,17 +122,19 @@
     width: 130px;
 }
 
-.cart-items button {
+.cart-items .remove-button {
     width: 200px;
-    height: 35px;
+    height: 45px;
     border-radius: 15px;
 
     font-family: 'VT323', monospace;
-    font-size: 25px;
+    font-size: 28px;
     color: #FFF;
 
     background-color: transparent;
     border: #FFF 2px solid;
+
+    cursor: pointer;
 }
 
 .cart-items button:hover {
