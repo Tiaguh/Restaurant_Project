@@ -53,6 +53,88 @@ export default function Cart() {
     }
   }
 
+  async function increaseCartItem(userId, itemId) {
+    try {
+      const response = await api.put(`/cart/increase-cart-item/${userId}/${itemId}`);
+      console.log(response);
+
+      const updatedItems = items.map(item => {
+        if (item.item_id === itemId) {
+          return {
+            ...item,
+            quantity: item.quantity + 1
+          };
+        }
+        return item;
+      });
+      setItems(updatedItems);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function decreaseCartItem(userId, itemId) {
+    try {
+      const currentItem = items.find(item => item.item_id === itemId);
+
+      if (currentItem.quantity > 1) {
+        const response = await api.put(`/cart/decrease-cart-item/${userId}/${itemId}`);
+        console.log(response);
+
+        const updatedItems = items.map(item => {
+          if (item.item_id === itemId) {
+            return {
+              ...item,
+              quantity: item.quantity - 1
+            };
+          }
+          return item;
+        });
+        setItems(updatedItems);
+
+        if (response.status === 200) {
+          toast.success('Menos um item foi retirado do carrinho!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      } else {
+        const confirmation = window.confirm(
+          'Tem certeza que deseja remover este item do carrinho?'
+        );
+
+        if (confirmation) {
+          const response = await api.delete(`/cart/remove-from-cart/${userId}/${itemId}`);
+          console.log(response);
+
+          if (response.status === 200) {
+            toast.success('Item removido do carrinho!', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          }
+
+          const updatedItems = items.filter(item => item.item_id !== itemId);
+          setItems(updatedItems);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   return (
     <div className='cart-container'>
       <div className="cart-title-container">
@@ -71,9 +153,22 @@ export default function Cart() {
             </div>
 
             <div className="qntd">
-              <button className='qntd-button'>+</button>
+
+              <button
+                className='qntd-button'
+                onClick={() => increaseCartItem(userData.id, item.item_id)}
+              >
+                +
+              </button>
+
               <h1>{item.quantity}</h1>
-              <button className='qntd-button'>-</button>
+
+              <button
+                className='qntd-button'
+                onClick={() => decreaseCartItem(userData.id, item.item_id)}
+              >
+                -
+              </button>
             </div>
 
             <h3>R$ {item.item_price}</h3>
