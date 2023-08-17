@@ -4,6 +4,8 @@ import Title from '../../components/Title/Title';
 import axios from 'axios';
 import './Menu.css';
 
+import CardMenu from '../../components/CardMenu/CardMenu.jsx'
+
 export default function Menu() {
   const [items, setItems] = useState([]);
 
@@ -32,14 +34,13 @@ export default function Menu() {
 
         <div className="cards-container">
 
-          {items.map(item => (
-            <div className="cards" key={item.id_item}>
-              {item.item_image && <img src={item.item_image} alt="snack" />}
-              <h2>{item.item_name}</h2>
-              <p>{item.item_description}</p>
-              <h3>R$ {item.item_price}</h3>
-            </div>
-          ))}
+        {items.map(item => (
+          <CardMenu
+            name={item.name}
+            description={item.description}
+            price={item.price}
+          />
+        ))}
 
         </div>
 

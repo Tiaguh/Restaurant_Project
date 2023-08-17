@@ -1,7 +1,9 @@
 import React from 'react'
 import './ManagementItems.css'
+
 import Title from '../../components/Title/Title'
 import Header from '../../components/Header/Header'
+
 import { Link } from 'react-router-dom'
 
 export default function managementItems() {

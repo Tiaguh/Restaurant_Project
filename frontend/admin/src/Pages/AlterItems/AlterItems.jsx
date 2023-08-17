@@ -4,7 +4,7 @@ import './AlterItems.css'
 import Header from '../../components/Header/Header'
 import Title from '../../components/Title/Title'
 
-import { Link } from 'react-router-dom'
+import CardUpdate from '../../components/CardUpdate/CardUpdate'
 
 import axios from 'axios'
 
@@ -26,13 +26,10 @@ export default function AlterItems() {
     const handleDelete = async (item_id) => {
         try {
             const confirmDelete = window.confirm('Tem certeza que deseja excluir este item?');
-            if (!confirmDelete) {
-                return;
-            }
+            if (!confirmDelete) return;
 
             await axios.delete(`http://localhost:3333/management-item/delete-item/${item_id}`);
             await fetchAllItems();
-            console.log(item_id);
         } catch (error) {
             console.log('Erro ao excluir item:', error);
         }
@@ -52,18 +49,13 @@ export default function AlterItems() {
                 <div className="alter-items-cards">
 
                     {items.map(item => (
-                        <div className="cards" key={item.item_id}>
-                            <h2>{item.item_name}</h2>
-                            <p>{item.item_description}</p>
-                            <h3>R$ {item.item_price}</h3>
-
-                            <button>
-                                <Link className='link' to={`/update-item/${item.item_id}`}>Update</Link>
-                            </button>
-
-                            <button onClick={() => handleDelete(item.item_id)}>Delete</button>
-
-                        </div>
+                        <CardUpdate
+                            key={item.id}
+                            name={item.name}
+                            description={item.description}
+                            price={item.price}
+                            onDelete={() => handleDelete(item.id)}
+                        />
                     ))}
 
                 </div>

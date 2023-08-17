@@ -24,28 +24,3 @@
 
     gap: 40px;
 }
-
-.cards button {
-    width: 200px;
-    height: 35px;
-    border-radius: 15px;
-
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-    color: #008000;
-
-    background-color: transparent;
-    border: #FFF 2px solid;
-
-    cursor: pointer;
-}
-
-.cards button:hover{
-    background-color: #FFF;
-    color: #008000;
-}
-
-.cards .link {
-    text-decoration: none;
-    color: #008000;
-}
