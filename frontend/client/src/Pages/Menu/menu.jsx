@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useUser } from '../../context/UserContext'
-import './Menu.css'
+
+import CardMenu from '../../components/CardMenu/CardMenu.jsx'
 
 import Cart from './pictures/cart.png'
 import api from '../../api'
+
+import './Menu.css'
 import { toast } from 'react-toastify';
 
 export default function Menu() {
@@ -84,16 +87,16 @@ export default function Menu() {
 
       </div>
 
-      <div className="card">
+      <div className="cards">
 
         {items.map(item => (
-          <div className="cards" key={item.item_id}>
-            {item.item_image && <img src={item.item_image} alt="snack" />}
-            <h2>{item.item_name}</h2>
-            <p>{item.item_description}</p>
-            <h3>R$ {item.item_price}</h3>
-            <button onClick={(e) => addItemToCart(item.item_id, e)}>Buy</button>
-          </div>
+          <CardMenu
+            key={item.id}
+            item_name={item.name}
+            item_description={item.description}
+            item_price={item.price}
+            onAddToCart={(e) => addItemToCart(item.id, e)}
+          />
         ))}
       </div>
 

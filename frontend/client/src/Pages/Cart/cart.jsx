@@ -1,10 +1,10 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import './Cart.css'
-
+import React, { useState, useEffect } from 'react'
 import { useUser } from '../../context/UserContext'
 
+import CardCart from '../../components/CardCart/CardCart'
 import api from '../../api'
+
+import './Cart.css'
 import { toast } from 'react-toastify';
 
 export default function Cart() {
@@ -91,19 +91,6 @@ export default function Cart() {
           return item;
         });
         setItems(updatedItems);
-
-        if (response.status === 200) {
-          toast.success('Menos um item foi retirado do carrinho!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        }
       } else {
         const confirmation = window.confirm(
           'Tem certeza que deseja remover este item do carrinho?'
@@ -134,7 +121,7 @@ export default function Cart() {
       console.log(error);
     }
   }
-  
+
   return (
     <div className='cart-container'>
       <div className="cart-title-container">
@@ -145,41 +132,16 @@ export default function Cart() {
 
       <div className="cart-item">
         {items.map(item => (
-          <div className="cart-items" key={item.item_id}>
-            {item.item_image && <img src={item.item_image} alt="snack" />}
-            <div className="cart-items-description">
-              <h2>{item.item_name}</h2>
-              <p>{item.item_description}</p>
-            </div>
-
-            <div className="qntd">
-
-              <button
-                className='qntd-button'
-                onClick={() => increaseCartItem(userData.id, item.item_id)}
-              >
-                +
-              </button>
-
-              <h1>{item.quantity}</h1>
-
-              <button
-                className='qntd-button'
-                onClick={() => decreaseCartItem(userData.id, item.item_id)}
-              >
-                -
-              </button>
-            </div>
-
-            <h3>R$ {item.item_price}</h3>
-
-            <button
-              className='remove-button'
-              onClick={() => handleDelete(userData.id, item.item_id)}
-            >
-              Remove
-            </button>
-          </div>
+          <CardCart
+            key={item.id}
+            name={item.name}
+            description={item.description}
+            price={item.price}
+            onIncreaseCartItem={() => increaseCartItem(userData.id, item.id)}
+            quantity={item.quantity}
+            onDecreaseCartItem={() => decreaseCartItem(userData.id, item.id)}
+            onHandleDelete={() => handleDelete(userData.id, item.id)}
+          />
         ))}
       </div>
     </div>
