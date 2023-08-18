@@ -1,6 +1,6 @@
 .cart-items {
-    width: 100vw;
-    height: 20vh;
+    width: 100%;
+    height: 125px;
 
     display: flex;
     flex-direction: row;

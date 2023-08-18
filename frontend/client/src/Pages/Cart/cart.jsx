@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useUser } from '../../context/UserContext'
-
-import CardCart from '../../components/CardCart/CardCart'
-import api from '../../api'
-
-import './Cart.css'
+import React, { useState, useEffect } from 'react';
+import { useUser } from '../../context/UserContext';
 import { toast } from 'react-toastify';
+import CardCart from '../../components/CardCart/CardCart';
+import api from '../../api';
+import './Cart.css';
 
 export default function Cart() {
   const { userData } = useUser();
@@ -14,60 +12,57 @@ export default function Cart() {
   console.log(items);
 
   useEffect(() => {
-    if (userData && userData.id) {
-      const fetchAllItems = async () => {
-        try {
+    const fetchItems = async () => {
+      try {
+        if (userData?.id) {
           const res = await api.get(`/cart/get-items-cart/${userData.id}`);
           setItems(res.data.cartItems);
-        } catch (error) {
-          console.log(error);
         }
-      };
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-      fetchAllItems();
-    }
+    fetchItems();
   }, [userData]);
 
-  async function handleDelete(userId, itemId) {
+  const handleDelete = async (userId, itemId) => {
     try {
       const response = await api.delete(`/cart/remove-from-cart/${userId}/${itemId}`);
-      console.log(response);
 
       if (response.status === 200) {
         toast.success('Item removido do carrinho!', {
-          position: "top-right",
+          position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "dark",
+          theme: 'dark',
         });
       }
 
-      const updatedItems = items.filter(item => item.item_id !== itemId);
-      setItems(updatedItems);
+      setItems(items.filter(item => item.id !== itemId));
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   async function increaseCartItem(userId, itemId) {
     try {
       const response = await api.put(`/cart/increase-cart-item/${userId}/${itemId}`);
       console.log(response);
 
-      const updatedItems = items.map(item => {
-        if (item.item_id === itemId) {
-          return {
-            ...item,
-            quantity: item.quantity + 1
-          };
-        }
-        return item;
-      });
-      setItems(updatedItems);
+      if (response.status === 200) {
+        setItems(prevItems =>
+          prevItems.map(item =>
+            item.id === itemId
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        );
+      }
     } catch (error) {
       console.log(error);
     }
@@ -75,46 +70,28 @@ export default function Cart() {
 
   async function decreaseCartItem(userId, itemId) {
     try {
-      const currentItem = items.find(item => item.item_id === itemId);
+      const currentItem = items.find(item => item.id === itemId);
 
       if (currentItem.quantity > 1) {
         const response = await api.put(`/cart/decrease-cart-item/${userId}/${itemId}`);
         console.log(response);
 
-        const updatedItems = items.map(item => {
-          if (item.item_id === itemId) {
-            return {
-              ...item,
-              quantity: item.quantity - 1
-            };
-          }
-          return item;
-        });
-        setItems(updatedItems);
+        if (response.status === 200) {
+          setItems(prevItems =>
+            prevItems.map(item =>
+              item.id === itemId
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            )
+          );
+        }
       } else {
         const confirmation = window.confirm(
           'Tem certeza que deseja remover este item do carrinho?'
         );
 
         if (confirmation) {
-          const response = await api.delete(`/cart/remove-from-cart/${userId}/${itemId}`);
-          console.log(response);
-
-          if (response.status === 200) {
-            toast.success('Item removido do carrinho!', {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-            });
-          }
-
-          const updatedItems = items.filter(item => item.item_id !== itemId);
-          setItems(updatedItems);
+          handleDelete(userId, itemId);
         }
       }
     } catch (error) {
@@ -123,13 +100,10 @@ export default function Cart() {
   }
 
   return (
-    <div className='cart-container'>
+    <div className="cart-container">
       <div className="cart-title-container">
-        <div className="cart-title">
-          <h1>Cart</h1>
-        </div>
+        <h1>Carrinho</h1>
       </div>
-
       <div className="cart-item">
         {items.map(item => (
           <CardCart
@@ -144,6 +118,19 @@ export default function Cart() {
           />
         ))}
       </div>
+      <div className="purchase">
+        <div>
+          <div className="purchase-value">
+            <h1>Total de itens:</h1>
+            <h2>{items.length}</h2>
+          </div>
+          <div className="purchase-value">
+            <h1>Valor da compra:</h1>
+            <h3> R$ </h3>
+          </div>
+        </div>
+        <button>Finalizar o pedido</button>
+      </div>
     </div>
-  )
+  );
 }

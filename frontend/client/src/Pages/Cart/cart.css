@@ -6,22 +6,24 @@
 
 .cart-container {
     width: 100vw;
-    height: 100vh;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
 
     background-color: #FFDE59;
 }
 
-.cart-title {
+.cart-title-container {
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 10vh;
+    align-items: center;
 
-    padding-top: 20px;
-    margin-bottom: 20px;
+    width: 100vw;
+    height: 15vh;
 }
 
-.cart-title h1 {
+.cart-title-container h1 {
     color: #FFF;
     font-weight: bold;
     font-family: 'VT323', monospace;
@@ -29,17 +31,91 @@
 }
 
 .cart-item {
-    width: 100%;
-
-    padding: 50px;
+    width: 100vw;
+    height: auto;
 
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-items: center;
+
     gap: 25px;
 
-    background-color: #FFDE59;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 35px;
 
-    padding-bottom: 80px;
+    margin-bottom: 100px;
+
+    background-color: #FFDE59;
+}
+
+.purchase {
+    width: 50%;
+    height: 100px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    align-self: center;
+
+    padding: 25px;
+
+    background-color: #FF0000;
+
+    border: #A9A9A9 solid 3px;
+    border-radius: 10px;
+
+    position: fixed;
+    bottom: 5px;
+}
+
+.purchase-value h1 {
+    font-family: 'VT323', monospace;
+    color: #FFF;
+
+    font-size: 28px;
+}
+
+.purchase-value h2 {
+    font-family: 'VT323', monospace;
+
+    font-size: 28px;
+}
+
+.purchase-value h3 {
+    font-family: 'VT323', monospace;
+
+    font-size: 28px;
+    
+    color: #FFFF00;
+}
+
+.purchase-value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.purchase button {
+    width: 280px;
+    height: 45px;
+    border-radius: 15px;
+
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    color: #FFF;
+
+    background-color: transparent;
+    border: #FFF 2px solid;
+
+    cursor: pointer;
+}
+
+.purchase button:hover {
+    background-color: #FFF;
+    color: #FF0000;
 }
