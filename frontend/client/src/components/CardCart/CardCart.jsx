@@ -29,14 +29,21 @@ export default function CardCart(props) {
                 </button>
             </div>
 
-            <h3>R$ {props.price}</h3>
+            <div className="price-container">
 
-            <button
-                className="remove-button"
-                onClick={props.onHandleDelete}
-            >
-                Remove
-            </button>
+                <h3>R$ {props.price}</h3>
+
+            </div>    
+
+            <div className="remove-button-container" > 
+                <button
+                    className="remove-button"
+                    onClick={props.onHandleDelete}
+                >
+                    Remove
+                </button>
+            </div>
+
         </div>
     )
 }
