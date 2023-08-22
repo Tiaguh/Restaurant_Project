@@ -6,7 +6,7 @@
 
 .cart-container {
     width: 100vw;
-    height: auto;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -42,9 +42,7 @@
 
     padding-left: 35px;
     padding-right: 35px;
-    padding-bottom: 35px;
-
-    margin-bottom: 100px;
+    padding-bottom: 150px;
 
     background-color: #FFDE59;
 }

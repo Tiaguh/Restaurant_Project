@@ -58,7 +58,11 @@ export default function Cart() {
         setItems(prevItems =>
           prevItems.map(item =>
             item.id === itemId
-              ? { ...item, quantity: item.quantity + 1 }
+              ? {
+                ...item,
+                quantity: item.quantity + 1,
+                price: parseFloat(item.price) + parseFloat(item.price),
+              }
               : item
           )
         );
@@ -80,7 +84,11 @@ export default function Cart() {
           setItems(prevItems =>
             prevItems.map(item =>
               item.id === itemId
-                ? { ...item, quantity: item.quantity - 1 }
+                ? {
+                  ...item,
+                  quantity: item.quantity - 1,
+                  price: parseFloat(item.price) - parseFloat(item.price),
+                }
                 : item
             )
           );
@@ -110,7 +118,7 @@ export default function Cart() {
             key={item.id}
             name={item.name}
             description={item.description}
-            price={item.price}
+            price={`R$ ${parseFloat(item.price).toFixed(2)}`}
             onIncreaseCartItem={() => increaseCartItem(userData.id, item.id)}
             quantity={item.quantity}
             onDecreaseCartItem={() => decreaseCartItem(userData.id, item.id)}

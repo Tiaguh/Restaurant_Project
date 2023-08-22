@@ -31,7 +31,7 @@ export default function CardCart(props) {
 
             <div className="price-container">
 
-                <h3>R$ {props.price}</h3>
+                <h3>{props.price}</h3>
 
             </div>    
 
