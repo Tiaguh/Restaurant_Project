@@ -61,7 +61,7 @@ export default function Cart() {
               ? {
                 ...item,
                 quantity: item.quantity + 1,
-                price: parseFloat(item.price) + parseFloat(item.price),
+                price: parseFloat(item.price) * (item.quantity + 1),
               }
               : item
           )
@@ -87,7 +87,7 @@ export default function Cart() {
                 ? {
                   ...item,
                   quantity: item.quantity - 1,
-                  price: parseFloat(item.price) - parseFloat(item.price),
+                  price: parseFloat(item.price) - parseFloat(item.price) / currentItem.quantity,
                 }
                 : item
             )
