@@ -71,7 +71,7 @@ export default function Menu() {
 
       <div className="menu-title">
 
-        <h1>Menu</h1>
+        <h1>Cardápio</h1>
 
         <div className="menu-icon">
 
@@ -92,9 +92,9 @@ export default function Menu() {
         {items.map(item => (
           <CardMenu
             key={item.id}
-            item_name={item.name}
-            item_description={item.description}
-            item_price={item.price}
+            name={item.name}
+            description={item.description}
+            price={item.price}
             onAddToCart={(e) => addItemToCart(item.id, e)}
           />
         ))}
