@@ -40,7 +40,7 @@ export default function CardCart(props) {
                     className="remove-button"
                     onClick={props.onHandleDelete}
                 >
-                    Remove
+                    Remover
                 </button>
             </div>
 
