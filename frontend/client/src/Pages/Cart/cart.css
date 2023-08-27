@@ -20,7 +20,8 @@
     align-items: center;
 
     width: 100vw;
-    height: 15vh;
+    
+    padding: 20px;
 }
 
 .cart-title-container h1 {

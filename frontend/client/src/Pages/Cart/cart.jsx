@@ -109,16 +109,18 @@ export default function Cart() {
 
   return (
     <div className="cart-container">
+
       <div className="cart-title-container">
         <h1>Carrinho</h1>
       </div>
+
       <div className="cart-item">
         {items.map(item => (
           <CardCart
             key={item.id}
-            name={item.name}
+            name={item.item_name}
             description={item.description}
-            price={`R$ ${parseFloat(item.price).toFixed(2)}`}
+            price={`R$ ${parseFloat(item.total_price).toFixed(2)}`}
             onIncreaseCartItem={() => increaseCartItem(userData.id, item.id)}
             quantity={item.quantity}
             onDecreaseCartItem={() => decreaseCartItem(userData.id, item.id)}
