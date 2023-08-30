@@ -1,7 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import "./CardCart.css"
 
 export default function CardCart(props) {
+    const [quantity, setQuantity] = useState(1)
+
+    const handleIncrease = () => {
+        setQuantity(quantity + 1);
+    };
+
+    const handleDecrease = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+
     return (
         <div className="cart-items" key={props.id}>
             {props.image && <img src={props.image} alt="snack" />}
@@ -14,16 +26,16 @@ export default function CardCart(props) {
 
                 <button
                     className="qntd-button"
-                    onClick={props.onIncreaseCartItem}
+                    onClick={handleIncrease}
                 >
                     +
                 </button>
 
-                <h1>{props.quantity}</h1>
+                <h1>{quantity}</h1>
 
                 <button
                     className="qntd-button"
-                    onClick={props.onDecreaseCartItem}
+                    onClick={handleDecrease}
                 >
                     -
                 </button>
@@ -33,9 +45,9 @@ export default function CardCart(props) {
 
                 <h3>{props.price}</h3>
 
-            </div>    
+            </div>
 
-            <div className="remove-button-container" > 
+            <div className="remove-button-container" >
                 <button
                     className="remove-button"
                     onClick={props.onHandleDelete}
