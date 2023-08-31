@@ -62,11 +62,12 @@ export default function Cart() {
             key={item.id}
             name={item.name}
             description={item.description}
-            price={`R$ ${(quantity * item.price).toFixed(2)}`}
+            price={item.price}
             onHandleDelete={() => handleDelete(userData.id, item.id)}
           />
         ))}
       </div>
+
       <div className="purchase">
         <div>
           <div className="purchase-value">

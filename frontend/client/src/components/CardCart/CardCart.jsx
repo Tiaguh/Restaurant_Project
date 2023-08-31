@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./CardCart.css"
 
 export default function CardCart(props) {
@@ -42,9 +42,7 @@ export default function CardCart(props) {
             </div>
 
             <div className="price-container">
-
-                <h3>{props.price}</h3>
-
+                <h3>{`R$ ${(quantity * parseFloat(props.price)).toFixed(2)}`}</h3>
             </div>
 
             <div className="remove-button-container" >
