@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react"
-import "./CardCart.css"
+import React, { useState } from "react";
+import "./CardCart.css";
+
+import api from "../../api";
 
 export default function CardCart(props) {
     const [quantity, setQuantity] = useState(1)
@@ -11,6 +13,14 @@ export default function CardCart(props) {
     const handleDecrease = () => {
         if (quantity > 1) {
             setQuantity(quantity - 1);
+        } else {
+            const confirmation = window.confirm(
+                'Tem certeza que deseja remover este item do carrinho?'
+            );
+
+            if (confirmation) {
+                props.onHandleDelete();
+            }
         }
     };
 
