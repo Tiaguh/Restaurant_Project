@@ -8,8 +8,11 @@ import './Cart.css';
 export default function Cart() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
+  
+  const [totalPrice, setTotalPrice] = useState(0);
 
   console.log(items);
+  console.log(totalPrice);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -49,6 +52,10 @@ export default function Cart() {
     }
   };
 
+  const handlePriceChange = (itemPrice) => {
+    setTotalPrice((prevTotal) => prevTotal + parseFloat(itemPrice));
+  };
+
   return (
     <div className="cart-container">
 
@@ -64,19 +71,22 @@ export default function Cart() {
             description={item.description}
             price={item.price}
             onHandleDelete={() => handleDelete(userData.id, item.id)}
+            onPriceChange={handlePriceChange}
           />
         ))}
       </div>
 
       <div className="purchase">
         <div>
+
           <div className="purchase-value">
             <h1>Total de itens:</h1>
             <h2>{items.length}</h2>
           </div>
+
           <div className="purchase-value">
             <h1>Valor da compra:</h1>
-            <h3> R$ </h3>
+            <h3>R$ </h3>
           </div>
         </div>
         <button>Finalizar o pedido</button>
