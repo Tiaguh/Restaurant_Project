@@ -1,67 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CardCart.css";
 
 export default function CardCart(props) {
-  const [quantity, setQuantity] = useState(1);
+    return (
+        <div className="cart-items" key={props.id}>
+            {/* {props.image && <img src={props.image} alt="snack" />} */}
+            <div className="cart-items-description">
+                <h2>{props.name}</h2>
+                <p>{props.description}</p>
+            </div>
 
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
+            <div className="qntd">
 
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    } else {
-      const confirmation = window.confirm(
-        'Tem certeza que deseja remover este item do carrinho?'
-      );
+                <button
+                    className="qntd-button"
+                    onClick={props.onIncreaseCartItem}
+                >
+                    +
+                </button>
 
-      if (confirmation) {
-        props.onHandleDelete();
-      }
-    }
-  };
+                <h1></h1>
 
-  const price = (quantity * parseFloat(props.price)).toFixed(2);
+                <button
+                    className="qntd-button"
+                    onClick={props.onDecreaseCartItem}
+                >
+                    -
+                </button>
+            </div>
 
-  return (
-    <div className="cart-items" key={props.id}>
-      {props.image && <img src={props.image} alt="snack" />}
-      <div className="cart-items-description">
-        <h2>{props.name}</h2>
-        <p>{props.description}</p>
-      </div>
+            <div className="price-container">
+                <h3></h3>
+            </div>
 
-      <div className="qntd">
-        <button
-          className="qntd-button"
-          onClick={handleIncrease}
-        >
-          +
-        </button>
+            <div className="remove-button-container" >
+                <button
+                    className="remove-button"
+                    onClick={props.onHandleDelete}
+                >
+                    Remover
+                </button>
+            </div>
 
-        <h1>{quantity}</h1>
-
-        <button
-          className="qntd-button"
-          onClick={handleDecrease}
-        >
-          -
-        </button>
-      </div>
-
-      <div className="price-container">
-        <h3>{`R$ ${price}`}</h3>
-      </div>
-
-      <div className="remove-button-container" >
-        <button
-          className="remove-button"
-          onClick={props.onHandleDelete}
-        >
-          Remover
-        </button>
-      </div>
-    </div>
-  );
+        </div >
+    )
 }

@@ -8,11 +8,8 @@ import './Cart.css';
 export default function Cart() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
-  
-  const [totalPrice, setTotalPrice] = useState(0);
 
   console.log(items);
-  console.log(totalPrice);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -52,9 +49,35 @@ export default function Cart() {
     }
   };
 
-  const handlePriceChange = (itemPrice) => {
-    setTotalPrice((prevTotal) => prevTotal + parseFloat(itemPrice));
-  };
+  async function increaseCartItem(userId, itemId) {
+    try {
+      const response = await api.put(`/cart/increase-cart-item/${userId}/${itemId}`);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function decreaseCartItem(userId, itemId) {
+    try {
+      const currentItem = items.find(item => item.id === itemId);
+
+      if (currentItem.quantity > 1) {
+        const response = await api.put(`/cart/decrease-cart-item/${userId}/${itemId}`);
+        console.log(response);
+      } else {
+        const confirmation = window.confirm(
+          'Tem certeza que deseja remover este item do carrinho?'
+        );
+
+        if (confirmation) {
+          handleDelete(userId, itemId);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="cart-container">
@@ -71,7 +94,8 @@ export default function Cart() {
             description={item.description}
             price={item.price}
             onHandleDelete={() => handleDelete(userData.id, item.id)}
-            onPriceChange={handlePriceChange}
+            onIncreaseCartItem={() => increaseCartItem(userData.id, item.id)}
+            onDecreaseCartItem={() => decreaseCartItem(userData.id, item.id)}
           />
         ))}
       </div>
