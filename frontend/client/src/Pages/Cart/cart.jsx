@@ -79,6 +79,27 @@ export default function Cart() {
     }
   }
 
+  async function newRequest(userId) {
+    try {
+      const response = await api.post(`/requests/new-request/${userId}`)
+      console.log(response);
+
+      toast.success('Pedido realizado com sucesso!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="cart-container">
 
@@ -93,6 +114,7 @@ export default function Cart() {
             name={item.name}
             description={item.description}
             price={item.price}
+            quantity={item.quantity}
             onHandleDelete={() => handleDelete(userData.id, item.id)}
             onIncreaseCartItem={() => increaseCartItem(userData.id, item.id)}
             onDecreaseCartItem={() => decreaseCartItem(userData.id, item.id)}
@@ -113,7 +135,7 @@ export default function Cart() {
             <h3>R$ </h3>
           </div>
         </div>
-        <button>Finalizar o pedido</button>
+        <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
       </div>
     </div>
   );

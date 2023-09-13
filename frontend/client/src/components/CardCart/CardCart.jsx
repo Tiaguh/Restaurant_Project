@@ -19,7 +19,7 @@ export default function CardCart(props) {
                     +
                 </button>
 
-                <h1></h1>
+                <h1>{props.quantity}</h1>
 
                 <button
                     className="qntd-button"
@@ -30,7 +30,7 @@ export default function CardCart(props) {
             </div>
 
             <div className="price-container">
-                <h3></h3>
+                <h3>R$ {props.quantity * props.price}</h3>
             </div>
 
             <div className="remove-button-container" >
