@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import api from '../../api.js';
+
 import Header from '../../components/Header/Header';
 import Title from '../../components/Title/Title';
+
 import './Requests.css';
 
 export default function Requests() {
@@ -51,7 +54,11 @@ export default function Requests() {
 
               <p>Quantidade: {item.quantity}</p>
 
-              <p>{item.date}</p>
+              {item.date && (
+                <p>{new Date(item.date).toISOString().split('T')[0]}</p>
+              )}
+
+              <p>{item.hour}</p>
             </div>
 
 
