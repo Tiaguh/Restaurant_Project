@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+
 import { useUser } from '../../context/UserContext';
+
 import { toast } from 'react-toastify';
+
 import CardCart from '../../components/CardCart/CardCart';
 import api from '../../api';
 import './Cart.css';
@@ -8,6 +12,8 @@ import './Cart.css';
 export default function Cart() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
+
+  const navigate = useNavigate();
 
   console.log(items);
 
@@ -95,6 +101,10 @@ export default function Cart() {
         theme: 'dark',
       });
 
+      if (response.status === 200) {
+        api.delete(`/cart/clear-cart/${userId}`)
+        navigate("/menu")
+      }
     } catch (error) {
       console.log(error);
     }
