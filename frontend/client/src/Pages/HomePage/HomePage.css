@@ -4,22 +4,22 @@
     box-sizing: border-box;
 }
 
-.homePage-container {
+.home-page-container {
     width: 100vw;
     height: 100vh;
 
     overflow-x: hidden;
     overflow-y: hidden;
-    
+
     background-color: #FFDE59;
 }
 
-.header-container {
+.home-page-header {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-around;
 
-    width: 100vw;
+    width: 100%;
     height: 15vh;
 
     animation: header-appearing-from-up 2s;
@@ -35,72 +35,67 @@
     }
 }
 
-.header-container .link {
-    text-decoration: none;
-}
-
-.logo {
+.home-page-header div {
     display: flex;
-    flex-direction: row;
     align-items: center;
+
     gap: 15px;
 }
 
-.logo h1 {
-    color: #FFF;
-    font-weight: bold;
+.home-page-header div h1 {
     font-family: 'VT323', monospace;
     font-size: 35px;
+    font-weight: bold;
+    color: #FFF;
 }
 
-.logo .icon {
+.home-page-header div img {
     width: 60px;
     height: 60px;
 }
 
-.actions {
+.home-page-header nav {
     display: flex;
-    flex-direction: row;
     align-items: center;
+
     gap: 15px;
 }
 
-.actions p {
-    color: #FFF;
-    text-decoration: none;
-    font-size: 28px;
+.home-page-header nav p {
     font-family: 'VT323', monospace;
+    font-size: 28px;
+    color: #FFF;
 }
 
-.actions .create-account:hover {
-    text-decoration: underline;
-}
+.home-page-header nav h5 {
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    color: #FFF;
+    font-weight: normal;
 
-.actions .enter {
     background-color: #FF0000;
     padding: 6px;
 }
 
-.actions .enter:hover {
+.home-page-header nav h5:hover {
     background-color: #FFF;
     color: #FF0000;
 }
 
-.main-container {
+.home-page-main {
+    width: 100%;
+    height: 65vh;
+
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-
-    width: 100vw;
-    height: 65vh;
 }
 
-.main-container-title {
-    color: #FFF;
+.home-page-main h1 {
     font-family: 'VT323', monospace;
     font-size: 80px;
+    color: #FFF;
+
     animation: title-appearing-from-left 2s;
 }
 
@@ -114,7 +109,7 @@
     }
 }
 
-.snacks-img {
+.home-page-main img {
     width: 300px;
     animation: snacks-appearing-from-right 2s;
 
@@ -131,13 +126,19 @@
     }
 }
 
-.see-menu {
+.home-page-section {
+    width: 100%;
+    height: 20vh;
+
     display: flex;
     justify-content: center;
-    height: 20vh;
+    align-items: center;
 }
 
-.see-menu .link-button {
+.home-page-section button {
+    width: 200px;
+    height: 60px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,19 +148,17 @@
     color: #FFF;
 
     background-color: #FF0000;
+
     border: none;
     text-decoration: none;
-
-    width: 200px;
-    height: 70px;
 }
 
-.see-menu .link-button:hover {
+.home-page-section button:hover {
     background-color: #FFF;
     color: #FF0000;
 }
 
-.see-menu .link-button {
+.home-page-section button {
     animation: button-appearing-from-down 2s;
 }
 
@@ -173,81 +172,31 @@
     }
 }
 
-@media (max-width: 600px) {
-    .header-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-
-    
-        width: 100vw;
-        height: 20vh;
-    
-        animation: header-appearing-from-up 2s;
+@media (max-width: 750px) {
+    .home-page-header div img {
+        width: 50px;
+        height: 50px;
     }
 
-    .see-menu .link-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    
-        font-size: 40px;
-        font-family: 'VT323', monospace;
-        color: #FFF;
-    
-        background-color: #FF0000;
-        border: none;
-        text-decoration: none;
-    
+    .home-page-header div h1 {
+        font-size: 30px;
+    }
+
+    .home-page-header nav h5 {
+        padding: 5px;
+    }
+
+    .home-page-main h1 {
+        font-size: 60px;
+    }
+
+    .home-page-main img {
         width: 250px;
-        height: 80px;
     }
 
-    .logo h1 {
-        color: #FFF;
-        font-weight: bold;
-        font-family: 'VT323', monospace;
-        font-size: 45px;
-    }
-    
-    .logo .icon {
-        width: 80px;
-        height: 80px;
-    }
+    .home-page-section button {
+        height: 50px;
 
-    .actions {
-        width: 100vw;
-
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around; 
-        align-items: center;
-    }
-    
-    .actions p {
-        color: #FFF;
-        text-decoration: none;
-        font-size: 35px;
-        font-family: 'VT323', monospace;
-    }
-    
-    .actions .enter {
-        background-color: #FF0000;
-        padding: 6px;
-    }
-
-    .main-container-title {
-        color: #FFF;
-        font-family: 'VT323', monospace;
-        font-size: 70px;
-        animation: title-appearing-from-left 2s;
-    }
-
-    .snacks-img {
-        width: 350px;
-        animation: snacks-appearing-from-right 2s;
-    
-        margin-bottom: 15px;
+        font-size: 30px;
     }
 }

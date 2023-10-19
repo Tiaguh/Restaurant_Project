@@ -1,39 +1,51 @@
 import React from 'react'
+
 import { Link } from 'react-router-dom';
-import headerIcon from './img/icon-header.png'
+
+import burguer from './img/icon-header.png'
 import snacks from './img/snacks.png'
+
 import './HomePage.css'
 
 export default function HomePage() {
     return (
-        <div className="homePage-container">
-            <div className="header-container">
-                <div className="logo">
-                    <img src={headerIcon} className='icon' alt='burguer' />
+        <div className="home-page-container">
+
+            <header className="home-page-header">
+
+                <div>
+                    <img src={burguer} alt='burguer' />
                     <h1>Fast-Food House</h1>
                 </div>
 
-                <div className='actions'>
+                <nav>
+
                     <Link className='link' to="/create-account">
-                        <p className='create-account'>Create an Account</p>
+                        <p>Create an Account</p>
                     </Link>
 
                     <Link className='link' to="/login">
-                        <p className='enter'>To Enter</p>
+                        <h5>To Enter</h5>
                     </Link>
-                </div>
-            </div>
 
-            <div className="main-container">
-                <h1 className='main-container-title'>Burguer Week</h1>
-                <img src={snacks} className='snacks-img' alt="snacks" />
-            </div>
+                </nav>
 
-            <div className='see-menu'>
-                <Link className='link-button' to="/menu">
-                    <p>See Menu</p>
+            </header>
+
+            <main className="home-page-main">
+
+                <h1>Burguer Week</h1>
+                <img src={snacks} alt="snacks" />
+
+            </main>
+
+            <section className='home-page-section'>
+
+                <Link className='link' to="/menu">
+                    <button>See Menu</button>
                 </Link>
-            </div>
+
+            </section>
 
         </div>
     )
