@@ -74,13 +74,15 @@ export default function CreateAccount() {
   }
 
   return (
-    <div className="createAccount-container">
-      <div className="createAccount-title">
-        <h1>Create an Account</h1>
-      </div>
+    <div className="register-container">
 
-      <div className="createAccount-main">
-        <div className="createAccount-main-img">
+      <header className="register-header">
+        <h1>Create an Account</h1>
+      </header>
+
+      <div className="form-register">
+
+        <div>
           <img src={Sushi} alt="Sushi" />
         </div>
 

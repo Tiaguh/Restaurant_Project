@@ -1,19 +1,20 @@
-.createAccount-container {
-    background-color: #FFDE59;
+.register-container {
     width: 100vw;
     height: 100vh;
 
     overflow-y: hidden;
     overflow-x: hidden;
+
+    background-color: #FFDE59;
 }
 
-.createAccount-title {
+.register-header {
+    width: 100vw;
+    height: 20vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 100vw;
-    height: 15vh;
 
     animation: title-appearing-from-up 2s;
 }
@@ -28,28 +29,26 @@
     }
 }
 
-.createAccount-title h1 {
-    color: #FFF;
+.register-header h1 {
+    font-size: 60px;
     font-weight: bold;
     font-family: 'VT323', monospace;
-    font-size: 50px;
+
+    color: #FFF;
 }
 
-.createAccount-main {
+.form-register {
+    width: 100%;
+    height: 80vh;
+
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-
-    width: 100vw;
-    height: 85vh;
-
-    padding-bottom: 30px;
-    padding-top: 30px;
 }
 
-.createAccount-main-img img {
-    width: 500px;
+.form-register div img {
+    width: 450px;
+
     animation: img-appearing-from-left 2s;
 }
 
@@ -63,35 +62,34 @@
     }
 }
 
-.form-cadastro {
+.form-register form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 30px;
 }
 
-.form-cadastro input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'VT323', monospace;
-    font-size: 35px;
-    text-align: center;
-    color: #FFF;
-
-    border-top: none;
-    border-bottom: 2px solid #FFF;
-    border-left: none;
-    border-right: none;
-
-    background-color: transparent;
-    
+.form-register form input {
     width: 500px;
     height: 60px;
 
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    text-align: center;
+    color: #FFF;
+
+    border: none;
+    border-bottom: 2px solid #FFF;
+
+    background-color: transparent;
+
     animation: form-appearing-from-right 2s;
+}
+
+.form-register input::placeholder {
+    color: #FFF;
 }
 
 @keyframes form-appearing-from-right {
@@ -104,115 +102,111 @@
     }
 }
 
-.form-cadastro input::placeholder {
-    color: #FFF;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.form-cadastro button {
+.form-register button {
     width: 250px;
-    height: 50px;
+    height: 60px;
 
     font-family: 'VT323', monospace;
-    font-size: 25px;
+    font-size: 28px;
     color: #FFF;
 
     border: none;
     background-color: #FF0000;
 
-    animation: button-form-appearing-from-down 2s;
+    animation: form-appearing-from-right 2s;
 
     cursor: pointer;
 }
 
-@keyframes button-form-appearing-from-down {
-    from {
-        transform: translateY(200px);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
-.form-cadastro button:hover {
+.form-register button:hover {
     color: #FF0000;
     background-color: #FFF;
 }
 
 @media (max-width: 1000px) {
-    .createAccount-main {
-        flex-direction: column;
-    }
-
-    .createAccount-title h1 {
-        font-size: 85px;
-    }
-
-    .form-cadastro input {
-        font-size: 38px;
-
-        width: 600px;
-        height: 60px;
-    }
-
-    .form-cadastro input::placeholder {
-        font-size: 38px;
-    }
-
-    .createAccount-main-img img {
-        width: 550px;
-        animation: img-appearing-from-left 2s;
-    }
-
-    .form-cadastro button {
-        width: 350px;
-        height: 75px;
-
-        font-size: 40px;
-        color: #FFF;
-
-        animation: button-form-appearing-from-down 2s;
+    .form-register form input {
+        width: 380px;
     }
 }
 
-@media (max-width: 600px) {
-    .createAccount-main {
+@media (max-width: 850px) {
+    .register-header {
+        height: 15vh;
+    }
+
+    .register-header h1 {
+        font-size: 55px;
+    }
+
+    .form-register {
+        height: 80vh;
+
         flex-direction: column;
+        justify-content: center;
     }
 
-    .createAccount-title h1 {
-        font-size: 65px;
+    .form-register div img {
+        width: 350px;
     }
 
-    .form-cadastro input {
-        font-size: 38px;
+    .form-register form {
+        gap: 20px;
+    }
 
-        width: 450px;
+    .form-register form input {
+        width: 420px;
         height: 45px;
     }
 
-    .form-cadastro input::placeholder {
-        font-size: 38px;
+    .form-register button {
+        height: 50px;
+    }
+}
+
+@media (max-width: 470px) {
+    .form-register div img {
+        width: 330px;
     }
 
-    .createAccount-main-img img {
-        width: 450px;
-        animation: img-appearing-from-left 2s;
+    .form-register form {
+        gap: 15px;
     }
 
-    .form-cadastro button {
-        width: 350px;
-        height: 80px;
+    .form-register form input {
+        width: 380px;
+        height: 50px;
+    }
 
-        font-size: 40px;
-        color: #FFF;
+    .form-register button {
+        height: 55px;
+    }
+}
 
-        animation: button-form-appearing-from-down 2s;
+@media (max-width: 395px) {
+    .register-header h1 {
+        font-size: 50px;
+    }
+
+    .form-register div img {
+        width: 290px;
+    }
+
+    .form-register form {
+        gap: 15px;
+    }
+
+    .form-register form input {
+        width: 300px;
+        height: 50px;
+    }
+
+    .form-register button {
+        height: 55px;
+    }
+}
+
+@media (max-width: 350px) {
+    .register-header h1 {
+        font-size: 45px;
     }
 }
