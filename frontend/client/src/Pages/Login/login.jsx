@@ -48,7 +48,7 @@ export default function Login() {
       const response = await api.post("/login/client", data);
       console.log(response);
 
-      if (response.status === 200) {        
+      if (response.status === 200) {
         toast.success('Logado com sucesso!', {
           position: "top-right",
           autoClose: 5000,
@@ -59,10 +59,10 @@ export default function Login() {
           progress: undefined,
           theme: "dark",
         });
-        
+
         const userId = response.data.id;
         updateUser(userId);
-        
+
         navigate("/menu");
       }
 
@@ -84,19 +84,18 @@ export default function Login() {
 
   return (
     <div className='login-container'>
-      <div className="login-title">
-        <h1>Login</h1>
-      </div>
 
-      <form
-        onSubmit={handleLogin}
-        className="login-main"
-      >
-        <div className="login-main-img">
+      <header className="login-header">
+        <h1>Login</h1>
+      </header>
+
+      <main className='form-login'>
+
+        <div>
           <img src={Taco} alt='Taco' />
         </div>
 
-        <div className='form-login' >
+        <form onSubmit={handleLogin}>
 
           <input
             type="email"
@@ -112,9 +111,10 @@ export default function Login() {
 
           <button>Submit</button>
 
-        </div>
-      </form>
+        </form>
 
-    </div>
+      </main>
+
+    </div >
   )
 }

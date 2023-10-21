@@ -1,17 +1,20 @@
 .login-container {
-    background-color: #FFDE59;
     width: 100vw;
     height: 100vh;
 
     overflow-y: hidden;
     overflow-x: hidden;
+
+    background-color: #FFDE59;
 }
 
-.login-title {
+.login-header {
+    width: 100vw;
+    height: 20vh;
+
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 10vh;
+    align-items: center;
 
     padding-top: 30px;
 
@@ -28,27 +31,25 @@
     }
 }
 
-.login-title h1 {
-    color: #FFF;
+.login-header h1 {
+    font-size: 60px;
     font-weight: bold;
     font-family: 'VT323', monospace;
-    font-size: 80px;
+
+    color: #FFF;
 }
 
-.login-main {
+.form-login {
+    width: 100%;
+    height: 80vh;
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
-
-    flex-wrap: wrap;
-
-    width: 100vw;
-    height: 90vh;
 }
 
-.login-main-img img {
-    width: 300px;
+.form-login div img {
+    width: 270px;
 
     animation: img-appearing-from-left 2s;
 }
@@ -63,21 +64,35 @@
     }
 }
 
-.form-login{
+.form-login form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     gap: 30px;
-
 }
 
-.form-login input{
+.form-login form input {
+    width: 500px;
+    height: 60px;
+
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    text-align: center;
+    color: #FFF;
+
+    border: none;
+    border-bottom: 2px solid #FFF;
+
+    background-color: transparent;
+
     animation: form-appearing-from-right 2s;
-    
 }
 
+.form-login input::placeholder {
+    color: #FFF;
+}
 
 @keyframes form-appearing-from-right {
     from {
@@ -89,43 +104,18 @@
     }
 }
 
-.form-login input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'VT323', monospace;
-    font-size: 35px;
-    text-align: center;
-    color: #FFF;
-
-    border-top: none;
-    border-bottom: 2px solid #FFF;
-    border-left: none;
-    border-right: none;
-
-    background-color: transparent;
-    
-    width: 500px;
-    height: 60px;
-}
-
-.form-login input::placeholder {
-    color: #FFF;
-}
-
 .form-login button {
     width: 250px;
     height: 60px;
 
     font-family: 'VT323', monospace;
-    font-size: 25px;
+    font-size: 28px;
     color: #FFF;
 
     border: none;
     background-color: #FF0000;
 
-    animation: button-form-appearing-from-down 2s;
+    animation: form-appearing-from-right 2s;
 
     cursor: pointer;
 }
@@ -135,135 +125,79 @@
     background-color: #FFF;
 }
 
-@keyframes button-form-appearing-from-down {
-    from {
-        transform: translateY(200px);
+@media (max-width: 850px) {
+    .login-header {
+        height: 10vh;
     }
 
-    to {
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 600px) {
-    .login-main {
-        flex-direction: row;
+    .login-header h1 {
+        font-size: 70px;
     }
 
-    .login-title h1 {
-        color: #FFF;
-        font-weight: bold;
-        font-family: 'VT323', monospace;
-        font-size: 90px;
-    }
+    .form-login {
+        width: 100%;
+        height: 90vh;
 
-    .login-main {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
-
-        width: 100vw;
-        height: 80vh;
-    }
-
-    .login-main-img img {
-        width: 350px;
-
-        animation: img-appearing-from-left 2s;
-    }
-
-    .form-login input {
-        font-size: 38px;
-
-        border-bottom: 4px solid #FFF;
-
-        width: 450px;
-        height: 60px;
-    }
-
-    .form-login input::placeholder {
-        font-size: 38px;
-    }
-
-    .form-login button {
-        width: 350px;
-        height: 75px;
-
-        font-size: 45px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .login-title h1 {
-        color: #FFF;
-        font-weight: bold;
-        font-family: 'VT323', monospace;
-        font-size: 90px;
-    }
-
-    .login-main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        width: 100vw;
-        height: 80vh;
-    }
-
-    .login-main-img img {
-        width: 350px;
-
-        animation: img-appearing-from-left 2s;
-    }
-
-    .form-login input {
-        font-size: 50px;
-
-        border-bottom: 4px solid #FFF;
-
-        height: 60px;
-    }
-
-    .form-login button {
-        width: 350px;
-        height: 80px;
-
-        font-size: 45px;
-    }
-}
-
-@media (max-width: 600px) {
-    .login-main {
         flex-direction: column;
     }
 
-    .login-title h1 {
-        font-size: 65px;
-    }
+    .form-login div img {
+        width: 200px;
 
-    .form-login input {
-        font-size: 38px;
-
-        width: 450px;
-        height: 45px;
-    }
-
-    .form-login input::placeholder {
-        font-size: 38px;
-    }
-
-    .createAccount-main-img img {
-        width: 450px;
         animation: img-appearing-from-left 2s;
     }
 
+    .form-login form {
+        gap: 15px;
+    }
+
+    .form-login form input {
+        width: 420px;
+        height: 50px;
+    }
+
     .form-login button {
-        width: 350px;
-        height: 80px;
+        height: 55px;
 
-        font-size: 40px;
-        color: #FFF;
+        margin-top: 20px;
+    }
+}
 
-        animation: button-form-appearing-from-down 2s;
+@media (max-width: 470px) {
+    .form-login div img {
+        width: 220px;
+    }
+
+    .form-login form {
+        gap: 15px;
+    }
+
+    .form-login form input {
+        width: 380px;
+        height: 50px;
+    }
+
+    .form-login button {
+        height: 55px;
+    }
+}
+
+@media (max-width: 395px) {
+    .form-login div img {
+        width: 215px;
+    }
+
+    .form-login form {
+        gap: 15px;
+    }
+
+    .form-login form input {
+        width: 320px;
+        height: 50px;
+    }
+
+    .form-login button {
+        height: 55px;
     }
 }
