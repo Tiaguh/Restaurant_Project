@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/Header/Header';
+// import Header from '../../components/Header/Header';
 import Title from '../../components/Title/Title';
+
+import Drawer from '../../components/Drawer/Drawer';
 
 import './Home.css';
 
@@ -31,7 +33,8 @@ export default function Home() {
   return (
     <div className='management-container'>
 
-      <Header />
+      {/* <Header /> */}
+      <Drawer />
 
       <div className='management-main'>
 
