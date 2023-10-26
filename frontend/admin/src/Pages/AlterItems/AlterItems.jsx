@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './AlterItems.css'
 
-import Header from '../../components/Header/Header'
+import Drawer from '../../components/Drawer/Drawer.jsx'
 import Title from '../../components/Title/Title'
 
 import CardUpdate from '../../components/CardUpdate/CardUpdate'
@@ -35,12 +35,12 @@ export default function AlterItems() {
         }
     }
 
-    const headerHeight = items.length < 4 ? "100vh" : "100%";
+    // const headerHeight = items.length < 4 ? "100vh" : "100%";
 
     return (
         <div className='alter-items-container-all'>
 
-            <Header height={headerHeight} />
+            <Drawer />
 
             <div className="alter-items-container">
 

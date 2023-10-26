@@ -1,10 +1,12 @@
-import React from 'react'
-import Menu from './img/menu.png'
-import Header from '../../components/Header/Header'
-import Title from '../../components/Title/Title'
-import './UpdateItem.css'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+import './UpdateItem.css'
+
+import Menu from './img/menu.png'
+import Drawer from '../../components/Drawer/Drawer'
+import Title from '../../components/Title/Title'
+
 import axios from 'axios'
 
 export default function UpdateItem() {
@@ -43,7 +45,7 @@ export default function UpdateItem() {
   return (
     <div className='update-all-item-container'>
 
-      <Header />
+      <Drawer />
 
       <div className="update-item-container">
 

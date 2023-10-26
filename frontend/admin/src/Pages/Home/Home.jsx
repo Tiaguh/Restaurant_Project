@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import Header from '../../components/Header/Header';
+
 import Title from '../../components/Title/Title';
 
 import Drawer from '../../components/Drawer/Drawer';
@@ -33,7 +33,6 @@ export default function Home() {
   return (
     <div className='management-container'>
 
-      {/* <Header /> */}
       <Drawer />
 
       <div className='management-main'>

@@ -1,9 +1,11 @@
 import React from 'react'
-import Menu from './img/menu.png'
-import Header from '../../components/Header/Header'
+
+import Drawer from '../../components/Drawer/Drawer'
 import Title from '../../components/Title/Title'
 
 import './AddItem.css'
+
+import Menu from './img/menu.png'
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -58,7 +60,7 @@ export default function AddItem() {
   return (
     <div className='add-all-item-container'>
 
-      <Header />
+      <Drawer />
 
       <div className="add-item-container">
 

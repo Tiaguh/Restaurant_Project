@@ -2,7 +2,7 @@ import React from 'react'
 import './ManagementItems.css'
 
 import Title from '../../components/Title/Title'
-import Header from '../../components/Header/Header'
+import Drawer from '../../components/Drawer/Drawer.jsx'
 
 import { Link } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ export default function managementItems() {
     return (
         <div className="managament-items-all-container">
 
-            <Header />
+            <Drawer />
 
             <div className="management-items-container">
 

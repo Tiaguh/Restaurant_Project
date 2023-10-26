@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import api from '../../api.js';
 
-import Header from '../../components/Header/Header';
+import Drawer from '../../components/Drawer/Drawer.jsx'
 import Title from '../../components/Title/Title';
 
 import './Requests.css';
@@ -25,12 +25,12 @@ export default function Requests() {
     fetchAllItems();
   }, []);
 
-  const headerHeight = items.requests && items.requests.length < 4 ? "100vh" : "100%";
+  // const headerHeight = items.requests && items.requests.length < 4 ? "100vh" : "100%";
 
   return (
     <div className='requests-all-container'>
 
-      <Header height={headerHeight} />
+      <Drawer />
 
       <div className="requests-container">
 
