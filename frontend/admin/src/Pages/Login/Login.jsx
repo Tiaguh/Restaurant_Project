@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import './Login.css';
-import api from '../../api';
+
+import { useNavigate } from "react-router-dom";
+
 import Chef from './img/chef-picture.png';
 
+import api from '../../api';
 import { toast } from 'react-toastify';
 
 export default function Login() {
@@ -73,16 +75,19 @@ export default function Login() {
 
   return (
     <div className='login-container'>
-      <div className="login-title">
-        <h1>Login</h1>
-      </div>
 
-      <div className="login-main">
-        <div className="login-main-img">
+      <header>
+        <h1>Login</h1>
+      </header>
+
+      <main>
+
+        <div>
           <img src={Chef} alt='Taco' />
         </div>
 
-        <form onSubmit={handleLogin} className='form-login'>
+        <form onSubmit={handleLogin}>
+
           <input
             type="email"
             placeholder='Inform Your Email'
@@ -97,9 +102,12 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button className='login-button'>Submit</button>
+          <button>Submit</button>
+
         </form>
-      </div>
+
+      </main>
+
     </div>
   );
 }

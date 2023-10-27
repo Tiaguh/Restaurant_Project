@@ -132,7 +132,5 @@ form button:hover {
     color: #FF0000;
     background-color: #FFF;
 
-    border: solid 2px #FF0000;
-
     cursor: pointer;
 }

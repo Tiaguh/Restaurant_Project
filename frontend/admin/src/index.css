@@ -5,3 +5,7 @@
 
   overflow-x: hidden;
 }
+
+textarea:focus, input:focus, select:focus {
+  outline: 0;
+}
