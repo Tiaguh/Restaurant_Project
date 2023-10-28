@@ -18,19 +18,19 @@ export default function Cart() {
   console.log(items);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        if (userData?.id) {
-          const res = await api.get(`/cart/get-items-cart/${userData.id}`);
-          setItems(res.data.cartItems);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchItems();
   }, [userData]);
+
+  const fetchItems = async () => {
+    try {
+      if (userData?.id) {
+        const res = await api.get(`/cart/get-items-cart/${userData.id}`);
+        setItems(res.data.cartItems);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleDelete = async (userId, itemId) => {
     try {
@@ -59,6 +59,9 @@ export default function Cart() {
     try {
       const response = await api.put(`/cart/increase-cart-item/${userId}/${itemId}`);
       console.log(response);
+
+      await fetchItems();
+      
     } catch (error) {
       console.log(error);
     }
@@ -71,6 +74,8 @@ export default function Cart() {
       if (currentItem.quantity > 1) {
         const response = await api.put(`/cart/decrease-cart-item/${userId}/${itemId}`);
         console.log(response);
+
+        await fetchItems();
       } else {
         const confirmation = window.confirm(
           'Tem certeza que deseja remover este item do carrinho?'
@@ -78,6 +83,7 @@ export default function Cart() {
 
         if (confirmation) {
           handleDelete(userId, itemId);
+          await fetchItems();
         }
       }
     } catch (error) {
@@ -144,6 +150,7 @@ export default function Cart() {
             <h1>Valor da compra:</h1>
             <h3>R$ </h3>
           </div>
+
         </div>
         <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
       </div>
