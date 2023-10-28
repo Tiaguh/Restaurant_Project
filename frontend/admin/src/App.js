@@ -32,7 +32,7 @@ export default function App() {
           <Route path="/management-items" element={<ManagementItems />} />
           <Route path="/alter-items" element={<AlterItems />} />
           <Route path="/update-item/:item_id" element={<UpdateItem />} />
-          
+
         </Route>
 
         <Route path="*" element={<Error />} />

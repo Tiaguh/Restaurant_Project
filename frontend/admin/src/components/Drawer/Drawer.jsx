@@ -35,7 +35,7 @@ export default function Teste() {
                     <div className="drawer-closed">
 
                         <div className="drawer-closed-button-container">
-                            <button onClick={() => setIsOpen(true)}>
+                            <button onClick={() => setIsOpen(true)} >
                                 <SlMenu color="#FFF" size={40} />
                             </button>
                         </div>

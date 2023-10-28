@@ -1,16 +1,14 @@
 .management-container{
-    display: flex;
-    flex-direction: row;
+    width: 100vw;
+    height: 100vh; 
 }
 
 .management-main{
-    width: 90vw;
-    height: 100vh;
-
     display: flex;
+    flex-direction: column;
+
     justify-content: flex-start;
     align-items: center;
-    flex-direction: column;
 }
 
 .clock-container {
@@ -20,9 +18,4 @@
 .clock-container h1{
     font-family: 'VT323', monospace;
     font-size: 55px;
-}
-
-.management-main button{
-    width: 200px;
-    height: 50px;
 }

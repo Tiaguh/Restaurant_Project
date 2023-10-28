@@ -1,14 +1,15 @@
 .update-all-item-container {
     width: 100vw;
     height: 100vh;
-
-    display: flex;
-    flex-direction: row;
 }
 
 .update-item-container {
+    width: 100%;
+    height: 88vh;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .update-item-main {

@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './ManagementItems.css'
 
 import Title from '../../components/Title/Title'
+
 import Drawer from '../../components/Drawer/Drawer.jsx'
 
-import { Link } from 'react-router-dom'
 
 export default function managementItems() {
     return (

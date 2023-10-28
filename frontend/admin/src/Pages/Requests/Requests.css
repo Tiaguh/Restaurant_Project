@@ -6,7 +6,7 @@
 }
 
 .requests-container {
-    width: 94vw;
+    width: 100%;
 
     display: flex;
     justify-content: center;
@@ -21,7 +21,6 @@
     height: 430px;
 
     background-color: #DCDCDC;
-    /* padding: 15px; */
 
     font-family: 'VT323', monospace;
 
