@@ -1,10 +1,6 @@
 <h2>Restaurant_Project</h2>
 
-<p>Esse projeto foi desenvolvido com o intuito de pela primeira vez em uma aplicação de minha autoria conectar frontend e banco de dados via API.</p>
-
-<p>Através de operações básicas <strong>CRUD</strong> consegui até o momento adicionar itens no cardapio (<strong>INSERT</strong>), 
-exibir esses itens (<strong>SELECT</strong>), atualizar os itens (<strong>UPDATE</strong>) e deletar os itens (<strong>DELETE</strong>),
-via inputs e botões.</p>
+<p>Criei esse projeto para testar meus conhecimentos na conexão do frontend ao banco de dados via API.</p>
 
 <p>Tecnologias que eu usei até agora: </p>
 
