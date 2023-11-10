@@ -116,6 +116,10 @@ export default function Cart() {
     }
   }
 
+  const totalPurchaseValue = items.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
   return (
     <div className="cart-container">
 
@@ -148,7 +152,7 @@ export default function Cart() {
 
           <div className="purchase-value">
             <h1>Valor da compra:</h1>
-            <h3>R$ </h3>
+            <h3>R$ {totalPurchaseValue}</h3>
           </div>
 
         </div>

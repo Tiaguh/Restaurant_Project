@@ -2,6 +2,8 @@ import React from "react";
 import "./CardCart.css";
 
 export default function CardCart(props) {
+    const totalPrice = props.quantity * props.price;
+
     return (
         <div className="cart-items" key={props.id}>
             {/* {props.image && <img src={props.image} alt="snack" />} */}
