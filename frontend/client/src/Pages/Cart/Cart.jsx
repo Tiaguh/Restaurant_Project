@@ -32,65 +32,6 @@ export default function Cart() {
     }
   };
 
-  const handleDelete = async (userId, itemId) => {
-    try {
-      const response = await api.delete(`/cart/remove-from-cart/${userId}/${itemId}`);
-
-      if (response.status === 200) {
-        toast.success('Item removido do carrinho!', {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'dark',
-        });
-      }
-
-      setItems(items.filter(item => item.id !== itemId));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  async function increaseCartItem(userId, itemId) {
-    try {
-      const response = await api.put(`/cart/increase-cart-item/${userId}/${itemId}`);
-      console.log(response);
-
-      await fetchItems();
-      
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function decreaseCartItem(userId, itemId) {
-    try {
-      const currentItem = items.find(item => item.id === itemId);
-
-      if (currentItem.quantity > 1) {
-        const response = await api.put(`/cart/decrease-cart-item/${userId}/${itemId}`);
-        console.log(response);
-
-        await fetchItems();
-      } else {
-        const confirmation = window.confirm(
-          'Tem certeza que deseja remover este item do carrinho?'
-        );
-
-        if (confirmation) {
-          handleDelete(userId, itemId);
-          await fetchItems();
-        }
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   async function newRequest(userId) {
     try {
       const response = await api.post(`/requests/new-request/${userId}`)
@@ -135,9 +76,9 @@ export default function Cart() {
             description={item.description}
             price={item.price}
             quantity={item.quantity}
-            onHandleDelete={() => handleDelete(userData.id, item.id)}
-            onIncreaseCartItem={() => increaseCartItem(userData.id, item.id)}
-            onDecreaseCartItem={() => decreaseCartItem(userData.id, item.id)}
+            userId={userData.id}
+            itemId={item.id}  
+            fetchItems={fetchItems}
           />
         ))}
       </div>
