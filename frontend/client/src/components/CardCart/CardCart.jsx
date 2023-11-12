@@ -1,12 +1,14 @@
 import React from "react";
-import "./CardCart.css";
+import { toast } from 'react-toastify';
+import api from '../../api';
+import './CardCart.css';
 
 export default function CardCart(props) {
     const totalPrice = props.quantity * props.price;
 
-    const handleDelete = async (userId, itemId) => {
+    const handleDelete = async () => {
         try {
-            const response = await api.delete(`/cart/remove-from-cart/${userId}/${itemId}`);
+            const response = await api.delete(`/cart/remove-from-cart/${props.userId}/${props.itemId}`);
 
             if (response.status === 200) {
                 toast.success('Item removido do carrinho!', {
@@ -19,52 +21,51 @@ export default function CardCart(props) {
                     progress: undefined,
                     theme: 'dark',
                 });
-            }
 
-            setItems(items.filter(item => item.id !== itemId));
+                props.fetchItems();
+
+            }
         } catch (error) {
             console.log(error);
         }
     };
 
-    async function increaseCartItem(userId, itemId) {
+    const increaseCartItem = async () => {
         try {
-            const response = await api.put(`/cart/increase-cart-item/${userId}/${itemId}`);
+            const response = await api.put(`/cart/increase-cart-item/${props.userId}/${props.itemId}`);
             console.log(response);
 
-            await fetchItems();
+            props.fetchItems();
 
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
-    async function decreaseCartItem(userId, itemId) {
+    const decreaseCartItem = async () => {
         try {
-            const currentItem = items.find(item => item.id === itemId);
+            const currentItem = props.quantity;
 
-            if (currentItem.quantity > 1) {
-                const response = await api.put(`/cart/decrease-cart-item/${userId}/${itemId}`);
+            if (currentItem > 1) {
+                const response = await api.put(`/cart/decrease-cart-item/${props.userId}/${props.itemId}`);
                 console.log(response);
 
-                await fetchItems();
+                props.fetchItems();
+
             } else {
-                const confirmation = window.confirm(
-                    'Tem certeza que deseja remover este item do carrinho?'
-                );
+                const confirmation = window.confirm('Tem certeza que deseja remover este item do carrinho?');
 
                 if (confirmation) {
-                    handleDelete(userId, itemId);
-                    await fetchItems();
+                    handleDelete();
                 }
             }
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     return (
-        <div className="cart-items" key={props.id}>
+        <div className="cart-items" key={props.itemId}>
             {/* {props.image && <img src={props.image} alt="snack" />} */}
             <div className="cart-items-description">
                 <h2>{props.name}</h2>
@@ -72,37 +73,24 @@ export default function CardCart(props) {
             </div>
 
             <div className="qntd">
-
-                <button
-                    className="qntd-button"
-                    onClick={props.onIncreaseCartItem}
-                >
+                <button className="qntd-button" onClick={increaseCartItem}>
                     +
                 </button>
-
                 <h1>{props.quantity}</h1>
-
-                <button
-                    className="qntd-button"
-                    onClick={props.onDecreaseCartItem}
-                >
+                <button className="qntd-button" onClick={decreaseCartItem}>
                     -
                 </button>
             </div>
 
             <div className="price-container">
-                <h3>R$ {props.quantity * props.price}</h3>
+                <h3>R$ {totalPrice}</h3>
             </div>
 
-            <div className="remove-button-container" >
-                <button
-                    className="remove-button"
-                    onClick={props.onHandleDelete}
-                >
+            <div className="remove-button-container">
+                <button className="remove-button" onClick={handleDelete}>
                     Remover
                 </button>
             </div>
-
-        </div >
-    )
+        </div>
+    );
 }
