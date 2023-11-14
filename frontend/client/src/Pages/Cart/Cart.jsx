@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
+import './Cart.css';
 
 import { useUser } from '../../context/UserContext';
 
@@ -7,21 +8,20 @@ import { toast } from 'react-toastify';
 
 import CardCart from '../../components/CardCart/CardCart';
 import api from '../../api';
-import './Cart.css';
 
 export default function Cart() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
 
-  const navigate = useNavigate();
-
   console.log(items);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchItems();
-  }, [userData]);
+  }, []);
 
-  const fetchItems = async () => {
+  async function fetchItems() {
     try {
       if (userData?.id) {
         const res = await api.get(`/cart/get-items-cart/${userData.id}`);
@@ -72,12 +72,12 @@ export default function Cart() {
         {items.map(item => (
           <CardCart
             key={item.id}
+            itemId={item.id}
+            userId={userData.id}
             name={item.name}
             description={item.description}
             price={item.price}
             quantity={item.quantity}
-            userId={userData.id}
-            itemId={item.id}  
             fetchItems={fetchItems}
           />
         ))}

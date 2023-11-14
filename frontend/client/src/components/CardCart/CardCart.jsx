@@ -1,12 +1,23 @@
-import React from "react";
-import { toast } from 'react-toastify';
-import api from '../../api';
+import React, { useState } from "react";
 import './CardCart.css';
+import { toast } from 'react-toastify';
+import CartModal from "../CartModal/CartModal";
+import api from '../../api';
 
 export default function CardCart(props) {
+    const [modalVisible, setModalVisible] = useState(false);
+
     const totalPrice = props.quantity * props.price;
 
-    const handleDelete = async () => {
+    const handleDelete = () => {
+        setModalVisible(true);
+    };
+
+    const handleCancelDelete = () => {
+        setModalVisible(false);
+    };
+
+    async function handleConfirmDelete () {
         try {
             const response = await api.delete(`/cart/remove-from-cart/${props.userId}/${props.itemId}`);
 
@@ -23,14 +34,15 @@ export default function CardCart(props) {
                 });
 
                 props.fetchItems();
-
             }
         } catch (error) {
             console.log(error);
+        } finally {
+            setModalVisible(false);
         }
     };
 
-    const increaseCartItem = async () => {
+    async function increaseCartItem() {
         try {
             const response = await api.put(`/cart/increase-cart-item/${props.userId}/${props.itemId}`);
             console.log(response);
@@ -42,7 +54,7 @@ export default function CardCart(props) {
         }
     };
 
-    const decreaseCartItem = async () => {
+    async function decreaseCartItem() {
         try {
             const currentItem = props.quantity;
 
@@ -53,11 +65,7 @@ export default function CardCart(props) {
                 props.fetchItems();
 
             } else {
-                const confirmation = window.confirm('Tem certeza que deseja remover este item do carrinho?');
-
-                if (confirmation) {
-                    handleDelete();
-                }
+                handleDelete();
             }
         } catch (error) {
             console.log(error);
@@ -65,7 +73,7 @@ export default function CardCart(props) {
     };
 
     return (
-        <div className="cart-items" key={props.itemId}>
+        <div className="cart-items" key={props.id}>
             {/* {props.image && <img src={props.image} alt="snack" />} */}
             <div className="cart-items-description">
                 <h2>{props.name}</h2>
@@ -73,13 +81,11 @@ export default function CardCart(props) {
             </div>
 
             <div className="qntd">
-                <button className="qntd-button" onClick={increaseCartItem}>
-                    +
-                </button>
+                <button className="qntd-button" onClick={increaseCartItem}>+</button>
+
                 <h1>{props.quantity}</h1>
-                <button className="qntd-button" onClick={decreaseCartItem}>
-                    -
-                </button>
+
+                <button className="qntd-button" onClick={decreaseCartItem}>-</button>
             </div>
 
             <div className="price-container">
@@ -87,10 +93,20 @@ export default function CardCart(props) {
             </div>
 
             <div className="remove-button-container">
-                <button className="remove-button" onClick={handleDelete}>
+                <button className="remove-button" onClick={() => setModalVisible(true)}>
                     Remover
                 </button>
             </div>
+            {modalVisible && (
+                <div className="modal-container">
+                    <CartModal
+                        itemName={props.name}
+                        onConfirm={handleConfirmDelete}
+                        onCancel={handleCancelDelete}
+                        setModalVisible={setModalVisible}
+                    />
+                </div>
+            )}
         </div>
     );
 }
