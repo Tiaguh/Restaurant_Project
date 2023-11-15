@@ -32,17 +32,18 @@
 }
 
 .cart-item {
-    width: 100vw;
+    width: 90vw;
     height: auto;
 
     display: flex;
     flex-direction: column;
     justify-items: center;
+    align-items: center;
+
+    align-self: center;
 
     gap: 25px;
 
-    padding-left: 35px;
-    padding-right: 35px;
     padding-bottom: 150px;
 
     background-color: #FFDE59;
@@ -102,7 +103,7 @@
 .purchase button {
     width: 280px;
     height: 45px;
-    border-radius: 15px;
+    border-radius: 5px;
 
     font-family: 'VT323', monospace;
     font-size: 28px;

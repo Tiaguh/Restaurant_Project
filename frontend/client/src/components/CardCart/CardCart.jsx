@@ -97,6 +97,7 @@ export default function CardCart(props) {
                     Remover
                 </button>
             </div>
+            
             {modalVisible && (
                 <div className="modal-container">
                     <CartModal
