@@ -83,23 +83,25 @@ export default function Cart() {
         ))}
       </div>
 
-      <div className="purchase">
-        <div>
+      <div className="purchase-container">
+        <div className="purchase">
+          <div>
 
-          <div className="purchase-value">
-            <h1>Total de itens:</h1>
-            <h2>{items.length}</h2>
+            <div className="purchase-value">
+              <h1>Total de itens:</h1>
+              <h2>{items.length}</h2>
+            </div>
+
+            <div className="purchase-value">
+              <h1>Valor da compra:</h1>
+              <h3>R$ {totalPurchaseValue}</h3>
+            </div>
+
           </div>
-
-          <div className="purchase-value">
-            <h1>Valor da compra:</h1>
-            <h3>R$ {totalPurchaseValue}</h3>
-          </div>
-
+          <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
         </div>
-        <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
+
       </div>
-      
     </div>
   );
 }
