@@ -99,6 +99,7 @@ export default function Cart() {
         </div>
         <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
       </div>
+      
     </div>
   );
 }

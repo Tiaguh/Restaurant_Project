@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import './CardCart.css';
+
 import { toast } from 'react-toastify';
+
 import CartModal from "../CartModal/CartModal";
 import api from '../../api';
 
