@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useUser } from '../../context/UserContext'
 
 import CardMenu from '../../components/CardMenu/CardMenu.jsx'
+import { SlMenu } from 'react-icons/sl'
 
 import Cart from './pictures/cart.png'
 import api from '../../api'
@@ -10,7 +11,7 @@ import api from '../../api'
 import './Menu.css'
 import { toast } from 'react-toastify';
 
-export default function Menu() {
+export default function Menu({ toggleDrawer }) {
   const { userData } = useUser();
 
   console.log(userData);
@@ -71,6 +72,12 @@ export default function Menu() {
 
       <div className="menu-title">
 
+        <div className="drawer-container">
+          <button onClick={toggleDrawer}>
+            <SlMenu color="#FFF" size={45} />
+          </button>
+        </div>
+
         <h1>Cardápio</h1>
 
         <div className="menu-icon">
@@ -100,6 +107,6 @@ export default function Menu() {
         ))}
       </div>
 
-    </div>
+    </div >
   )
 }
