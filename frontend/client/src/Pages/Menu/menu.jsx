@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useUser } from '../../context/UserContext'
-
-import CardMenu from '../../components/CardMenu/CardMenu.jsx'
-import { SlMenu } from 'react-icons/sl'
-
-import Cart from './pictures/cart.png'
-import api from '../../api'
-
-import './Menu.css'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
+import { SlMenu } from 'react-icons/sl';
+import CardMenu from '../../components/CardMenu/CardMenu.jsx';
+import Cart from './pictures/cart.png';
+import api from '../../api';
 import { toast } from 'react-toastify';
+
+import './Menu.css';
 
 export default function Menu({ toggleDrawer }) {
   const { userData } = useUser();
-
-  console.log(userData);
-
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
-        const res = await api.get("/management-item/get-items")
-        setItems(res.data)
+        const res = await api.get("/management-item/get-items");
+        setItems(res.data);
       } catch (error) {
         console.log(error);
       }
-    }
-    fetchAllItems()
-  }, [])
+    };
+    fetchAllItems();
+  }, []);
 
   const addItemToCart = async (item_id, e) => {
     e.preventDefault();
@@ -38,40 +33,37 @@ export default function Menu({ toggleDrawer }) {
 
       if (response.status === 200) {
         toast.success('Adicionado ao carrinho com sucesso!', {
-          position: "top-right",
+          position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "dark",
+          theme: 'dark',
         });
       }
-
     } catch (error) {
       if (error.response && error.response.status === 409) {
-        toast.warn("Este item já está no seu carrinho.", {
-          position: "top-right",
+        toast.warn('Este item já está no seu carrinho.', {
+          position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "dark",
+          theme: 'dark',
         });
       } else {
         console.log(error);
       }
     }
-  }
+  };
 
   return (
-    <div className='menu-container'>
-
+    <div className="menu-container">
       <div className="menu-title">
-
         <div className="drawer-container">
           <button onClick={toggleDrawer}>
             <SlMenu color="#FFF" size={45} />
@@ -81,22 +73,15 @@ export default function Menu({ toggleDrawer }) {
         <h1>Cardápio</h1>
 
         <div className="menu-icon">
-
-          <h2>
-            {userData ? userData.name : ' '}
-          </h2>
-
-          <Link className='cart' to="/cart">
+          <h2>{userData ? userData.name : ' '}</h2>
+          <Link className="cart" to="/cart">
             <img src={Cart} alt="" />
           </Link>
-
         </div>
-
       </div>
 
       <div className="cards">
-
-        {items.map(item => (
+        {items.map((item) => (
           <CardMenu
             key={item.id}
             name={item.name}
@@ -106,7 +91,6 @@ export default function Menu({ toggleDrawer }) {
           />
         ))}
       </div>
-
-    </div >
-  )
+    </div>
+  );
 }

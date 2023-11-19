@@ -1,40 +1,27 @@
 import React, { useState } from "react";
-
-import "./Drawer.css"
-
-import DrawerContent from '../DrawerContent/DrawerContent.jsx'
-
-import 'react-modern-drawer/dist/index.css'
-
-import Drawer from 'react-modern-drawer'
+import "./Drawer.css";
+import DrawerContent from '../DrawerContent/DrawerContent.jsx';
+import Drawer from 'react-modern-drawer';
 
 export default function Teste() {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    function toggleDrawer () {
-        setIsOpen((prevState) => !prevState);
+    const toggleDrawer = () => {
+        setIsDrawerOpen(!isDrawerOpen);
+    };
 
-        console.log("AAAAAAAAAA")
-    }   
-
-    console.log(isOpen);
+    console.log(isDrawerOpen);
 
     return (
         <div className="drawer-container">
-
-            {
-                isOpen ? (
-                    <Drawer
-                        open={isOpen}
-                        onClose={toggleDrawer}
-                        direction='left'
-                        enableOverlay={false}
-                    >
-                        <DrawerContent setIsOpen={setIsOpen} />
-                    </Drawer>
-                ) : null
-            }
-
+            <Drawer
+                open={isDrawerOpen}
+                onClose={toggleDrawer}
+                direction='left'
+                enableOverlay={false}
+            >
+                <DrawerContent setIsOpen={setIsDrawerOpen} />
+            </Drawer>
         </div>
     )
 }

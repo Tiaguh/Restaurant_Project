@@ -1,9 +1,8 @@
 import React from 'react';
 import "./DrawerContent.css"
 
-import HomeIcon from "./img/icons/home.png";
 import RequestIcon from "./img/icons/menu.png";
-import SettingsIcon from "./img/icons/settings.png";
+import User from "./img/icons/user.png";
 
 import CloseIcon from "./img/close.png";
 
@@ -30,24 +29,14 @@ export default function DrawerContent({ setIsOpen }) {
 
             <div className="side-bar">
 
-                <Link className="link" to="/">
-                    <img src={HomeIcon} alt="Home" />
-                    <p>Home</p>
-                </Link>
-
-                <Link className="link" to="/requests">
-                    <img src={RequestIcon} alt="Requests" />
-                    <p>Requests</p>
-                </Link>
-
-                <Link className="link" to="/management-items">
-                    <img src={SettingsIcon} alt="Management Items" />
-                    <p>Management Items</p>
-                </Link>
-
                 <Link className="link" to="/menu">
                     <img src={RequestIcon} alt="See Menu" />
-                    <p>See Menu</p>
+                    <p>Menu</p>
+                </Link>
+
+                <Link className="link" to="/">
+                    <img src={User} alt="Home" />
+                    <p>Profile</p>
                 </Link>
 
             </div>
