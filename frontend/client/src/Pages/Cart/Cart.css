@@ -15,11 +15,15 @@
     justify-content: center;
     align-items: center;
 
-    position: fixed;
+    position: sticky;
     top: 0;
 
     border: none;
     border-bottom: 3px solid #FFF;
+    
+    padding-inline: 5px;
+
+    margin-bottom: 15px;
 }
 
 .cart-title-container h1 {
@@ -44,7 +48,6 @@
     background-color: #FFDE59;
 
     padding-bottom: 20vh;
-    padding-top: 14vh;
 }
 
 .purchase-container {

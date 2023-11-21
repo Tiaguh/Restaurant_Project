@@ -3,6 +3,7 @@ import "./DrawerContent.css"
 
 import RequestIcon from "./img/icons/menu.png";
 import User from "./img/icons/user.png";
+import Cart from "./img/icons/cart.png";
 
 import CloseIcon from "./img/close.png";
 
@@ -30,12 +31,17 @@ export default function DrawerContent({ setIsOpen }) {
             <div className="side-bar">
 
                 <Link className="link" to="/menu">
-                    <img src={RequestIcon} alt="See Menu" />
+                    <img className="menu-drawer-icon" src={RequestIcon} alt="See Menu" />
                     <p>Menu</p>
                 </Link>
 
-                <Link className="link" to="/">
-                    <img className="user-icon" src={User} alt="Home" />
+                <Link className="link" to="/profile">
+                    <img className="user-drawer-icon" src={User} alt="User" />
+                    <p>Profile</p>
+                </Link>
+
+                <Link className="link" to="/cart">
+                    <img className="cart-drawer-icon" src={Cart} alt="Cart" />
                     <p>Profile</p>
                 </Link>
 
@@ -43,7 +49,7 @@ export default function DrawerContent({ setIsOpen }) {
 
             <div className="logout">
 
-                <Link className="link" to="/login">
+                <Link className="link" to="/">
 
                     <button onClick={() => {
                         sessionStorage.removeItem("login")

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
-import { SlMenu } from 'react-icons/sl';
+
 import CardMenu from '../../components/CardMenu/CardMenu.jsx';
 import Cart from './pictures/cart.png';
+
 import api from '../../api';
+import { useUser } from '../../context/UserContext';
 import { toast } from 'react-toastify';
 
 import Drawer from '../../components/Drawer/Drawer'

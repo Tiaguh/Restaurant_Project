@@ -1,6 +1,9 @@
 .drawer-container {
     width: 5vw;
     height: 12vh;
+
+    position: absolute;
+    left: 5px;
 }
 
 .drawer-closed {

@@ -6,6 +6,7 @@ import { useUser } from '../../context/UserContext';
 
 import { toast } from 'react-toastify';
 
+import Drawer from '../../components/Drawer/Drawer'
 import CardCart from '../../components/CardCart/CardCart';
 import api from '../../api';
 
@@ -65,7 +66,11 @@ export default function Cart() {
     <div className="cart-container">
 
       <div className="cart-title-container">
+        
+        <Drawer />
+        
         <h1>Carrinho</h1>
+        
       </div>
 
       <div className="cart-item">
