@@ -7,6 +7,8 @@ import Cart from './pictures/cart.png';
 import api from '../../api';
 import { toast } from 'react-toastify';
 
+import Drawer from '../../components/Drawer/Drawer'
+
 import './Menu.css';
 
 export default function Menu({ toggleDrawer }) {
@@ -63,12 +65,10 @@ export default function Menu({ toggleDrawer }) {
 
   return (
     <div className="menu-container">
+
       <div className="menu-title">
-        <div className="drawer-container">
-          <button onClick={toggleDrawer}>
-            <SlMenu color="#FFF" size={45} />
-          </button>
-        </div>
+
+        <Drawer />
 
         <h1>Cardápio</h1>
 

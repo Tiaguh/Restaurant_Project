@@ -35,7 +35,7 @@ export default function DrawerContent({ setIsOpen }) {
                 </Link>
 
                 <Link className="link" to="/">
-                    <img src={User} alt="Home" />
+                    <img className="user-icon" src={User} alt="Home" />
                     <p>Profile</p>
                 </Link>
 

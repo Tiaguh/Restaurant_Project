@@ -1,20 +1,11 @@
 .drawer-container {
     width: 5vw;
-    height: 100vh;
-
-    position: absolute;
+    height: 12vh;
 }
 
 .drawer-closed {
     width: 100%;
-    height: 100vh;
-
-    background-color: #FFDE59;
-}
-
-.drawer-closed-button-container {
-    width: 100%;
-    height: 10vh;
+    height: 100%;
 
     display: flex;
     justify-content: center;
