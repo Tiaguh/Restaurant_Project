@@ -7,6 +7,7 @@ import CreateAccount from './Pages/CreateAccount/CreateAccount'
 import Login from './Pages/Login/Login'
 import Menu from './Pages/Menu/Menu';
 import Cart from './Pages/Cart/Cart';
+import Profile from './Pages/Profile/Profile'
 import Error from './Pages/Error/Error';
 
 import ProtectedRouter from './protected'
@@ -31,8 +32,10 @@ export default function App() {
           <Route path="/create-account" element={<CreateAccount />} />
           <Route path='/login' element={<Login />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/profile" element={<Profile />} />
 
           <Route path="*" element={<Error />} />
+
 
         </Routes>
 

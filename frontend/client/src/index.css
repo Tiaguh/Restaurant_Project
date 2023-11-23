@@ -10,6 +10,6 @@ body {
   text-decoration: none;
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:focus, select:focus, button:focus, a:focus {
   outline: 0;
 }
