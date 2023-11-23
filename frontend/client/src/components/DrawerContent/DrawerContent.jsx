@@ -42,7 +42,7 @@ export default function DrawerContent({ setIsOpen }) {
 
                 <Link className="link" to="/cart">
                     <img className="cart-drawer-icon" src={Cart} alt="Cart" />
-                    <p>Profile</p>
+                    <p>Cart</p>
                 </Link>
 
             </div>

@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import './Profile.css'
 
 import Drawer from '../../components/Drawer/Drawer'
-
-import './Profile.css'
 
 import api from '../../api.js'
 import { toast } from 'react-toastify';
 
-export default function AddItem() {
-  const navigate = useNavigate()
-
+export default function Profile() {
   const [itemName, setItemName] = useState('')
   const [itemDescription, setItemDescription] = useState('')
   const [itemPrice, setItemPrice] = useState('')
@@ -24,76 +20,55 @@ export default function AddItem() {
       return;
     }
 
-    try {
-      const data = {
-        itemName, itemDescription, itemPrice
-      }
-
-      console.log(data);
-
-      const response = await api.post('/management-item/add-item', data)
-
-      if (response.status === 200) {
-        toast.success('Successful Add!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-
-        navigate("/menu")
-      }
-    } catch (error) {
-      alert(`Erro ao adicionar. Tente novamente. \n Erro: ${error}`);
-    }
   }
 
   return (
-    <div className='add-all-item-container'>
+    <div className='profile-container'>
 
-      <Drawer />
+      <div className="profile-title">
 
-      <div className="add-item-container">
+        <Drawer />
 
-        <div className="add-item-main">
-
-          <form>
-
-            <input
-              className='input'
-              type="text"
-              placeholder='Item Name'
-              value={itemName}
-              onChange={e => setItemName(e.target.value)}
-            />
-
-            <input
-              className='input'
-              type="text"
-              placeholder='Item Description'
-              value={itemDescription}
-              onChange={e => setItemDescription(e.target.value)}
-            />
-
-            <input
-              className='input'
-              type="number"
-              placeholder='Item Price'
-              value={itemPrice}
-              onChange={e => setItemPrice(e.target.value)}
-            />
-
-            <button onClick={handleAddItem}>Add</button>
-
-          </form>
-          
-        </div>
+        <h1>Perfil</h1>
 
       </div>
+
+      <div className="profile-form" >
+
+        <form>
+          
+          <input
+            type="text"
+            placeholder='Name'
+            value={itemName}
+            onChange={e => setItemName(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder='Email'
+            value={itemDescription}
+            onChange={e => setItemDescription(e.target.value)}
+          />
+
+          <input
+            type="Password"
+            placeholder='Password'
+            value={itemPrice}
+            onChange={e => setItemPrice(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder='Address'
+            value={itemPrice}
+            onChange={e => setItemPrice(e.target.value)}
+          />
+
+        </form>
+
+      </div>
+
     </div>
   )
 }
