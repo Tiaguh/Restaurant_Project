@@ -6,6 +6,8 @@ import Drawer from '../../components/Drawer/Drawer'
 import api from '../../api.js'
 import { toast } from 'react-toastify';
 
+import { MdEdit } from "react-icons/md";
+
 export default function Profile() {
   const [itemName, setItemName] = useState('')
   const [itemDescription, setItemDescription] = useState('')
@@ -33,39 +35,55 @@ export default function Profile() {
 
       </div>
 
-      <div className="profile-form" >
+      <div className="profile-form">
 
-        <form>
-          
+        <div className='input-profile-container'>
           <input
             type="text"
             placeholder='Name'
             value={itemName}
             onChange={e => setItemName(e.target.value)}
           />
+          <button className='button-profile'>
+            <MdEdit color='#FFF' size={30} />
+          </button>
+        </div>
 
+        <div className='input-profile-container'>
           <input
             type="text"
             placeholder='Email'
             value={itemDescription}
             onChange={e => setItemDescription(e.target.value)}
           />
+          <button className='button-profile'>
+            <MdEdit color='#FFF' size={30} />
+          </button>
+        </div>
 
+        <div className='input-profile-container'>
           <input
             type="Password"
             placeholder='Password'
             value={itemPrice}
             onChange={e => setItemPrice(e.target.value)}
           />
+          <button className='button-profile'>
+            <MdEdit color='#FFF' size={30} />
+          </button>
+        </div>
 
+        <div className='input-profile-container'>
           <input
             type="text"
             placeholder='Address'
             value={itemPrice}
             onChange={e => setItemPrice(e.target.value)}
           />
-
-        </form>
+          <button className='button-profile'>
+            <MdEdit color='#FFF' size={30} />
+          </button>
+        </div>
 
       </div>
 

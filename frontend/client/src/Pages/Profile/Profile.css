@@ -37,16 +37,20 @@
 .profile-form {
     width: 100%;
     height: 80vh;
-}
-
-.profile-form form {
-    width: 60%;
-    height: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.input-profile-container {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
 }
 
 .profile-form input {
@@ -62,11 +66,19 @@
     border-bottom: 2px solid #FFF;
 
     background-color: transparent;
-
-    margin-top: 0px;
-    margin-bottom: 10px;
 }
 
 .profile-form input::placeholder {
     color: #FFF;
+}
+
+.button-profile {
+    width: 60px; 
+    height: 60px;
+
+    border: 2px solid #FFF;  
+    
+    background-color: transparent;
+
+    cursor: pointer;
 }
