@@ -7,22 +7,13 @@ import api from '../../api.js'
 import { toast } from 'react-toastify';
 
 import { MdEdit } from "react-icons/md";
+import { AiOutlineCheck } from "react-icons/ai";
+
+import Soda from "./img/soda.png"
 
 export default function Profile() {
-  const [itemName, setItemName] = useState('')
-  const [itemDescription, setItemDescription] = useState('')
-  const [itemPrice, setItemPrice] = useState('')
-
-  async function handleAddItem(e) {
-
-    e.preventDefault()
-
-    if (!itemName || !itemDescription || !itemPrice) {
-      alert('Por favor, preencha todos os campos.');
-      return;
-    }
-
-  }
+  const [cor, setCor] = useState('#FFF');
+  const [readOnly, setReadOnly] = useState(true)
 
   return (
     <div className='profile-container'>
@@ -35,54 +26,67 @@ export default function Profile() {
 
       </div>
 
-      <div className="profile-form">
+      <div className="profile-separator">
 
-        <div className='input-profile-container'>
+        <div className="profile-form">
+
           <input
             type="text"
             placeholder='Name'
-            value={itemName}
-            onChange={e => setItemName(e.target.value)}
+            readOnly={readOnly}
           />
-          <button className='button-profile'>
-            <MdEdit color='#FFF' size={30} />
-          </button>
-        </div>
 
-        <div className='input-profile-container'>
           <input
             type="text"
             placeholder='Email'
-            value={itemDescription}
-            onChange={e => setItemDescription(e.target.value)}
+            readOnly={readOnly}
           />
-          <button className='button-profile'>
-            <MdEdit color='#FFF' size={30} />
-          </button>
-        </div>
 
-        <div className='input-profile-container'>
           <input
             type="Password"
             placeholder='Password'
-            value={itemPrice}
-            onChange={e => setItemPrice(e.target.value)}
+            readOnly={readOnly}
           />
-          <button className='button-profile'>
-            <MdEdit color='#FFF' size={30} />
-          </button>
-        </div>
 
-        <div className='input-profile-container'>
           <input
             type="text"
             placeholder='Address'
-            value={itemPrice}
-            onChange={e => setItemPrice(e.target.value)}
+            readOnly={readOnly}
           />
-          <button className='button-profile'>
-            <MdEdit color='#FFF' size={30} />
-          </button>
+
+          {readOnly ? (
+            <button
+              onClick={() => setReadOnly(false)}
+              className='button-edit-profile'
+            >
+              <h1>Edit</h1>
+
+              <MdEdit
+                onMouseEnter={() => setCor('#FFDE59')}
+                onMouseLeave={() => setCor('#FFF')}
+                size={32}
+              />
+            </button>
+          ) : (
+            <button
+              onClick={() => setReadOnly(true)}
+              className='button-edit-profile'
+            >
+              <h1>Save</h1>
+
+              <AiOutlineCheck
+                onMouseEnter={() => setCor('#FFDE59')}
+                onMouseLeave={() => setCor('#FFF')}
+                size={32}
+              />
+            </button>
+          )}
+
+
+        </div>
+
+        <div className="profile-img-container">
+          <img src={Soda} alt="Soda" />
         </div>
 
       </div>
