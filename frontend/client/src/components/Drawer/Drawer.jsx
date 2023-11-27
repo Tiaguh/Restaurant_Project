@@ -16,8 +16,6 @@ export default function Teste() {
         setIsOpen((prevState) => !prevState)
     }
 
-    console.log(isOpen);
-
     return (
         <div className="drawer-container">
 

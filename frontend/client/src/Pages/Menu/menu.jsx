@@ -13,7 +13,7 @@ import Drawer from '../../components/Drawer/Drawer'
 
 import './Menu.css';
 
-export default function Menu({ toggleDrawer }) {
+export default function Menu() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
 
