@@ -24,6 +24,8 @@ export default function Profile() {
   const [password, setPassword] = useState(userData.password || '');
   const [address, setAddress] = useState(userData.address || '');
 
+  const [changeClassName, setChangeClassName] = useState(true);
+
   useEffect(() => {
     setName(userData.name || '');
     setEmail(userData.email || '');
@@ -33,17 +35,65 @@ export default function Profile() {
 
   async function updateUserData() {
     try {
+      if (!name || !email || !password || !address) {
+        toast.warn('Preencha todos os campos!.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        setChangeClassName(false)
+
+        return
+      }
+
       const response = await api.post(`/user/update-user/${userData.id}`, { name, email, password, address });
 
       if (response.status === 200) {
         updateUser(userData.id);
-        toast.success('Perfil atualizado com sucesso!');
+        toast.success('Perfil atualizado com sucesso!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       } else {
-        toast.error('Erro ao salvar perfil. Tente novamente.');
+        toast.error('Erro ao atualizar o perfil. Tente novamente.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        setChangeClassName(false)
       }
     } catch (error) {
       console.error('Erro ao salvar perfil:', error);
-      toast.error('Erro ao salvar perfil. Tente novamente.');
+      toast.error('Erro ao atualizar o perfil. Tente novamente.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      setChangeClassName(false)
     }
 
     setReadOnly(true);
@@ -70,30 +120,34 @@ export default function Profile() {
             readOnly={readOnly}
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
           />
 
           <input
             type="text"
             placeholder='Email'
             readOnly={readOnly}
-            value={userData.email}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
           />
 
           <input
             type="Password"
             placeholder='Password'
             readOnly={readOnly}
-            value={userData.password}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
           />
 
           <input
             type="text"
             placeholder='Address'
             readOnly={readOnly}
-            value={userData.address}
+            value={address}
             onChange={(e) => setAddress(e.target.value)}
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
           />
 
           {readOnly ? (
@@ -127,7 +181,6 @@ export default function Profile() {
             </button>
           )}
 
-
         </div>
 
         <div className="profile-img-container">
@@ -139,3 +192,5 @@ export default function Profile() {
     </div>
   )
 }
+
+// Solicitar a senha para atualizar os dados.

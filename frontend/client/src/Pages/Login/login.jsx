@@ -15,6 +15,8 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const [changeClassName, setChangeClassName] = useState(true);
+
   console.log(email, password);
 
   const navigate = useNavigate();
@@ -78,6 +80,8 @@ export default function Login() {
         progress: undefined,
         theme: "dark",
       });
+
+      setChangeClassName(false)
     }
   }
 
@@ -97,12 +101,14 @@ export default function Login() {
         <form onSubmit={handleLogin}>
 
           <input
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
             type="email"
             placeholder='Inform Your Email'
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
             type="password"
             placeholder='Inform Your Password'
             onChange={(e) => setPassword(e.target.value)}

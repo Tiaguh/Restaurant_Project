@@ -50,6 +50,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    animation: form-appearing-from-left 2s;
+}
+
+@keyframes form-appearing-from-left {
+    from {
+        transform: translateX(-600px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 .profile-form input {
@@ -108,6 +120,18 @@
     width: 30%;
 }
 
-.profile-img-container img{
+.profile-img-container img {
     width: 220px;
+
+    animation: img-appearing-from-right 2s;
+}
+
+@keyframes img-appearing-from-right {
+    from {
+        transform: translateX(600px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
