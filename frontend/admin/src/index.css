@@ -6,6 +6,6 @@
   overflow-x: hidden;
 }
 
-textarea:focus, input:focus, select:focus {
+textarea:focus, input:focus, select:focus, button:focus, a:focus {
   outline: 0;
 }

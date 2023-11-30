@@ -1,7 +1,7 @@
 import React from 'react';
 import "./CardMenu.css";
 
-export default function ItemMenu(props) {
+export default function CardMenu(props) {
   return (
     <div className="card" key={props.id}>
       {props.image && <img src={props.image} alt="snack" />}
