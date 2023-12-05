@@ -17,6 +17,13 @@ export default function AddItem() {
   const [itemName, setItemName] = useState('')
   const [itemDescription, setItemDescription] = useState('')
   const [itemPrice, setItemPrice] = useState('')
+  const [itemImage, setItemImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setItemImage(file);
+  };
+
 
   async function handleAddItem(e) {
 
@@ -29,7 +36,7 @@ export default function AddItem() {
 
     try {
       const data = {
-        itemName, itemDescription, itemPrice
+        itemName, itemDescription, itemPrice, itemImage
       }
 
       console.log(data);
@@ -70,7 +77,7 @@ export default function AddItem() {
             <img src={Menu} alt='Menu' />
           </div>
 
-          <form>
+          <form encType="multipart/form-data">
 
             <input
               className='input'
@@ -96,10 +103,19 @@ export default function AddItem() {
               onChange={e => setItemPrice(e.target.value)}
             />
 
+            <input
+              className='input'
+              type="file"
+              accept="image/*"
+              onChange={(e) => handleImageChange(e)}
+              id="fileInput" // Adicione um ID para associar ao label
+            />
+            <label htmlFor="fileInput">Choose a file</label>
+
             <button onClick={handleAddItem}>Add</button>
 
           </form>
-          
+
         </div>
 
       </div>
