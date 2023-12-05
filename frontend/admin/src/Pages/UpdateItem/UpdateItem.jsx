@@ -7,7 +7,8 @@ import Menu from './img/menu.png'
 import Drawer from '../../components/Drawer/Drawer'
 import Title from '../../components/Title/Title'
 
-import axios from 'axios'
+import { toast } from 'react-toastify';
+import api from '../../api.js'
 
 export default function UpdateItem() {
 
@@ -29,14 +30,28 @@ export default function UpdateItem() {
   console.log(item);
 
   const handleClick = async (e) => {
-    e.preventDefault() // impedir que a página recarregue
+    e.preventDefault()
 
     try {
-      await axios.post(`http://localhost:3333/management-item/update-item/${itemId}`, item)
-        .then((res) => {
-          console.log(res)
-        })
+      const res = await api.post(`/management-item/update-item/${itemId}`, item)
+      console.log(res);
+
+      if (res.status === 200) {
+        navigate("/");
+        toast.success('Atualizado com sucesso!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+
       navigate("/alter-items")
+
     } catch (error) {
       console.log(error);
     }

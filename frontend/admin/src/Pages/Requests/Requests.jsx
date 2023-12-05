@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api.js';
+import './Requests.css';
+
 import Drawer from '../../components/Drawer/Drawer.jsx';
 import Title from '../../components/Title/Title';
-import './Requests.css';
+
+import api from '../../api.js';
 
 export default function Requests() {
   const [items, setItems] = useState({ requests: [] });

@@ -5,15 +5,17 @@ import CardMenu from '../../components/CardMenu/CardMenu.jsx'
 import Drawer from '../../components/Drawer/Drawer.jsx'
 import Title from '../../components/Title/Title';
 
-import axios from 'axios';
+import api from '../../api.js'
 
 export default function Menu() {
   const [items, setItems] = useState([]);
 
+  console.log(items);
+
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
-        const res = await axios.get("http://localhost:3333/management-item/get-items");
+        const res = await api.get("/management-item/get-items");
         setItems(res.data);
       } catch (error) {
         console.log(error);
@@ -37,6 +39,7 @@ export default function Menu() {
 
         {items.map(item => (
           <CardMenu
+            key={item.id}
             name={item.name}
             description={item.description}
             price={item.price}

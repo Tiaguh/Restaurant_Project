@@ -6,14 +6,14 @@ import Title from '../../components/Title/Title'
 
 import CardUpdate from '../../components/CardUpdate/CardUpdate'
 
-import axios from 'axios'
+import api from '../../api.js'
 
 export default function AlterItems() {
     const [items, setItems] = useState([])
 
     const fetchAllItems = async () => {
         try {
-            const res = await axios.get("http://localhost:3333/management-item/get-items")
+            const res = await api.get("/management-item/get-items")
             setItems(res.data)
         } catch (error) {
             console.log(error);
@@ -28,7 +28,7 @@ export default function AlterItems() {
             const confirmDelete = window.confirm('Tem certeza que deseja excluir este item?');
             if (!confirmDelete) return;
 
-            await axios.delete(`http://localhost:3333/management-item/delete-item/${item_id}`);
+            await api.delete(`/management-item/delete-item/${item_id}`);
             await fetchAllItems();
         } catch (error) {
             console.log('Erro ao excluir item:', error);

@@ -34,16 +34,15 @@ export default function Login() {
     }
 
     try {
-
       const data = {
         email,
         password
       };
 
-      const response = await api.post("/login/admin", data);
-      console.log(response);
+      const res = await api.post("/login/admin", data);
+      console.log(res);
 
-      if (response.status === 200) {
+      if (res.status === 200) {
         navigate("/");
         toast.success('Logado com sucesso!', {
           position: "top-right",
