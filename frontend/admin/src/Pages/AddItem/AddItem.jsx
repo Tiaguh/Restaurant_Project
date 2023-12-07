@@ -11,19 +11,45 @@ import Menu from './img/menu.png'
 import api from '../../api.js'
 import { toast } from 'react-toastify';
 
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../firebaseConfig"
+
 export default function AddItem() {
   const navigate = useNavigate()
 
   const [itemName, setItemName] = useState('')
   const [itemDescription, setItemDescription] = useState('')
   const [itemPrice, setItemPrice] = useState('')
+  const [imgUrl, setImgUrl] = useState("");
+  const [progress, setProgress] = useState(0);
   const [itemImage, setItemImage] = useState(null);
 
-  const handleImageChange = (e) => {
+  const handleUpload = (e) => {
     const file = e.target.files[0];
+
+    if (!file) return;
+
+    const storageRef = ref(storage, `images/${file.name}`)
+    const uploadTask = uploadBytesResumable(storageRef, file)
+
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        setProgress(progress)
+      },
+      error => {
+        alert(error)
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImgUrl(downloadURL);
+        });
+      }
+    )
+
     setItemImage(file);
   };
-
 
   async function handleAddItem(e) {
 
@@ -107,10 +133,13 @@ export default function AddItem() {
               className='input'
               type="file"
               accept="image/*"
-              onChange={(e) => handleImageChange(e)}
-              id="fileInput" // Adicione um ID para associar ao label
+              onChange={handleUpload}
+              id="fileInput"
             />
             <label htmlFor="fileInput">Choose a file</label>
+
+            {!imgUrl && <p>{progress}%</p>}
+            {imgUrl && <img src={imgUrl} alt="Imagem" height={200} />}
 
             <button onClick={handleAddItem}>Add</button>
 
