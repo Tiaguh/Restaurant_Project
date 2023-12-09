@@ -11,6 +11,8 @@ import Menu from './img/menu.png'
 import api from '../../api.js'
 import { toast } from 'react-toastify';
 
+import { MdInsertPhoto } from "react-icons/md";
+
 export default function AddItem() {
   const navigate = useNavigate()
 
@@ -18,6 +20,12 @@ export default function AddItem() {
   const [itemDescription, setItemDescription] = useState('')
   const [itemPrice, setItemPrice] = useState('')
   const [itemImage, setItemImage] = useState(null);
+
+  const [color, setColor] = useState("#000")
+
+  const handleHover = () => {
+    setColor((prevColor) => (prevColor === "#000" ? "#FFF" : "#000"));
+  };
 
   async function handleAddItem(e) {
 
@@ -98,12 +106,20 @@ export default function AddItem() {
             />
 
             <input
-              className='input'
               type="file"
               accept="image/*"
               id="fileInput"
             />
-            <label htmlFor="fileInput">Choose a file</label>
+
+            <label
+              className='input-upload-file'
+              htmlFor="fileInput"
+              onMouseEnter={handleHover}
+              onMouseLeave={handleHover}
+            >
+              <MdInsertPhoto color={color} size={35} />
+              Escolha o Arquivo
+            </label>
 
             <button onClick={handleAddItem}>Add</button>
 
