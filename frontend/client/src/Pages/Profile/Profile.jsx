@@ -21,10 +21,11 @@ export default function Profile() {
 
   const [name, setName] = useState(userData.name || '');
   const [email, setEmail] = useState(userData.email || '');
-  const [password, setPassword] = useState(userData.password || '');
   const [address, setAddress] = useState(userData.address || '');
 
   const [changeClassName, setChangeClassName] = useState(true);
+
+  const [password, setPassword] = useState(userData.password || '');
 
   useEffect(() => {
     setName(userData.name || '');
@@ -46,10 +47,10 @@ export default function Profile() {
           progress: undefined,
           theme: "dark",
         });
-
+        console.log('Campos vazios!');
         setChangeClassName(false)
 
-        return
+        return;
       }
 
       const response = await api.post(`/user/update-user/${userData.id}`, { name, email, password, address });
@@ -133,20 +134,51 @@ export default function Profile() {
           />
 
           <input
-            type="Password"
-            placeholder='Password'
-            readOnly={readOnly}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
-          />
-
-          <input
             type="text"
             placeholder='Address'
             readOnly={readOnly}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
+            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
+          />
+
+          {readOnly ? (
+            <button
+              onClick={() => setReadOnly(false)}
+              className='button-edit-profile'
+            >
+              <h1>Edit</h1>
+
+              <MdEdit
+                onMouseEnter={() => setCor('#FFDE59')}
+                onMouseLeave={() => setCor('#FFF')}
+                size={32}
+              />
+            </button>
+          ) : (
+            <button
+              onClick={async () => {
+                await updateUserData();
+                setReadOnly(true);
+              }}
+              className='button-edit-profile'
+            >
+              <h1>Save</h1>
+
+              <AiOutlineCheck
+                onMouseEnter={() => setCor('#FFDE59')}
+                onMouseLeave={() => setCor('#FFF')}
+                size={32}
+              />
+            </button>
+          )}
+
+          <input
+            type="Password"
+            placeholder='Password'
+            readOnly={readOnly}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className={changeClassName ? 'input-correct' : 'input-uncorrect'}
           />
 

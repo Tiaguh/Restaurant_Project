@@ -103,6 +103,34 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+input[type=file] {
+    display: none;
+}
+
+.input-upload-file {
+    width: 300px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+
+    border: #000 solid 2px;
+    border-radius: 5px;
+
+    animation: form-appearing-from-right 1s;
+}
+
+.input-upload-file:hover {
+    background-color: #000;
+    color: #FFF;
+}
+
 form button {
     width: 280px;
     height: 60px;
