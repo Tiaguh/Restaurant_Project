@@ -24,7 +24,7 @@ export default function Menu() {
     fetchAllItems();
   }, []);
 
-  // const headerHeight = items.length < 4 ? "100vh" : "100%";
+  // const headerHeight = items.length < 4 ? "100vh" : "auto";
 
   return (
     <div className='menu-container-all'>
@@ -37,14 +37,14 @@ export default function Menu() {
 
         <div className="cards-container">
 
-        {items.map(item => (
-          <CardMenu
-            key={item.id}
-            name={item.name}
-            description={item.description}
-            price={item.price}
-          />
-        ))}
+          {items.map(item => (
+            <CardMenu
+              key={item.id}
+              name={item.name}
+              description={item.description}
+              price={item.price}
+            />
+          ))}
 
         </div>
 

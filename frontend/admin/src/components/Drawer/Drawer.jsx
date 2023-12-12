@@ -10,7 +10,7 @@ import Drawer from 'react-modern-drawer'
 
 import { SlMenu } from 'react-icons/sl'
 
-export default function Teste() {
+export default function DrawerComponent() {
     const [isOpen, setIsOpen] = useState(false)
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
