@@ -3,6 +3,7 @@ import './Requests.css';
 
 import Drawer from '../../components/Drawer/Drawer.jsx';
 import Title from '../../components/Title/Title';
+import RequestCard from '../../components/RequestCard/RequestCard.jsx'
 
 import api from '../../api.js';
 
@@ -54,33 +55,13 @@ export default function Requests() {
 
   return (
     <div className='requests-all-container'>
-
       <Drawer />
-
       <div className="requests-container">
-
         <Title title="Requests" />
 
         {userItems.length > 0 ? (
           userItems.map((user, userIndex) => (
-
-            <div key={userIndex} className="request-card">
-
-              <h1>{user.user_name}</h1>
-              <h2>Items Requests:</h2>
-
-              {user.items.map((item, index) => (
-
-                <div key={index} className="requests-info">
-
-                  <h2>{item.item_name}</h2>
-                  <h3>Quantidade: {item.quantity || 'N/A'}</h3>
-                  
-                </div>
-
-              ))}
-            </div>
-
+            <RequestCard key={userIndex} user={user} />
           ))
         ) : (
           <p>Nenhum pedido encontrado.</p>

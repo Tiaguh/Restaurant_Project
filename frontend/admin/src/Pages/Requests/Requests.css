@@ -7,62 +7,12 @@
 
 .requests-container {
     width: 100vw;
+    height: 100vh;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 
     gap: 25px;
 
     flex-wrap: wrap;
-}
-
-.request-card {
-    width: 360px;
-    height: auto;
-
-    background-color: #DCDCDC;
-
-    border-radius: 10px;
-
-    padding-inline: 10px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-.request-card h1 {
-    font-size: 35px;
-    font-family: 'VT323', monospace;
-
-    margin-bottom: 10px;
-}
-
-.request-card h2 {
-    font-size: 32px;
-    font-family: 'VT323', monospace;
-
-    font-weight: 400;
-
-    margin-bottom: 15px;
-}
-
-.requests-info {
-    width: 100%;
-
-    border: none;
-    border-top: 2px solid #000;
-
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.requests-info h2 {
-    font-size: 32px;
-    font-family: 'VT323', monospace;
-    font-weight: 500;
-}
-
-.requests-info h3 {
-    font-size: 32px;
-    font-family: 'VT323', monospace;
-    font-weight: 500;
 }
