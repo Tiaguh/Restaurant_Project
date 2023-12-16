@@ -27,30 +27,38 @@ export default function Requests() {
   }, []);
 
   useEffect(() => {
-    const groupedItems = items.requests.reduce((acc, item) => {
-      const user = acc.find((user) => user.user_name === item.user_name);
+    const groupedItems = {};
 
-      if (user) {
-        user.items.push({
-          item_name: item.item_requests.split(' ')[0],
-          quantity: parseInt(item.item_requests.split(' ')[1]) || 1, // Extrai a quantidade ou assume 1 se não houver
-        });
+    items.requests.forEach((item) => {
+      const { user_name, item_requests } = item;
+      const match = item_requests.match(/(.*) \((\d+)\)/);
+
+      if (match) {
+        const itemName = match[1];
+        const quantity = parseInt(match[2]) || 1;
+
+        if (groupedItems[user_name]) {
+          groupedItems[user_name].items.push({
+            item_name: itemName,
+            quantity: quantity,
+          });
+        } else {
+          groupedItems[user_name] = {
+            user_name: user_name,
+            items: [
+              {
+                item_name: itemName,
+                quantity: quantity,
+              },
+            ],
+          };
+        }
       } else {
-        acc.push({
-          user_name: item.user_name,
-          items: [
-            {
-              item_name: item.item_requests.split(' ')[0],
-              quantity: parseInt(item.item_requests.split(' ')[1]) || 1,
-            },
-          ],
-        });
+        console.log(`Erro ao processar: ${item_requests}`);
       }
+    });
 
-      return acc;
-    }, []);
-
-    setUserItems(groupedItems);
+    setUserItems(Object.values(groupedItems));
   }, [items.requests]);
 
   return (
