@@ -61,6 +61,22 @@ export default function Requests() {
     setUserItems(Object.values(groupedItems));
   }, [items.requests]);
 
+  const handleDeleteRequest = async (userId) => {
+    try {
+      await api.delete(`/delete-request/${userId}`);
+    } catch (error) {
+      console.error("Erro ao excluir o pedido:", error);
+    }
+  };
+
+  const handleFinalizeRequest = async (userId) => {
+    try {
+      await api.put(`/finalize-request/${userId}`);
+    } catch (error) {
+      console.error("Erro ao finalizar o pedido:", error);
+    }
+  };
+
   return (
     <div className='requests-all-container'>
       <Drawer />
@@ -69,11 +85,17 @@ export default function Requests() {
 
         {userItems.length > 0 ? (
           userItems.map((user, userIndex) => (
-            <RequestCard key={userIndex} user={user} />
+            <RequestCard
+              key={userIndex}
+              user={user}
+              onDelete={() => handleDeleteRequest(user.user_id)}
+              onFinalize={() => handleFinalizeRequest(user.user_id)}
+            />
           ))
         ) : (
           <p>Nenhum pedido encontrado.</p>
         )}
+
       </div>
     </div>
   );

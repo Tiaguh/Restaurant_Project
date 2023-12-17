@@ -1,5 +1,5 @@
 .request-card {
-    width: 360px;
+    width: 400px;
     height: auto;
 
     background-color: #DCDCDC;
@@ -49,4 +49,66 @@
     font-size: 25px;
     font-family: 'VT323', monospace;
     font-weight: 500;
+}
+
+.request-button-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    border-top: 2px solid #000;
+}
+
+.request-button-container .apply {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 10px;
+
+    width: 170px;
+    height: 40px;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    color: #FFF;
+
+    background-color: transparent;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+
+    margin-top: 25px;
+}
+
+.request-button-container .apply:hover {
+    border: 2px solid #00FF00;
+}
+
+.request-button-container .delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 10px;
+
+    width: 170px;
+    height: 40px;
+
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+    color: #FFF;
+
+    background-color: transparent;
+    border: 2px solid #FFF;
+    border-radius: 5px;
+
+    margin-top: 25px;
+}
+
+.request-button-container .delete:hover {
+    border: 2px solid #FF0000;
 }
