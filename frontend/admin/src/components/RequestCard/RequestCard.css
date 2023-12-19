@@ -71,10 +71,10 @@
     gap: 10px;
 
     width: 170px;
-    height: 40px;
+    height: 50px;
 
     font-family: 'VT323', monospace;
-    font-size: 25px;
+    font-size: 28px;
     color: #FFF;
 
     background-color: transparent;
@@ -86,29 +86,4 @@
 
 .request-button-container .apply:hover {
     border: 2px solid #00FF00;
-}
-
-.request-button-container .delete {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    gap: 10px;
-
-    width: 170px;
-    height: 40px;
-
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-    color: #FFF;
-
-    background-color: transparent;
-    border: 2px solid #FFF;
-    border-radius: 5px;
-
-    margin-top: 25px;
-}
-
-.request-button-container .delete:hover {
-    border: 2px solid #FF0000;
 }

@@ -11,8 +11,6 @@ export default function Requests() {
   const [items, setItems] = useState({ requests: [] });
   const [userItems, setUserItems] = useState([]);
 
-  console.log(items);
-
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
@@ -61,14 +59,6 @@ export default function Requests() {
     setUserItems(Object.values(groupedItems));
   }, [items.requests]);
 
-  const handleDeleteRequest = async (userId) => {
-    try {
-      await api.delete(`/delete-request/${userId}`);
-    } catch (error) {
-      console.error("Erro ao excluir o pedido:", error);
-    }
-  };
-
   const handleFinalizeRequest = async (userId) => {
     try {
       await api.put(`/finalize-request/${userId}`);
@@ -88,7 +78,6 @@ export default function Requests() {
             <RequestCard
               key={userIndex}
               user={user}
-              onDelete={() => handleDeleteRequest(user.user_id)}
               onFinalize={() => handleFinalizeRequest(user.user_id)}
             />
           ))

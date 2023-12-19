@@ -1,10 +1,9 @@
 import React from 'react';
 import "./RequestCard.css";
 
-import { MdDelete } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 
-export default function RequestCard({ user, onDelete, onFinalize }) {
+export default function RequestCard({ user, onFinalize }) {
   return (
     <div className="request-card">
       <h1>{user.user_name}</h1>
@@ -21,11 +20,6 @@ export default function RequestCard({ user, onDelete, onFinalize }) {
         <button className="apply" onClick={onFinalize}>
           <FaCheck color="#FFF" size={22} />
           Done
-        </button>
-
-        <button className="delete" onClick={onDelete}>
-          <MdDelete color="#FFF" size={28} />
-          Delete
         </button>
 
       </div>
