@@ -3,88 +3,41 @@ import './Requests.css';
 
 import Drawer from '../../components/Drawer/Drawer.jsx';
 import Title from '../../components/Title/Title';
-import RequestCard from '../../components/RequestCard/RequestCard.jsx'
+import RequestCard from '../../components/RequestCard/RequestCard.jsx';
 
 import api from '../../api.js';
 
 export default function Requests() {
-  const [items, setItems] = useState({ requests: [] });
-  const [userItems, setUserItems] = useState([]);
+  const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    const fetchAllItems = async () => {
+    const fetchAllRequests = async () => {
       try {
         const res = await api.get("/requests/get-all-requests");
-        setItems(res.data);
+        setRequests(res.data.requests);
       } catch (error) {
         console.error("Erro ao buscar os pedidos:", error);
       }
     };
 
-    fetchAllItems();
+    fetchAllRequests();
   }, []);
-
-  useEffect(() => {
-    const groupedItems = {};
-
-    items.requests.forEach((item) => {
-      const { user_name, item_requests } = item;
-      const match = item_requests.match(/(.*) \((\d+)\)/);
-
-      if (match) {
-        const itemName = match[1];
-        const quantity = parseInt(match[2]) || 1;
-
-        if (groupedItems[user_name]) {
-          groupedItems[user_name].items.push({
-            item_name: itemName,
-            quantity: quantity,
-          });
-        } else {
-          groupedItems[user_name] = {
-            user_name: user_name,
-            items: [
-              {
-                item_name: itemName,
-                quantity: quantity,
-              },
-            ],
-          };
-        }
-      } else {
-        console.log(`Erro ao processar: ${item_requests}`);
-      }
-    });
-
-    setUserItems(Object.values(groupedItems));
-  }, [items.requests]);
-
-  const handleFinalizeRequest = async (userId) => {
-    try {
-      await api.put(`/finalize-request/${userId}`);
-    } catch (error) {
-      console.error("Erro ao finalizar o pedido:", error);
-    }
-  };
 
   return (
     <div className='requests-all-container'>
       <Drawer />
       <div className="requests-container">
         <Title title="Requests" />
-
-        {userItems.length > 0 ? (
-          userItems.map((user, userIndex) => (
+        {requests.length > 0 ? (
+          requests.map((request, index) => (
             <RequestCard
-              key={userIndex}
-              user={user}
-              onFinalize={() => handleFinalizeRequest(user.user_id)}
+              key={index}
+              request={request}
             />
           ))
         ) : (
-          <p>Nenhum pedido encontrado.</p>
+          <p>Nenhum pedido pendente.</p>
         )}
-
       </div>
     </div>
   );

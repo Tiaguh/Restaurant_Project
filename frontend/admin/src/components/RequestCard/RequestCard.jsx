@@ -3,27 +3,27 @@ import "./RequestCard.css";
 
 import { FaCheck } from "react-icons/fa";
 
-export default function RequestCard({ user, onFinalize }) {
+export default function RequestCard({ request }) {
   return (
     <div className="request-card">
-      <h1>{user.user_name}</h1>
-      <h2>Items Requests:</h2>
-      {user.items.map((item, index) => (
-        <div key={index} className="requests-info">
-          <h2>{item.item_name}</h2>
-          <h3>Quantidade: {item.quantity || 'N/A'}</h3>
+      
+      <h1>{request.id_request}</h1>
+      <h2>{request.user_name}</h2>
+
+      <h3>Items Requests:</h3>
+      
+      {request.items && (
+        <div className="requests-info">
+          <h2>{request.items}</h2>
         </div>
-      ))}
+      )}
 
       <div className="request-button-container">
-        
-        <button className="apply" onClick={onFinalize}>
+        <button className="apply">
           <FaCheck color="#FFF" size={22} />
           Done
         </button>
-
       </div>
-
     </div>
   );
 }

@@ -6,7 +6,6 @@ import Title from '../../components/Title/Title'
 
 import Drawer from '../../components/Drawer/Drawer.jsx'
 
-
 export default function managementItems() {
     return (
         <div className="managament-items-all-container">

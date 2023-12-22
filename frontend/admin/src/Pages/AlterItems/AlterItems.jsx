@@ -57,7 +57,6 @@ export default function AlterItems() {
                             onDelete={() => handleDelete(item.id)}
                         />
                     ))}
-
                 </div>
             </div>
         </div>
