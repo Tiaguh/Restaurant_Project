@@ -9,7 +9,7 @@ import api from '../../api';
 export default function CardCart(props) {
     const [modalVisible, setModalVisible] = useState(false);
 
-    const totalPrice = props.quantity * props.price;
+    const totalPrice = (props.quantity * props.price).toFixed(2);
 
     const handleDelete = () => {
         setModalVisible(true);
@@ -19,7 +19,7 @@ export default function CardCart(props) {
         setModalVisible(false);
     };
 
-    async function handleConfirmDelete () {
+    async function handleConfirmDelete() {
         try {
             const response = await api.delete(`/cart/remove-from-cart/${props.userId}/${props.itemId}`);
 
@@ -91,7 +91,7 @@ export default function CardCart(props) {
             </div>
 
             <div className="price-container">
-                <h3>R$ {totalPrice}</h3>
+                <h3>R$ {parseFloat(totalPrice)}</h3>
             </div>
 
             <div className="remove-button-container">
@@ -99,7 +99,7 @@ export default function CardCart(props) {
                     Remover
                 </button>
             </div>
-            
+
             {modalVisible && (
                 <div className="modal-container">
                     <CartModal

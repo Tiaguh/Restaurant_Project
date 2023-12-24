@@ -60,17 +60,17 @@ export default function Cart() {
 
   const totalPurchaseValue = items.reduce((total, item) => {
     return total + item.price * item.quantity;
-  }, 0);
+  }, 0).toFixed(2);
 
   return (
     <div className="cart-container">
 
       <div className="cart-title-container">
-        
+
         <Drawer />
-        
+
         <h1>Carrinho</h1>
-        
+
       </div>
 
       <div className="cart-item">
@@ -99,7 +99,7 @@ export default function Cart() {
 
             <div className="purchase-value">
               <h1>Valor da compra:</h1>
-              <h3>R$ {totalPurchaseValue}</h3>
+              <h3>R$ {parseFloat(totalPurchaseValue)}</h3>
             </div>
 
           </div>
