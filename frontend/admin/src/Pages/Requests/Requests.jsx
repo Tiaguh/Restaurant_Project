@@ -25,9 +25,13 @@ export default function Requests() {
 
   return (
     <div className='requests-all-container'>
+
       <Drawer />
+
       <div className="requests-container">
+
         <Title title="Requests" />
+        
         {requests.length > 0 ? (
           requests.map((request, index) => (
             <RequestCard
@@ -39,6 +43,7 @@ export default function Requests() {
           <p>Nenhum pedido pendente.</p>
         )}
       </div>
+      
     </div>
   );
 }
