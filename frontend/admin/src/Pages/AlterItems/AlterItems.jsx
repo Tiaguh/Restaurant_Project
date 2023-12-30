@@ -6,7 +6,8 @@ import Title from '../../components/Title/Title'
 
 import CardUpdate from '../../components/CardUpdate/CardUpdate'
 
-import api from '../../api.js'
+import api from '../../api.js';
+import { toast } from 'react-toastify';
 
 export default function AlterItems() {
     const [items, setItems] = useState([])
@@ -28,14 +29,25 @@ export default function AlterItems() {
             const confirmDelete = window.confirm('Tem certeza que deseja excluir este item?');
             if (!confirmDelete) return;
 
-            await api.delete(`/management-item/delete-item/${item_id}`);
+            const response = await api.delete(`/management-item/delete-item/${item_id}`);
+
+            if (response.status === 200) {
+                toast.success('Successful Delete!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            }
             await fetchAllItems();
         } catch (error) {
             console.log('Erro ao excluir item:', error);
         }
     }
-
-    // const headerHeight = items.length < 4 ? "100vh" : "100%";
 
     return (
         <div className='alter-items-container-all'>
@@ -51,6 +63,7 @@ export default function AlterItems() {
                     {items.map(item => (
                         <CardUpdate
                             key={item.id}
+                            id={item.id}
                             name={item.name}
                             description={item.description}
                             price={item.price}

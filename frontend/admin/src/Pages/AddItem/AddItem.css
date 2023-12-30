@@ -33,6 +33,8 @@
     width: 250px;
 
     animation: img-appearing-from-left 1s;
+
+    z-index: -1;
 }
 
 @keyframes img-appearing-from-left {
@@ -139,8 +141,8 @@ form button {
     font-size: 25px;
     color: #FFF;
 
-    border: none;
     background-color: #FF0000;
+    border: #FF0000 2px solid;
 
     animation: button-form-appearing-from-down 1s;
 
@@ -155,11 +157,4 @@ form button {
     to {
         transform: translateY(0);
     }
-}
-
-form button:hover {
-    color: #FF0000;
-    background-color: #FFF;
-
-    cursor: pointer;
 }
