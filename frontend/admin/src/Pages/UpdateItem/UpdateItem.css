@@ -32,6 +32,8 @@
 .update-item-main-img img {
     width: 250px;
 
+    z-index: -1;
+    
     animation: img-appearing-from-left 1s;
 }
 
