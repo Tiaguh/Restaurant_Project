@@ -1,79 +1,69 @@
 .card {
     width: 350px;
-    height: 460px;
+    height: 480px;
 
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
-    
-    gap: 25px;
 
-    padding: 30px;
+    gap: 35px;
 
     border: #A9A9A9 solid 3px;
 
     background-color: #FF0000;
 }
 
-.card h2 {
+.card-update-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.card-update-info h2 {
     font-family: 'VT323', monospace;
-    text-align: center;
-    font-weight: bold;
     font-size: 45px;
+    
     color: #F7F9F9;
 }
 
-.card p {
+.card-update-info p {
     font-family: 'VT323', monospace;
-    text-align: justify;
-    font-weight: bold;
     font-size: 28px;
+    
     color: #000;
 }
 
-.card h3 {
-    color: yellow;
-    text-align: center;
-    font-weight: bold;
+.card-update-info h3 {
     font-family: 'VT323', monospace;
     font-size: 32px;
-}
-
-.card img {
-    width: 130px;
-}
-
-.card button {
-    width: 80%;
-    height: 50px;
-    border-radius: 10px;
     
-    align-self: center;
-
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-    color: #FFF;
-
-    background-color: transparent;
-    border: #FFF 2px solid;
-
-    cursor: pointer;
+    color: #FFFF00;
 }
 
-.card button:hover {
+.card-update-button button:hover {
     background-color: #FFF;
     color: #FF0000;
 }
 
-.card button {
-    width: 200px;
+.card-update-button {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.card-update-button button {
+    width: 220px;
     height: 45px;
     
     font-family: 'VT323', monospace;
-    font-size: 26px;
-    color: #008000;
+    font-size: 28px;
     
+    color: #008000;
+
     background-color: transparent;
     border: #FFF 2px solid;
 
@@ -82,12 +72,12 @@
     cursor: pointer;
 }
 
-.card button:hover{
+.card-update-button button:hover{
     background-color: #FFF;
     color: #008000;
 }
 
-.card .link {
+.card-update-button .link {
     text-decoration: none;
     color: #008000;
 }

@@ -5,16 +5,21 @@ import './CardUpdate.css'
 
 export default function CardUpdate(props) {
     return (
-        <div className="card">
-            <h2>{props.name}</h2>
-            <p>{props.description}</p>
-            <h3>R$ {props.price}</h3>
+        <div key={props.id} className="card">
 
-            <button>
-                <Link className='link' to={`/update-item/${props.id}`}>Update</Link>
-            </button>
+            <div className="card-update-info">
+                <h2>{props.name}</h2>
+                <p>{props.description}</p>
+                <h3>R$ {props.price}</h3>
+            </div>
 
-            <button onClick={props.onDelete}>Delete</button> {/* Chama a função onDelete */}
+            <div className="card-update-button"> 
+                <button>
+                    <Link className='link' to={`/update-item/${props.id}`}>Update</Link>
+                </button>
+
+                <button onClick={props.onDelete}>Delete</button>
+            </div>
         </div>
     )
 }
