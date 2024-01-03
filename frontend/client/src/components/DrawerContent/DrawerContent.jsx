@@ -4,6 +4,7 @@ import "./DrawerContent.css"
 import RequestIcon from "./img/icons/menu.png";
 import User from "./img/icons/user.png";
 import Cart from "./img/icons/cart.png";
+import Clock from "./img/icons/clock.png";
 
 import CloseIcon from "./img/close.png";
 
@@ -33,6 +34,11 @@ export default function DrawerContent({ setIsOpen }) {
                 <Link className="link" to="/menu">
                     <img className="menu-drawer-icon" src={RequestIcon} alt="See Menu" />
                     <p>Menu</p>
+                </Link>
+
+                <Link className="link" to="/historic">
+                    <img className="menu-drawer-icon" src={Clock} alt="See Menu" />
+                    <p>Historic</p>
                 </Link>
 
                 <Link className="link" to="/profile">
