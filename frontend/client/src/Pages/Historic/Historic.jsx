@@ -14,11 +14,13 @@ export default function Historic() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
 
+  console.log(items);
+
   useEffect(() => {
     const fetchAllItems = async () => {
       try {
-        const res = await api.get("/management-item/get-items");
-        setItems(res.data);
+        const res = await api.get(`/requests/get-user-requests/${userData.id}`);
+        setItems(res.data.requests);
       } catch (error) {
         console.log(error);
       }
@@ -38,7 +40,13 @@ export default function Historic() {
       </div>
 
       <div>
-        <HistoricCard />
+        {items.map((item) => (
+          <HistoricCard
+            key={item.id_request}
+            id_request={item.id_request}
+            items={item.items}
+          />
+        ))}
       </div>
     </div>
   );
