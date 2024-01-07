@@ -1,5 +1,5 @@
-.request-card {
-    width: 350px;
+.historic-card {
+    width: 500px;
     height: auto;
 
     background-color: #DCDCDC;
@@ -13,23 +13,7 @@
     margin-bottom: 50px;
 }
 
-.request-card h1 {
-    font-size: 40px;
-    font-family: 'VT323', monospace;
-
-    margin-bottom: 10px;
-}
-
-.request-card h2 {
-    font-size: 35px;
-    font-family: 'VT323', monospace;
-
-    font-weight: 500;
-    
-    margin-bottom: 10px;
-}
-
-.request-card h3 {
+.historic-card h3 {
     font-size: 28px;
     font-family: 'VT323', monospace;
 
@@ -38,14 +22,14 @@
     margin-bottom: 10px;
 }
 
-.request-card h4 {
+.historic-card h4 {
     font-size: 32px;
     font-family: 'VT323', monospace;
 
     font-weight: 400;
 }
 
-.request-card h5 {
+.historic-card h5 {
     font-size: 25px;
     font-family: 'VT323', monospace;
 
@@ -68,7 +52,7 @@
     padding-bottom: 15px;
 }
 
-.request-button-container {
+.historic-button-container {
     width: 100%;
 
     display: flex;
@@ -80,7 +64,7 @@
     border-top: 2px solid #000;
 }
 
-.request-button-container .apply {
+.historic-button-container button {
     width: 170px;
     height: 50px;
 
@@ -94,13 +78,21 @@
     font-size: 28px;
     color: #FFF;
 
-    background-color: transparent;
+    background-color: #D1CECE;
     border: 2px solid #FFF;
     border-radius: 5px;
 
     margin-top: 25px;
+
+    cursor: pointer;
 }
 
-.request-button-container .apply:hover {
-    border: 2px solid #00FF00;
+.historic-button-container .apply:hover {
+    background-color: #00FF00;
+    border: none;
+}
+
+.historic-button-container .delete:hover {
+    background-color: #FF0000;
+    border: none;
 }

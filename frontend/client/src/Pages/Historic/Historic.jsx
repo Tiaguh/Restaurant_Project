@@ -29,9 +29,9 @@ export default function Historic() {
   }, []);
 
   return (
-    <div className="menu-container">
+    <div className="historic-container">
 
-      <div className="menu-title">
+      <div className="historic-title">
 
         <Drawer />
 
@@ -39,11 +39,10 @@ export default function Historic() {
 
       </div>
 
-      <div>
+      <div className="historic-cards">
         {items.map((item) => (
           <HistoricCard
             key={item.id_request}
-            id_request={item.id_request}
             items={item.items}
           />
         ))}

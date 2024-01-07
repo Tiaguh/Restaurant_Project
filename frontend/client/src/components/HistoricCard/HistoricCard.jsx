@@ -1,6 +1,7 @@
 import React from 'react';
 import './HistoricCard.css';
-import { FaCheck } from 'react-icons/fa';
+
+import { MdDelete, MdEdit } from "react-icons/md";
 
 export default function HistoricCard(props) {
   const parseItems = (itemsString) => {
@@ -10,11 +11,10 @@ export default function HistoricCard(props) {
     });
   };
 
-  const itemsArray = parseItems(props.items); // Corrigir aqui
+  const itemsArray = parseItems(props.items);
 
   return (
-    <div key={props.id_request} className="request-card">
-      <h1>{props.id_request}</h1>
+    <div key={props.id_request} className="historic-card">
       <h3>Items Requests:</h3>
 
       {itemsArray.map((item, index) => (
@@ -24,10 +24,15 @@ export default function HistoricCard(props) {
         </div>
       ))}
 
-      <div className="request-button-container">
+      <div className="historic-button-container">
         <button className="apply">
-          <FaCheck color="#FFF" size={22} />
-          Done
+          <MdEdit color="#FFF" size={28} />
+          Edit
+        </button>
+
+        <button className="delete">
+          <MdDelete color="#FFF" size={28} />
+          Delete
         </button>
       </div>
     </div>
