@@ -18,3 +18,8 @@
 
     margin-left: 5vw;
 }
+
+.requests-container p {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+}
