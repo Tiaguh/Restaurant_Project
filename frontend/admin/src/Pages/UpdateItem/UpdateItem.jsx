@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 import './UpdateItem.css';
+
 import Menu from './img/menu.png';
 import Drawer from '../../components/Drawer/Drawer';
 import Title from '../../components/Title/Title';
+
 import { toast } from 'react-toastify';
 import api from '../../api.js';
 
@@ -14,13 +17,9 @@ export default function UpdateItem() {
     itemPrice: null
   });
 
-  console.log(item);
-
   const navigate = useNavigate();
   const location = useLocation();
   const itemId = location.pathname.split('/')[2];
-
-  console.log(itemId);
 
   const handleChange = (e) => {
     setItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -30,7 +29,7 @@ export default function UpdateItem() {
     e.preventDefault();
 
     try {
-      const res = await api.post(`/management-item/update-item/${itemId}`, item);
+      const res = await api.put(`/management-item/update-item/${itemId}`, item);
 
       if (res.status === 200) {
         navigate('/');
@@ -77,14 +76,21 @@ export default function UpdateItem() {
 
   return (
     <div className="update-all-item-container">
+
       <Drawer />
+
       <div className="update-item-container">
+
         <Title title="Update a Item To The Menu" />
+
         <div className="update-item-main">
+
           <div className="update-item-main-img">
             <img src={Menu} alt="Menu" />
           </div>
+
           <form>
+
             <input
               className="input"
               type="text"
@@ -93,6 +99,7 @@ export default function UpdateItem() {
               onChange={handleChange}
               name="itemName"
             />
+
             <input
               className="input"
               type="text"
@@ -101,6 +108,7 @@ export default function UpdateItem() {
               onChange={handleChange}
               name="itemDescription"
             />
+
             <input
               className="input"
               type="number"
@@ -109,7 +117,9 @@ export default function UpdateItem() {
               onChange={handleChange}
               name="itemPrice"
             />
+
             <button onClick={(e) => handleClick(e)}>Update</button>
+
           </form>
         </div>
       </div>
