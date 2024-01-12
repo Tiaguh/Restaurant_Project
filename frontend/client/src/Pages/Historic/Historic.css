@@ -1,5 +1,6 @@
 .historic-container {
     width: 100vw;
+
     height: 100vh;
 
     background-color: #FFDE59;
@@ -20,7 +21,7 @@
 
     border: none;
     border-bottom: 3px solid #FFF;
-    
+
     padding-inline: 5px;
 
     margin-bottom: 15px;
@@ -35,13 +36,32 @@
 }
 
 .historic-cards {
-    width: 100%;
+    width: auto;
+
+    overflow-x: scroll;
 
     display: flex;
-    justify-content: center;
-    
+
     gap: 50px;
 
     padding-inline: 15px;
+    margin-inline: 15px;
+
     margin-top: 50px;
+}
+
+.historic-cards::-webkit-scrollbar {
+    height: 15px;
+}
+
+.historic-cards::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.historic-cards::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.historic-cards::-webkit-scrollbar-thumb:hover {
+    background: #555555;
 }
