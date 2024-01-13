@@ -21,23 +21,20 @@ export default function Profile() {
 
   const [name, setName] = useState(userData.name || '');
   const [email, setEmail] = useState(userData.email || '');
-  const [address, setAddress] = useState(userData.address || '');
+  const [password, setPassword] = useState(userData.password || '');
 
   const [changeClassName, setChangeClassName] = useState(true);
-
-  const [password, setPassword] = useState(userData.password || '');
 
   useEffect(() => {
     setName(userData.name || '');
     setEmail(userData.email || '');
     setPassword(userData.password || '');
-    setAddress(userData.address || '');
   }, [userData]);
 
   async function updateUserData() {
     try {
-      if (!name || !email || !password || !address) {
-        toast.warn('Preencha todos os campos!.', {
+      if (!name || !email || !password) {
+        toast.warn('Preencha todos os campos!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -47,13 +44,13 @@ export default function Profile() {
           progress: undefined,
           theme: "dark",
         });
-        console.log('Campos vazios!');
-        setChangeClassName(false)
+
+        setChangeClassName(false);
 
         return;
       }
 
-      const response = await api.post(`/user/update-user/${userData.id}`, { name, email, password, address });
+      const response = await api.post(`/user/update-user/${userData.id}`, { name, email, password });
 
       if (response.status === 200) {
         updateUser(userData.id);
@@ -67,19 +64,6 @@ export default function Profile() {
           progress: undefined,
           theme: "dark",
         });
-      } else {
-        toast.error('Erro ao atualizar o perfil. Tente novamente.', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-
-        setChangeClassName(false)
       }
     } catch (error) {
       console.error('Erro ao salvar perfil:', error);
@@ -93,12 +77,18 @@ export default function Profile() {
         progress: undefined,
         theme: "dark",
       });
+    } finally {
+      setTimeout(() => {
+        setChangeClassName(true);
+        setReadOnly(true);
 
-      setChangeClassName(false)
+        setName(userData.name || '');
+        setEmail(userData.email || '');
+        setPassword(userData.password || '');
+      }, 500);
     }
-
-    setReadOnly(true);
   }
+
 
   return (
     <div className='profile-container'>
@@ -121,7 +111,7 @@ export default function Profile() {
             readOnly={readOnly}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
+            className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
           />
 
           <input
@@ -130,48 +120,8 @@ export default function Profile() {
             readOnly={readOnly}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
+            className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
           />
-
-          <input
-            type="text"
-            placeholder='Address'
-            readOnly={readOnly}
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
-          />
-
-          {readOnly ? (
-            <button
-              onClick={() => setReadOnly(false)}
-              className='button-edit-profile'
-            >
-              <h1>Edit</h1>
-
-              <MdEdit
-                onMouseEnter={() => setCor('#FFDE59')}
-                onMouseLeave={() => setCor('#FFF')}
-                size={32}
-              />
-            </button>
-          ) : (
-            <button
-              onClick={async () => {
-                await updateUserData();
-                setReadOnly(true);
-              }}
-              className='button-edit-profile'
-            >
-              <h1>Save</h1>
-
-              <AiOutlineCheck
-                onMouseEnter={() => setCor('#FFDE59')}
-                onMouseLeave={() => setCor('#FFF')}
-                size={32}
-              />
-            </button>
-          )}
 
           <input
             type="Password"
@@ -179,7 +129,7 @@ export default function Profile() {
             readOnly={readOnly}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={changeClassName ? 'input-correct' : 'input-uncorrect'}
+            className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
           />
 
           {readOnly ? (
@@ -224,5 +174,3 @@ export default function Profile() {
     </div>
   )
 }
-
-// Solicitar a senha para atualizar os dados.
