@@ -3,7 +3,7 @@ import "./RequestCard.css";
 
 import { FaCheck } from "react-icons/fa";
 
-export default function RequestCard({ request }) {
+export default function RequestCard({ request, handleFinishRequest }) {
   const parseItems = (itemsString) => {
     return itemsString.split(', ').map(item => {
       const [itemName, quantity] = item.split(' (');
@@ -29,7 +29,10 @@ export default function RequestCard({ request }) {
       ))}
 
       <div className="request-button-container">
-        <button className="apply">
+        <button
+          className="apply"
+          onClick={() => handleFinishRequest(request.id_request)}
+        >
           <FaCheck color="#FFF" size={22} />
           Done
         </button>
