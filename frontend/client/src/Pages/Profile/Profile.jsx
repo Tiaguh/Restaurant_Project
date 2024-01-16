@@ -174,6 +174,3 @@ export default function Profile() {
     </div>
   )
 }
-
-// Solicitar a senha para atualizar os dados.
-// Botão para cancelar salvamento.
