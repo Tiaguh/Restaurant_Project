@@ -35,7 +35,7 @@ export default function Login() {
         progress: undefined,
         theme: "dark",
       });
-
+      
       return;
     }
 
@@ -70,18 +70,37 @@ export default function Login() {
       sessionStorage.setItem("login", true)
 
     } catch (error) {
-      toast.error('Erro no login. Tente novamente.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      if (error.response && error.response.status === 401) {
+        toast.warning("Email ou senha incorretos!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
 
-      setChangeClassName(false)
+        setChangeClassName(false)
+      } else {
+        toast.error("Erro no login. Tente novamente.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+
+        setChangeClassName(false)
+      }
+    } finally {
+      setTimeout(() => {
+        setChangeClassName(true);
+      }, 500);
     }
   }
 

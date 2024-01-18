@@ -71,6 +71,8 @@
     align-items: center;
 
     gap: 30px;
+
+    animation: form-appearing-from-right 2s;
 }
 
 @keyframes form-appearing-from-right {
@@ -96,8 +98,6 @@
     border-bottom: 2px solid #FFF;
 
     background-color: transparent;
-
-    animation: form-appearing-from-right 2s;
 }
 
 .form-login .input-correct::placeholder {
@@ -157,6 +157,7 @@
     animation: form-appearing-from-right 2s;
 
     cursor: pointer;
+
 }
 
 .form-login button:hover {
