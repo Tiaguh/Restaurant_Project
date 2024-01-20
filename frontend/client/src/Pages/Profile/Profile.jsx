@@ -11,7 +11,9 @@ import { useUser } from '../../context/UserContext';
 import { MdEdit } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
 
-import Soda from "./img/soda.png"
+import Soda from "./img/soda.png";
+
+import ProfileModal from '../../components/ProfileModal/ProfileModal';
 
 export default function Profile() {
   const { userData, updateUser } = useUser();
