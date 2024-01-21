@@ -27,12 +27,29 @@
     width: 100%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
 }
 
 .cart-modal-ask-container h1 {
     font-family: 'VT323', monospace;
-    font-size: 35px;
+    font-size: 40px;
+}
+
+.cart-modal-ask-container input{
+    width: 70%;
+    height: 45px;
+
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    text-align: center;
+
+    border: none;
+    border-bottom: 2px solid #000;
+
+    background-color: transparent;
 }
 
 .cart-modal-button-container {
@@ -41,6 +58,8 @@
     display: flex;
     justify-content: center;
     gap: 15px;
+
+    margin-top: 15px;
 }
 
 .cart-modal-button-confirm {

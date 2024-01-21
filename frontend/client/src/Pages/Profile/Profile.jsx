@@ -18,6 +18,8 @@ import ProfileModal from '../../components/ProfileModal/ProfileModal';
 export default function Profile() {
   const { userData, updateUser } = useUser();
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   const [cor, setCor] = useState('#FFF');
   const [readOnly, setReadOnly] = useState(true)
 
@@ -91,7 +93,6 @@ export default function Profile() {
     }
   }
 
-
   return (
     <div className='profile-container'>
 
@@ -104,6 +105,14 @@ export default function Profile() {
       </div>
 
       <div className="profile-separator">
+
+        {modalVisible && (
+          <div className="modal-container">
+            <ProfileModal
+              setModalVisible={setModalVisible}
+            />
+          </div>
+        )}
 
         <div className="profile-form">
 
@@ -149,9 +158,13 @@ export default function Profile() {
             </button>
           ) : (
             <button
-              onClick={async () => {
-                await updateUserData();
-                setReadOnly(true);
+              onClick={() => {
+                // onClick={async () => {
+                //   await updateUserData();
+                //   setReadOnly(true);
+                // }}
+
+                setModalVisible(true);
               }}
               className='button-edit-profile'
             >
