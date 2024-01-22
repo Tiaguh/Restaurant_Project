@@ -26,6 +26,9 @@ export default function Profile() {
   const [name, setName] = useState(userData.name || '');
   const [email, setEmail] = useState(userData.email || '');
   const [password, setPassword] = useState(userData.password || '');
+  const [actualyPassword, setActualyPassword] = useState(userData.password || '');
+
+  console.log(actualyPassword);
 
   const [changeClassName, setChangeClassName] = useState(true);
 
@@ -93,6 +96,10 @@ export default function Profile() {
     }
   }
 
+  const setPasswordFromModal = (newPassword) => {
+    setActualyPassword(newPassword);
+  };
+
   return (
     <div className='profile-container'>
 
@@ -110,6 +117,7 @@ export default function Profile() {
           <div className="modal-container">
             <ProfileModal
               setModalVisible={setModalVisible}
+              setPasswordFromModal={setPasswordFromModal}
             />
           </div>
         )}
