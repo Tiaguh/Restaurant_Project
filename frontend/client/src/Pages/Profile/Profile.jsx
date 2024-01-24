@@ -26,9 +26,6 @@ export default function Profile() {
   const [name, setName] = useState(userData.name || '');
   const [email, setEmail] = useState(userData.email || '');
   const [password, setPassword] = useState(userData.password || '');
-  const [actualyPassword, setActualyPassword] = useState(userData.password || '');
-
-  console.log(actualyPassword);
 
   const [changeClassName, setChangeClassName] = useState(true);
 
@@ -38,25 +35,31 @@ export default function Profile() {
     setPassword(userData.password || '');
   }, [userData]);
 
+  function validInputValue() {
+    if (!name || !email || !password) {
+      toast.warn('Preencha todos os campos!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      setChangeClassName(false);
+
+      setTimeout(() => {
+        setChangeClassName(true);
+      }, 500);
+
+      return;
+    }
+  }
+
   async function updateUserData() {
     try {
-      if (!name || !email || !password) {
-        toast.warn('Preencha todos os campos!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-
-        setChangeClassName(false);
-
-        return;
-      }
-
       const response = await api.post(`/user/update-user/${userData.id}`, { name, email, password });
 
       if (response.status === 200) {
@@ -96,10 +99,6 @@ export default function Profile() {
     }
   }
 
-  const setPasswordFromModal = (newPassword) => {
-    setActualyPassword(newPassword);
-  };
-
   return (
     <div className='profile-container'>
 
@@ -117,7 +116,7 @@ export default function Profile() {
           <div className="modal-container">
             <ProfileModal
               setModalVisible={setModalVisible}
-              setPasswordFromModal={setPasswordFromModal}
+              updateUser={updateUser}
             />
           </div>
         )}
@@ -166,14 +165,7 @@ export default function Profile() {
             </button>
           ) : (
             <button
-              onClick={() => {
-                // onClick={async () => {
-                //   await updateUserData();
-                //   setReadOnly(true);
-                // }}
-
-                setModalVisible(true);
-              }}
+              onClick={() => validInputValue()}
               className='button-edit-profile'
             >
               <h1>Save</h1>

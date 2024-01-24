@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './ProfileModal.css';
 
-export default function ProfileModal({ setModalVisible, setPasswordFromModal }) {
+export default function ProfileModal({ setModalVisible, updateUser }) {
     const [password, setPassword] = useState("");
 
     const handleConfirm = () => {
-        setPasswordFromModal(password);
         setModalVisible(false);
-    };
+
+        setTimeout(() => {
+            updateUser()
+        }, 500);
+    }
 
     return (
         <div className="cart-modal-container">
