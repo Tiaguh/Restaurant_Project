@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './ProfileModal.css';
 
-export default function ProfileModal({ setModalVisible, updateUser }) {
-    const [password, setPassword] = useState("");
+export default function ProfileModal({ setModalVisible, updateUserData }) {
+    const [currentPassword, setCurrentPassword] = useState("");
 
     const handleConfirm = () => {
+        // validar se o input não é vazio
+
         setModalVisible(false);
 
         setTimeout(() => {
-            updateUser()
+            updateUserData(currentPassword)
         }, 500);
     }
 
@@ -17,7 +19,7 @@ export default function ProfileModal({ setModalVisible, updateUser }) {
             <form className="cart-modal">
                 <div className="cart-modal-ask-container">
                     <h1>Digite sua senha:</h1>
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" />
+                    <input onChange={(e) => setCurrentPassword(e.target.value)} type="password" />
                 </div>
 
                 <div className="cart-modal-button-container">

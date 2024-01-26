@@ -56,11 +56,14 @@ export default function Profile() {
 
       return;
     }
+    else {
+      setModalVisible(true)
+    }
   }
 
-  async function updateUserData() {
+  async function updateUserData(currentPassword) {
     try {
-      const response = await api.post(`/user/update-user/${userData.id}`, { name, email, password });
+      const response = await api.put(`/user/update-user/${userData.id}`, { name, email, password, currentPassword });
 
       if (response.status === 200) {
         updateUser(userData.id);
@@ -116,7 +119,7 @@ export default function Profile() {
           <div className="modal-container">
             <ProfileModal
               setModalVisible={setModalVisible}
-              updateUser={updateUser}
+              updateUserData={updateUserData}
             />
           </div>
         )}
