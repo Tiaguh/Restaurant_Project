@@ -10,6 +10,8 @@ import { useUser } from '../../context/UserContext';
 
 import { MdEdit } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 import Soda from "./img/soda.png";
 
@@ -28,6 +30,7 @@ export default function Profile() {
   const [password, setPassword] = useState(userData.password || '');
 
   const [changeClassName, setChangeClassName] = useState(true);
+  const [changeInputClass, setChangeInputClass] = useState("Password")
 
   useEffect(() => {
     setName(userData.name || '');
@@ -120,6 +123,7 @@ export default function Profile() {
             <ProfileModal
               setModalVisible={setModalVisible}
               updateUserData={updateUserData}
+              setReadOnly={setReadOnly}
             />
           </div>
         )}
@@ -144,14 +148,30 @@ export default function Profile() {
             className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
           />
 
-          <input
-            type="Password"
-            placeholder='Password'
-            readOnly={readOnly}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
-          />
+          <div className="input-password-container">
+
+            <input
+              type={changeInputClass}
+              placeholder='Password'
+              readOnly={readOnly}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
+            />
+
+            <div className="input-password-container-buttons">
+
+              <button>
+                <IoEye color="#FFF" size={30} />
+              </button>
+
+              {/* <button>
+                <IoEyeOff color="#FFF" size={30} />
+              </button> */}
+
+            </div>
+
+          </div>
 
           {readOnly ? (
             <button

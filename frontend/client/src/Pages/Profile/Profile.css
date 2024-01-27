@@ -90,6 +90,27 @@
     cursor: not-allowed;
 }
 
+.input-password-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-password-container input {
+    width: 450px;
+}
+
+.input-password-container-buttons button{
+    width: 50px;
+    height: 60px;
+
+    background-color: transparent;   
+
+    border: none;
+    border-bottom: 2px solid #FFF;
+
+    cursor: pointer;
+}
+
 .button-edit-profile {
     width: 200px;
     height: 50px;

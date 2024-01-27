@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ProfileModal.css';
 
-export default function ProfileModal({ setModalVisible, updateUserData }) {
+export default function ProfileModal({ setModalVisible, updateUserData, setReadOnly }) {
     const [currentPassword, setCurrentPassword] = useState("");
 
     const handleConfirm = () => {
@@ -31,7 +31,10 @@ export default function ProfileModal({ setModalVisible, updateUserData }) {
                     </button>
                     <button
                         className="cart-modal-button-delete"
-                        onClick={() => setModalVisible(false)}
+                        onClick={() => {
+                            setModalVisible(false)
+                            setReadOnly(true)
+                        }}
                     >
                         Cancelar
                     </button>
