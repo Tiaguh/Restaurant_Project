@@ -30,7 +30,9 @@ export default function Profile() {
   const [password, setPassword] = useState(userData.password || '');
 
   const [changeClassName, setChangeClassName] = useState(true);
-  const [changeInputClass, setChangeInputClass] = useState("Password")
+  const [changeInputClass, setChangeInputClass] = useState(true)
+
+  console.log(changeInputClass);
 
   useEffect(() => {
     setName(userData.name || '');
@@ -151,7 +153,7 @@ export default function Profile() {
           <div className="input-password-container">
 
             <input
-              type={changeInputClass}
+              type={changeInputClass ? "Password" : "Text"}
               placeholder='Password'
               readOnly={readOnly}
               value={password}
@@ -161,13 +163,17 @@ export default function Profile() {
 
             <div className="input-password-container-buttons">
 
-              <button>
-                <IoEye color="#FFF" size={30} />
-              </button>
-
-              {/* <button>
-                <IoEyeOff color="#FFF" size={30} />
-              </button> */}
+              {
+                changeInputClass ? (
+                  <button onClick={() => setChangeInputClass(false)} >
+                    <IoEye color="#FFF" size={30} />
+                  </button>
+                ) : (
+                  <button onClick={() => setChangeInputClass(true)}>
+                    <IoEyeOff color="#FFF" size={30} />
+                  </button>
+                )
+              }
 
             </div>
 
