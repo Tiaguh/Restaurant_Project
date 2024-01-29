@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
 import './ProfileModal.css';
 
+import { toast } from 'react-toastify';
+
 export default function ProfileModal({ setModalVisible, updateUserData, setReadOnly }) {
     const [currentPassword, setCurrentPassword] = useState("");
 
     const handleConfirm = () => {
         // validar se o input não é vazio
+
+        if (!currentPassword) {
+            toast.warn('A senha é obrigatória para atualizar o perfil!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
 
         setModalVisible(false);
 

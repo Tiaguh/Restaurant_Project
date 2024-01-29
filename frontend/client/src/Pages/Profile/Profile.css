@@ -93,10 +93,14 @@
 .input-password-container {
     display: flex;
     align-items: center;
+
+    border-bottom: 2px solid #FFF;
 }
 
 .input-password-container input {
     width: 450px;
+
+    border: none;
 }
 
 .input-password-container-buttons button {
@@ -106,8 +110,7 @@
     background-color: transparent;
 
     border: none;
-    border-bottom: 2px solid #FFF;
-
+    
     cursor: pointer;
 }
 

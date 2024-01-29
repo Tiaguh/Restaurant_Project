@@ -66,7 +66,9 @@ export default function Profile() {
     }
   }
 
-  async function updateUserData(currentPassword) {
+  async function updateUserData(currentPassword, e) {
+    e.preventDefault();
+
     try {
       const response = await api.put(`/user/update-user/${userData.id}`, { name, email, password, currentPassword });
 
@@ -161,21 +163,27 @@ export default function Profile() {
               className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
             />
 
-            <div className="input-password-container-buttons">
+            {
+              readOnly ? (
+                <div />
+              ) : (
+                <div className="input-password-container-buttons">
 
-              {
-                changeInputClass ? (
-                  <button onClick={() => setChangeInputClass(false)} >
-                    <IoEye color="#FFF" size={30} />
-                  </button>
-                ) : (
-                  <button onClick={() => setChangeInputClass(true)}>
-                    <IoEyeOff color="#FFF" size={30} />
-                  </button>
-                )
-              }
+                  {
+                    changeInputClass ? (
+                      <button onClick={() => setChangeInputClass(false)} >
+                        <IoEye color="#FFF" size={30} />
+                      </button>
+                    ) : (
+                      <button onClick={() => setChangeInputClass(true)}>
+                        <IoEyeOff color="#FFF" size={30} />
+                      </button>
+                    )
+                  }
 
-            </div>
+                </div>
+              )
+            }
 
           </div>
 
