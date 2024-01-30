@@ -66,9 +66,7 @@ export default function Profile() {
     }
   }
 
-  async function updateUserData(currentPassword, e) {
-    e.preventDefault();
-
+  async function updateUserData(currentPassword) {
     try {
       const response = await api.put(`/user/update-user/${userData.id}`, { name, email, password, currentPassword });
 

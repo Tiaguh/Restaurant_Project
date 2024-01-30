@@ -6,10 +6,10 @@ import { toast } from 'react-toastify';
 export default function ProfileModal({ setModalVisible, updateUserData, setReadOnly }) {
     const [currentPassword, setCurrentPassword] = useState("");
 
-    const handleConfirm = () => {
-        // validar se o input não é vazio
+    const handleConfirm = (e) => {
+        e.preventDefault();
 
-        if (!currentPassword) {
+        if (currentPassword === '') {
             toast.warn('A senha é obrigatória para atualizar o perfil!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -20,14 +20,15 @@ export default function ProfileModal({ setModalVisible, updateUserData, setReadO
                 progress: undefined,
                 theme: "dark",
             });
+        } else {
+            setModalVisible(false);
+
+            setTimeout(() => {
+                updateUserData(currentPassword, e);
+            }, 500);
         }
+    };
 
-        setModalVisible(false);
-
-        setTimeout(() => {
-            updateUserData(currentPassword)
-        }, 500);
-    }
 
     return (
         <div className="cart-modal-container">
@@ -40,10 +41,12 @@ export default function ProfileModal({ setModalVisible, updateUserData, setReadO
                 <div className="cart-modal-button-container">
                     <button
                         className="cart-modal-button-confirm"
-                        onClick={() => handleConfirm()}
+                        onClick={handleConfirm}
                     >
                         Enviar
                     </button>
+
+
                     <button
                         className="cart-modal-button-delete"
                         onClick={() => {
