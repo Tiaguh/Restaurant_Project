@@ -170,11 +170,11 @@ export default function Profile() {
                   {
                     changeInputClass ? (
                       <button onClick={() => setChangeInputClass(false)} >
-                        <IoEye color="#FFF" size={30} />
+                        <IoEye color="#FFF" size={32} />
                       </button>
                     ) : (
                       <button onClick={() => setChangeInputClass(true)}>
-                        <IoEyeOff color="#FFF" size={30} />
+                        <IoEyeOff color="#FFF" size={32} />
                       </button>
                     )
                   }
@@ -182,6 +182,8 @@ export default function Profile() {
                 </div>
               )
             }
+
+            {/* contador de caracteres senha */}
 
           </div>
 
