@@ -65,3 +65,20 @@
 .historic-cards::-webkit-scrollbar-thumb:hover {
     background: #555555;
 }
+
+.no-orders-found {
+    width: 100vw;
+    height: 75vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-orders-found h1 {
+    font-family: 'VT323', monospace;
+    font-size: 45px;
+    font-weight: bold;
+
+    color: #FFF;
+}

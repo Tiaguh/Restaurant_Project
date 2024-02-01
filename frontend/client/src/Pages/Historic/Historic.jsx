@@ -39,14 +39,18 @@ export default function Historic() {
 
       </div>
 
-      <div className="historic-cards">
-        {items.map((item) => (
-          <HistoricCard
-            key={item.id_request}
-            items={item.items}
-          />
-        ))}
-      </div>
+      {items.length > 0 ? (
+        <div className="historic-cards">
+          {items.map((item) => (
+            <HistoricCard key={item.id_request} items={item.items} />
+          ))}
+        </div>
+      ) : (
+        <div className="no-orders-found">
+          <h1>Nenhum pedido encontrado!</h1>
+        </div>
+      )}
+
     </div>
   );
 }
