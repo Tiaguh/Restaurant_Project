@@ -65,12 +65,12 @@
 }
 
 .profile-form input {
-    width: 400px;
+    width: 500px;
     height: 60px;
 
     font-family: 'VT323', monospace;
     font-size: 32px;
-    text-align: left;
+    text-align: center;
     color: #FFF;
 
     border: none;
@@ -90,28 +90,6 @@
 
 .input-locked {
     cursor: not-allowed;
-}
-
-.input-password-container {
-    width: 400px;
-    height: 60px;
-
-    display: flex;
-    align-items: center;
-
-    border-bottom: 2px solid #FFF;
-}
-
-.input-password-container input {
-    border: none;
-}
-
-.input-password-container-buttons button {
-    background-color: transparent;
-
-    border: none;
-    
-    cursor: pointer;
 }
 
 .button-edit-profile {

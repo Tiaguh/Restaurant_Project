@@ -3,8 +3,15 @@ import './ProfileModal.css';
 
 import { toast } from 'react-toastify';
 
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
+
 export default function ProfileModal({ setModalVisible, updateUserData, setReadOnly }) {
     const [currentPassword, setCurrentPassword] = useState("");
+    const [changeInput, setChangeInput] = useState(true)
+
+    console.log(currentPassword);
+    console.log(changeInput);
 
     const handleConfirm = (e) => {
         e.preventDefault();
@@ -32,10 +39,32 @@ export default function ProfileModal({ setModalVisible, updateUserData, setReadO
 
     return (
         <div className="cart-modal-container">
-            <form className="cart-modal">
+
+            <div className="cart-modal">
+
                 <div className="cart-modal-ask-container">
                     <h1>Digite sua senha:</h1>
-                    <input onChange={(e) => setCurrentPassword(e.target.value)} type="password" />
+
+                    <div className="modal-password-container">
+                        <input
+                            type={changeInput ? "Password" : "Text" }
+                            onChange={(e) => setCurrentPassword(e.target.value)}
+                        />
+
+                        {
+                            changeInput ? (
+                                <button onClick={() => setChangeInput(false)}>
+                                    <IoEye size={30} />
+                                </button>
+                            ) : (
+                                <button onClick={() => setChangeInput(true)}>
+                                    <IoEyeOff size={30} />
+                                </button>
+                            )
+                        }
+
+
+                    </div>
                 </div>
 
                 <div className="cart-modal-button-container">
@@ -57,7 +86,7 @@ export default function ProfileModal({ setModalVisible, updateUserData, setReadO
                         Cancelar
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }

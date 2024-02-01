@@ -10,8 +10,6 @@ import { useUser } from '../../context/UserContext';
 
 import { MdEdit } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
 
 import Soda from "./img/soda.png";
 
@@ -30,9 +28,6 @@ export default function Profile() {
   const [password, setPassword] = useState(userData.password || '');
 
   const [changeClassName, setChangeClassName] = useState(true);
-  const [changeInputClass, setChangeInputClass] = useState(true)
-
-  console.log(changeInputClass);
 
   useEffect(() => {
     setName(userData.name || '');
@@ -150,42 +145,14 @@ export default function Profile() {
             className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
           />
 
-          <div className="input-password-container">
-
-            <input
-              type={changeInputClass ? "Password" : "Text"}
-              placeholder='Password'
-              readOnly={readOnly}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
-            />
-
-            {
-              readOnly ? (
-                <div />
-              ) : (
-                <div className="input-password-container-buttons">
-
-                  {
-                    changeInputClass ? (
-                      <button onClick={() => setChangeInputClass(false)} >
-                        <IoEye color="#FFF" size={32} />
-                      </button>
-                    ) : (
-                      <button onClick={() => setChangeInputClass(true)}>
-                        <IoEyeOff color="#FFF" size={32} />
-                      </button>
-                    )
-                  }
-
-                </div>
-              )
-            }
-
-            {/* contador de caracteres senha */}
-
-          </div>
+          <input
+            type={'Password'}
+            placeholder='Password'
+            readOnly={readOnly}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={`input ${readOnly ? 'input-locked' : 'input-unlocked'} ${changeClassName ? 'input-correct' : 'input-uncorrect'}`}
+          />
 
           {readOnly ? (
             <button
