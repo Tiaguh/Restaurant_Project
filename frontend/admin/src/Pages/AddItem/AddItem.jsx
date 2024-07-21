@@ -47,39 +47,38 @@ export default function AddItem() {
       const uploadTask = uploadBytesResumable(storageRef, itemImage);
 
       uploadTask.on(
+        'state_changed',
+        null,
         (error) => {
           alert('Erro ao fazer upload da imagem.');
         },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            const data = {
-              itemName,
-              itemDescription,
-              itemPrice,
-              imageUrl: downloadURL
-            };
+        async () => {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          const data = {
+            itemName,
+            itemDescription,
+            itemPrice,
+            imageUrl: downloadURL
+          };
 
-            const response = await api.post('/management-item/add-item', data);
+          const response = await api.post('/management-item/add-item', data);
 
-            if (response.status === 200) {
-              toast.success('Successful Add!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-              });
+          if (response.status === 200) {
+            toast.success('Successful Add!', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
 
-              navigate("/menu");
-            } else {
-              alert('Erro ao adicionar. Tente novamente.');
-            }
-          }).catch((error) => {
-            alert(`Erro ao obter URL da imagem. Tente novamente. \n Erro: ${error}`);
-          });
+            navigate("/menu");
+          } else {
+            alert('Erro ao adicionar. Tente novamente.');
+          }
         }
       );
     } catch (error) {
@@ -90,13 +89,19 @@ export default function AddItem() {
   return (
     <div className='add-all-item-container'>
       <Drawer />
+
       <div className="add-item-container">
+
         <Title title="Add a New Item To The Menu" />
+
         <div className="add-item-main">
+
           <div className="add-item-main-img">
             <img src={Menu} alt='Menu' />
           </div>
+
           <form encType="multipart/form-data">
+
             <input
               className='input'
               type="text"
@@ -104,6 +109,7 @@ export default function AddItem() {
               value={itemName}
               onChange={e => setItemName(e.target.value)}
             />
+
             <input
               className='input'
               type="text"
@@ -111,6 +117,7 @@ export default function AddItem() {
               value={itemDescription}
               onChange={e => setItemDescription(e.target.value)}
             />
+
             <input
               className='input'
               type="number"
@@ -118,22 +125,29 @@ export default function AddItem() {
               value={itemPrice}
               onChange={e => setItemPrice(e.target.value)}
             />
+
             <input
               type="file"
               accept="image/*"
               id="fileInput"
               onChange={handleFileChange}
             />
+
             <label
               className='input-upload-file'
               htmlFor="fileInput"
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
             >
-              <MdInsertPhoto color={color} size={35} />
+              <MdInsertPhoto
+                color={color}
+                size={35}
+              />
               Escolha o Arquivo
             </label>
+
             <button onClick={handleAddItem}>Add</button>
+
           </form>
         </div>
       </div>
