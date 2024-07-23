@@ -40,6 +40,7 @@ export default function Menu() {
           {items.map(item => (
             <CardMenu
               key={item.id}
+              image={item.image_url}
               name={item.name}
               description={item.description}
               price={item.price}

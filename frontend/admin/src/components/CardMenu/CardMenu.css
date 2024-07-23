@@ -1,17 +1,18 @@
 .card {
     width: 350px;
-    height: 450px;
+    height: 520px;
 
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-    color: #FFF;
+    display: flex;
+    flex-direction: column;
 
-    background-color: transparent;
+    justify-content: center;
+    align-items: center;
 
-    border: #FFF 2px solid;
-    border-radius: 5px;
+    gap: 35px;
 
-    cursor: pointer;
+    border: #A9A9A9 solid 3px;
+
+    background-color: #FF0000;
 }
 
 .card h2 {
@@ -39,7 +40,7 @@
 }
 
 .card img {
-    width: 130px;
+    width: 150px;
 }
 
 .card button {

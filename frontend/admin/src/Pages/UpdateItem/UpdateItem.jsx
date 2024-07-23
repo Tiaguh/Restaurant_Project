@@ -89,6 +89,8 @@ export default function UpdateItem() {
             <img src={Menu} alt="Menu" />
           </div>
 
+          {/* Mostrar a imagem do item que está sendo atualizado */}
+
           <form>
 
             <input

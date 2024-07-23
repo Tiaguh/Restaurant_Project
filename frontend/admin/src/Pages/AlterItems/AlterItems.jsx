@@ -67,6 +67,7 @@ export default function AlterItems() {
                             <CardUpdate
                                 key={item.id}
                                 id={item.id}
+                                image_url={item.image_url}
                                 name={item.name}
                                 description={item.description}
                                 price={item.price}

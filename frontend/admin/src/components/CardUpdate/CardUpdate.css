@@ -1,6 +1,6 @@
 .card {
     width: 350px;
-    height: 480px;
+    height: 520px;
 
     display: flex;
     flex-direction: column;
@@ -18,6 +18,8 @@
 .card-update-info {
     display: flex;
     flex-direction: column;
+
+    align-items: center;
 
     gap: 10px;
 }
