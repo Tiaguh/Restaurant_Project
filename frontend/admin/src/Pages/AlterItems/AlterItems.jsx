@@ -32,6 +32,8 @@ export default function AlterItems() {
     const handleDelete = async (itemId) => {
         try {
             const confirmDelete = window.confirm('Tem certeza que deseja excluir este item?');
+
+            // Modal
             if (!confirmDelete) return;
 
             await api.delete(`/management-item/delete-item/${itemId}`);

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import './Menu.css';
 
 import { Link } from 'react-router-dom';
 
 import CardMenu from '../../components/CardMenu/CardMenu.jsx';
+import Drawer from '../../components/Drawer/Drawer';
 import Cart from './pictures/cart.png';
 
 import api from '../../api';
+
 import { useUser } from '../../context/UserContext';
 import { toast } from 'react-toastify';
-
-import Drawer from '../../components/Drawer/Drawer'
-
-import './Menu.css';
 
 export default function Menu() {
   const { userData } = useUser();
@@ -67,13 +66,9 @@ export default function Menu() {
 
   return (
     <div className="menu-container">
-
       <div className="menu-title">
-
         <Drawer />
-
         <h1>Cardápio</h1>
-
         <div className="menu-icon">
           <h2>{userData ? userData.name : ' '}</h2>
           <Link className="cart" to="/cart">
@@ -81,12 +76,13 @@ export default function Menu() {
           </Link>
         </div>
       </div>
-
       <div className="cards">
         {items.map((item) => (
           <CardMenu
             key={item.id}
+            id={item.id}
             name={item.name}
+            image_url={item.image_url}
             description={item.description}
             price={item.price}
             onAddToCart={(e) => addItemToCart(item.id, e)}
