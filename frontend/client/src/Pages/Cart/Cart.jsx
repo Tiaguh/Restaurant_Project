@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
 import './Cart.css';
 
+import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 
 import { toast } from 'react-toastify';
 
-import Drawer from '../../components/Drawer/Drawer'
+import Drawer from '../../components/Drawer/Drawer';
 import CardCart from '../../components/CardCart/CardCart';
+
 import api from '../../api';
 
 export default function Cart() {
   const { userData } = useUser();
   const [items, setItems] = useState([]);
-
-  console.log(items);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,13 +29,11 @@ export default function Cart() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   async function newRequest(userId) {
     try {
-      const response = await api.post(`/requests/new-request/${userId}`)
-      console.log(response);
-
+      const response = await api.post(`/requests/new-request/${userId}`);
       toast.success('Pedido realizado com sucesso!', {
         position: 'top-right',
         autoClose: 5000,
@@ -50,8 +46,8 @@ export default function Cart() {
       });
 
       if (response.status === 200) {
-        api.delete(`/cart/clear-cart/${userId}`)
-        navigate("/menu")
+        await api.delete(`/cart/clear-cart/${userId}`);
+        navigate("/menu");
       }
     } catch (error) {
       console.log(error);
@@ -62,15 +58,14 @@ export default function Cart() {
     return total + item.price * item.quantity;
   }, 0).toFixed(2);
 
+  console.log(items);
+
   return (
     <div className="cart-container">
 
       <div className="cart-title-container">
-
         <Drawer />
-
         <h1>Carrinho</h1>
-
       </div>
 
       <div className="cart-item">
@@ -79,6 +74,7 @@ export default function Cart() {
             key={item.id}
             itemId={item.id}
             userId={userData.id}
+            image_url={item.image_url}
             name={item.name}
             description={item.description}
             price={item.price}
@@ -89,7 +85,9 @@ export default function Cart() {
       </div>
 
       <div className="purchase-container">
+
         <div className="purchase">
+
           <div>
 
             <div className="purchase-value">
@@ -103,9 +101,10 @@ export default function Cart() {
             </div>
 
           </div>
-          <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
-        </div>
 
+          <button onClick={() => newRequest(userData.id)}>Finalizar o pedido</button>
+
+        </div>
       </div>
     </div>
   );

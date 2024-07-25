@@ -1,11 +1,11 @@
 .cart-items {
     width: 95%;
-    height: 110px;
+    height: 150px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     border: #A9A9A9 solid 3px;
     border-radius: 10px;
@@ -13,8 +13,16 @@
     background-color: #FF0000;
 }
 
+.cart-img-container {
+    width: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cart-items-description {
-    width: 40%;
+    width: 20%;
 
     display: flex;
     flex-direction: column;
@@ -69,20 +77,21 @@
     color: #FF0000;
 }
 
+.cart-items h2, p {
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+}
+
 .cart-items h2 {
     color: #F7F9F9;
     text-align: center;
-    font-weight: bold;
-    font-family: 'VT323', monospace;
-    font-size: xx-large;
+    font-size: 40px;
 }
 
 .cart-items p {
     color: #000;
     text-align: justify;
-    font-weight: bold;
-    font-family: 'VT323', monospace;
-    font-size: large;
+    font-size: 22px;
 }
 
 .cart-items h3 {
@@ -94,7 +103,7 @@
 }
 
 .cart-items img {
-    width: 130px;
+    width: 90px;
 }
 
 .remove-button-container {
@@ -107,8 +116,8 @@
 }
 
 .remove-button-container .remove-button {
-    width: 200px;
-    height: 45px;
+    width: 210px;
+    height: 50px;
     border-radius: 5px;
 
     font-family: 'VT323', monospace;
