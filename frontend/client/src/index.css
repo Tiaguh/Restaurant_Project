@@ -1,15 +1,21 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-
   overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .link {
   text-decoration: none;
 }
 
-textarea:focus, input:focus, select:focus, button:focus, a:focus {
+textarea:focus,
+input:focus,
+select:focus,
+button:focus,
+a:focus {
   outline: 0;
 }

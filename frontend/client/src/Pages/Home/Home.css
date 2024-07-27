@@ -1,10 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.home-page-container {
+.home-container {
     width: 100vw;
     height: 100vh;
 
@@ -14,7 +8,7 @@
     background-color: #FFDE59;
 }
 
-.home-page-header {
+.home-container header {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -35,54 +29,57 @@
     }
 }
 
-.home-page-header div {
+.home-container header div {
     display: flex;
     align-items: center;
 
     gap: 15px;
 }
 
-.home-page-header div h1 {
-    font-family: 'VT323', monospace;
-    font-size: 35px;
-    font-weight: bold;
-    color: #FFF;
-}
-
-.home-page-header div img {
-    width: 60px;
-    height: 60px;
-}
-
-.home-page-header nav {
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-}
-
-.home-page-header nav p {
-    font-family: 'VT323', monospace;
-    font-size: 32px;
-    color: #FFF;
-}
-
-.home-page-header nav h5 {
-    font-family: 'VT323', monospace;
-    font-size: 32px;
-    color: #FFF;
+.home-container header div h1 {
+    font-size: 40px;
     font-weight: normal;
+    font-family: 'VT323', monospace;
+
+    color: #FFF;
+}
+
+.home-container header div img {
+    width: 50px;
+}
+
+.home-container header nav {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.home-container header nav p {
+    font-size: 32px;
+    font-weight: normal;
+    font-family: 'VT323', monospace;
+
+    color: #FFF;
+}
+
+.home-container header nav h1 {
+    font-size: 32px;
+    font-weight: normal;
+    font-family: 'VT323', monospace;
+
+    color: #FFF;
 
     background-color: #FF0000;
     padding: 5px;
 }
 
-.home-page-header nav h5:hover {
+.home-container header nav h1:hover {
     background-color: #FFF;
     color: #FF0000;
 }
 
-.home-page-main {
+.home-container main {
     width: 100%;
     height: 65vh;
 
@@ -91,9 +88,10 @@
     align-items: center;
 }
 
-.home-page-main h1 {
-    font-family: 'VT323', monospace;
+.home-container main h1 {
     font-size: 80px;
+    font-family: 'VT323', monospace;
+
     color: #FFF;
 
     animation: title-appearing-from-left 2s;
@@ -109,11 +107,12 @@
     }
 }
 
-.home-page-main img {
+.home-container main img {
     width: 300px;
-    animation: snacks-appearing-from-right 2s;
 
     margin-bottom: 15px;
+
+    animation: snacks-appearing-from-right 2s;
 }
 
 @keyframes snacks-appearing-from-right {
@@ -126,7 +125,7 @@
     }
 }
 
-.home-page-section {
+.home-container footer {
     width: 100%;
     height: 20vh;
 
@@ -135,7 +134,7 @@
     align-items: center;
 }
 
-.home-page-section button {
+.home-container footer button {
     width: 200px;
     height: 60px;
 
@@ -145,20 +144,13 @@
 
     font-size: 35px;
     font-family: 'VT323', monospace;
-    color: #FFF;
 
+    color: #FFF;
     background-color: #FF0000;
 
     border: none;
     text-decoration: none;
-}
 
-.home-page-section button:hover {
-    background-color: #FFF;
-    color: #FF0000;
-}
-
-.home-page-section button {
     animation: button-appearing-from-down 2s;
 }
 
@@ -172,141 +164,150 @@
     }
 }
 
+.home-container footer button:hover {
+    background-color: #FFF;
+    color: #FF0000;
+}
+
 @media (max-width: 750px) {
-    .home-page-header {
+    .home-container header {
         height: 25vh;
     }
 
-    .home-page-header div {
-        gap: 5px;
+    .home-container header div img {
+        width: 55px;
     }
 
-    .home-page-header div img {
-        width: 60px;
-        height: 60px;
+    .home-container header div h1 {
+        font-size: 40px;
     }
 
-    .home-page-header div h1 {
-        font-size: 38px;
-    }
-
-    .home-page-header nav h5 {
+    .home-container header nav h1 {
         font-size: 35px;
     }
 
-    .home-page-header nav p {
+    .home-container header nav p {
+        /* Make a menu */
         display: none;
     }
 
-    .home-page-main {
+    .home-container main {
         height: 55vh;
     }
 
-    .home-page-main h1 {
-        font-size: 60px;
+    .home-container main h1 {
+        font-size: 65px;
     }
 
-    .home-page-main img {
+    .home-container main img {
         width: 250px;
     }
 
-    .home-page-section button {
+    .home-container footer button {
         height: 50px;
 
-        font-size: 30px;
+        font-size: 35px;
     }
 }
 
 @media (max-width: 550px) {
-    .home-page-header div img {
-        width: 50px;
-        height: 50px;
+    .home-container header {
+        height: 15vh;
     }
 
-    .home-page-header div h1 {
+    .home-container header div img {
+        width: 45px;
+    }
+
+    .home-container header div h1 {
         font-size: 35px;
     }
 
-    .home-page-header nav h5 {
+    .home-container header nav h1 {
         font-size: 30px;
     }
 
-    .home-page-main {
+    .home-container main {
+        height: 65vh;
+
+        justify-content: center;
         flex-direction: column;
+
+        gap: 15px;
     }
 
-    .home-page-main h1 {
+    .home-container main h1 {
         font-size: 60px;
+
+        margin: 0px;
     }
 
-    .home-page-main img {
+    .home-container main img {
         width: 210px;
     }
 
-    .home-page-section button {
-        width: 180px;
-        height: 50px;
+    .home-container footer {
+        height: 15vh;
+    }
 
-        font-size: 28px;
+    .home-container footer button {
+        width: 180px;
+        height: 55px;
+
+        font-size: 30px;
     }
 }
 
 @media (max-width: 420px) {
-    .home-page-header div img {
+    .home-container header div img {
         width: 45px;
-        height: 45px;
     }
 
-    .home-page-header div h1 {
+    .home-container header div h1 {
+        font-size: 32px;
+    }
+
+    .home-container header nav h1 {
         font-size: 30px;
     }
 
-    .home-page-header nav h5 {
-        font-size: 25px;
+    .home-container main img {
+        width: 220px;
     }
 
-    .home-page-main h1 {
-        font-size: 50px;
-    }
-
-    .home-page-main img {
-        width: 200px;
-    }
-
-    .home-page-section button {
+    .home-container footer button {
         width: 180px;
-        height: 40px;
+        height: 55px;
 
-        font-size: 24px;
+        font-size: 30px;
     }
 }
 
 @media (max-width: 350px) {
-    .home-page-header div img {
-        width: 35px;
-        height: 35px;
+    .home-container header div img {
+        width: 40px;
     }
 
-    .home-page-header div h1 {
-        font-size: 25px;   
+    .home-container header div h1 {
+        font-size: 30px;
     }
 
-    .home-page-header nav h5 {
-        font-size: 23px;
+    .home-container header nav h1 {
+        font-size: 25px;
     }
 
-    .home-page-main h1 {
-        font-size: 45px;
+    .home-container main h1 {
+        font-size: 55px;
     }
 
-    .home-page-main img {
+    .home-container main img {
         width: 200px;
     }
 
-    .home-page-section button {
+    .home-container footer button {
         width: 180px;
-        height: 40px;
+        height: 55px;
 
-        font-size: 24px;
+        font-size: 30px;
     }
 }

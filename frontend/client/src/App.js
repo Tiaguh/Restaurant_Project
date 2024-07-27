@@ -1,8 +1,9 @@
 import { React } from 'react'
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from './context/UserContext';
 
-import HomePage from './Pages/HomePage/HomePage';
+import Home from './Pages/Home/Home';
 import CreateAccount from './Pages/CreateAccount/CreateAccount'
 import Login from './Pages/Login/Login'
 import Menu from './Pages/Menu/Menu';
@@ -28,7 +29,7 @@ export default function App() {
             <Route path="/cart" element={<Cart />} />
           </Route>
 
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/create-account" element={<CreateAccount />} />
           <Route path='/login' element={<Login />} />
           <Route path="/menu" element={<Menu />} />
