@@ -66,17 +66,26 @@ export default function Menu() {
 
   return (
     <div className="menu-container">
-      <div className="menu-title">
+
+      <header>
+
         <Drawer />
+
         <h1>Cardápio</h1>
-        <div className="menu-icon">
+
+        <div>
+
           <h2>{userData ? userData.name : ' '}</h2>
+
           <Link className="cart" to="/cart">
             <img src={Cart} alt="" />
           </Link>
+
         </div>
-      </div>
-      <div className="cards">
+
+      </header>
+
+      <main className="cards">
         {items.map((item) => (
           <CardMenu
             key={item.id}
@@ -88,7 +97,8 @@ export default function Menu() {
             onAddToCart={(e) => addItemToCart(item.id, e)}
           />
         ))}
-      </div>
+      </main>
+
     </div>
   );
 }
