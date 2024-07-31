@@ -1,15 +1,11 @@
-.card {
+.card-menu {
     width: 350px;
-    height: 450px;
+    height: 500px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    gap: 25px;
-
-    padding: 30px;
 
     border: #A9A9A9 solid 3px;
     border-radius: 10px;
@@ -17,38 +13,71 @@
     background-color: #FF0000;
 }
 
-.cards h2 {
+.card-menu-img {
+    width: 100%;
+    height: 40%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-menu-img img {
+    width: 140px;
+}
+
+.card-menu-description {
+    width: 100%;
+    height: 40%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
     font-family: 'VT323', monospace;
-    font-size: 40px;
     font-weight: bold;
+}
+
+.card-menu-description h2 {
+    font-size: 45px;
+    
     color: #F7F9F9;
-
+    
+    margin: 0px;
     text-align: center;
 }
 
-.cards p {
-    font-family: 'VT323', monospace;
-    font-size: 25px;
-    font-weight: bold;
-    color: #000;
-
-    text-align: center;
-}
-
-.cards h3 {
-    font-family: 'VT323', monospace;
+.card-menu-description p {
     font-size: 28px;
-    font-weight: bold;
+    
+    color: #000;
+    
+    margin: 0px;
+    text-align: center;
+}
+
+.card-menu-description h3 {
+    font-size: 32px;
+
     color: #FFFF00;
 
+    margin: 0px;
     text-align: center;
 }
 
-.cards img {
-    width: 130px;
+.card-menu-button {
+    width: 100%;
+    height: 15%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.cards button {
+.card-menu button {
     width: 80%;
     height: 50px;
 
@@ -64,7 +93,7 @@
     cursor: pointer;
 }
 
-.cards button:hover {
+.card-menu button:hover {
     background-color: #FFF;
     color: #FF0000;
 }
