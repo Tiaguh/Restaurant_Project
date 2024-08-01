@@ -1,6 +1,6 @@
 .card-menu {
     width: 350px;
-    height: 500px;
+    height: 450px;
 
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@
 }
 
 .card-menu-description h2 {
-    font-size: 45px;
+    font-size: 42px;
     
     color: #F7F9F9;
     
@@ -51,7 +51,7 @@
 }
 
 .card-menu-description p {
-    font-size: 28px;
+    font-size: 26px;
     
     color: #000;
     
@@ -60,7 +60,7 @@
 }
 
 .card-menu-description h3 {
-    font-size: 32px;
+    font-size: 30px;
 
     color: #FFFF00;
 
@@ -78,11 +78,11 @@
 }
 
 .card-menu button {
-    width: 80%;
+    width: 75%;
     height: 50px;
 
     font-family: 'VT323', monospace;
-    font-size: 25px;
+    font-size: 28px;
     color: #FFF;
 
     background-color: transparent;
