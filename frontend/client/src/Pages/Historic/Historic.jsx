@@ -31,22 +31,22 @@ export default function Historic() {
   return (
     <div className="historic-container">
 
-      <div className="historic-title">
+      <header>
 
         <Drawer />
 
         <h1>Histórico de Pedidos</h1>
 
-      </div>
+      </header>
 
       {items.length > 0 ? (
-        <div className="historic-cards">
+        <main>
           {items.map((item) => (
             <HistoricCard key={item.id_request} items={item.items} />
           ))}
-        </div>
+        </main>
       ) : (
-        <div className="no-orders-found">
+        <div>
           <h1>Nenhum pedido encontrado!</h1>
         </div>
       )}
